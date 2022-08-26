@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?><AlnovaTransaction AutomaticSending="False" State="1" HostLogicalProtocol="Ps9" TransactionType="N" Program="" InternalId="" Journal="false" Id="MB09" RemoteDistributionServices="false" BackendPreformatting="true" BackendId="Back01" Transactional="false" Description="" Conversational="true" BackEndFlow="true">
+	<InputFormat>MBNE0009</InputFormat>
+	<OutputFormat>MBNS0009</OutputFormat>
+	<OutputFormat>MBNS2009</OutputFormat>
+	<OutputFormat>MBNS3009</OutputFormat>
+	<OutputFormat>MBNS4009</OutputFormat>
+	<OutputFormat>MBNS5009</OutputFormat>
+	<OutputFormat>MBNS6009</OutputFormat>
+</AlnovaTransaction>

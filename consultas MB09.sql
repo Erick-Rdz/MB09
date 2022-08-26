@@ -1,0 +1,41 @@
+/*
+SELECT T140_DES_TABLE,
+T140_KEY_TABLE,
+T140_COD_TABLE,
+T140_LANGUAGE,
+T140_ENTITY 
+FROM MBDT140 with (nolock)
+
+1100-VAL-USUADIO-SAPP
+*/
+SELECT T140_DES_TABLE
+FROM MBDT140 with (nolock)
+WHERE  T140_KEY_TABLE  = '010001' AND
+       T140_COD_TABLE  = 'MB30' AND
+       T140_LANGUAGE   = 'E' AND
+       T140_ENTITY     = '0127'
+
+
+/*
+SELECT  T140_DES_TABLE,
+         T140_KEY_TABLE, 
+         T140_COD_TABLE, 
+         T140_LANGUAGE, 
+         T140_ENTITY
+    FROM MBDT140 with(nolock)
+    WHERE T140_KEY_TABLE = '010008'
+                 AND T140_COD_TABLE = 'MBCC'
+                 AND T140_LANGUAGE  = 'E'
+                 AND T140_ENTITY    = '0127'
+
+CONSULTA-PARAM-DIGITALES
+*/
+
+ SELECT  T140_DES_TABLE
+    FROM MBDT140 with(nolock)
+    WHERE T140_KEY_TABLE = '010008'
+                 AND T140_COD_TABLE = 'MBCC'
+                 AND T140_LANGUAGE  = 'E'
+                 AND T140_ENTITY    = '0127'
+
+
