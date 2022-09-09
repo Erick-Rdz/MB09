@@ -1,0 +1,9 @@
+E:\Users\10039303\source\repos\MB09\MB2X0009\bin\Debug\MB2X0009.dll
+E:\Users\10039303\source\repos\MB09\MB2X0009\bin\Debug\MB2X0009.pdb
+E:\Users\10039303\source\repos\MB09\MB2X0009\bin\Debug\QAEXCA.dll
+E:\Users\10039303\source\repos\MB09\MB2X0009\bin\Debug\QAEXCA.pdb
+E:\Users\10039303\source\repos\MB09\MB2X0009\obj\Debug\MB2X0009.csproj.AssemblyReference.cache
+E:\Users\10039303\source\repos\MB09\MB2X0009\obj\Debug\MB2X0009.csproj.CoreCompileInputs.cache
+E:\Users\10039303\source\repos\MB09\MB2X0009\obj\Debug\MB2X0009.csproj.CopyComplete
+E:\Users\10039303\source\repos\MB09\MB2X0009\obj\Debug\MB2X0009.dll
+E:\Users\10039303\source\repos\MB09\MB2X0009\obj\Debug\MB2X0009.pdb

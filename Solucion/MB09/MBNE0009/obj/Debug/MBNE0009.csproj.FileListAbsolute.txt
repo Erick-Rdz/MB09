@@ -1,0 +1,6 @@
+E:\Users\10039303\source\repos\MB09\MBNE0009\bin\Debug\MBNE0009.dll
+E:\Users\10039303\source\repos\MB09\MBNE0009\bin\Debug\MBNE0009.pdb
+E:\Users\10039303\source\repos\MB09\MBNE0009\obj\Debug\MBNE0009.csproj.AssemblyReference.cache
+E:\Users\10039303\source\repos\MB09\MBNE0009\obj\Debug\MBNE0009.csproj.CoreCompileInputs.cache
+E:\Users\10039303\source\repos\MB09\MBNE0009\obj\Debug\MBNE0009.dll
+E:\Users\10039303\source\repos\MB09\MBNE0009\obj\Debug\MBNE0009.pdb
