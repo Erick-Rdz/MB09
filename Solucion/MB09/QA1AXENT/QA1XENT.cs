@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 using System.Reflection;
 using System.Net;
 using Microsoft.Win32;
-using QAEXCA;
 using QA1XOP9;
 using QA1XIP9;
+using QAEXCA;
 
 #region INFORMACION DEL COMPONENTE
 //******************************************************************

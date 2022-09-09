@@ -4,3 +4,8 @@ E:\Users\10039303\source\repos\MB09\MBNE0009\obj\Debug\MBNE0009.csproj.AssemblyR
 E:\Users\10039303\source\repos\MB09\MBNE0009\obj\Debug\MBNE0009.csproj.CoreCompileInputs.cache
 E:\Users\10039303\source\repos\MB09\MBNE0009\obj\Debug\MBNE0009.dll
 E:\Users\10039303\source\repos\MB09\MBNE0009\obj\Debug\MBNE0009.pdb
+C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\MBNE0009\bin\Debug\MBNE0009.dll
+C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\MBNE0009\bin\Debug\MBNE0009.pdb
+C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\MBNE0009\obj\Debug\MBNE0009.csproj.CoreCompileInputs.cache
+C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\MBNE0009\obj\Debug\MBNE0009.dll
+C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\MBNE0009\obj\Debug\MBNE0009.pdb

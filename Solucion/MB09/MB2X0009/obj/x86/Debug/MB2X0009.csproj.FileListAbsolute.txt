@@ -9,3 +9,14 @@ E:\Users\10039303\source\repos\MB09\MB2X0009\obj\x86\Debug\MB2X0009.dll
 E:\Users\10039303\source\repos\MB09\MB2X0009\obj\x86\Debug\MB2X0009.pdb
 E:\Users\10039303\source\repos\MB09\MB2X0009\bin\x86\Debug\MBNE0009.dll
 E:\Users\10039303\source\repos\MB09\MB2X0009\bin\x86\Debug\MBNE0009.pdb
+C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\bin\x86\Debug\MB2X0009.dll
+C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\bin\x86\Debug\MB2X0009.pdb
+C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\bin\x86\Debug\MBNE0009.dll
+C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\bin\x86\Debug\QAEXCA.dll
+C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\bin\x86\Debug\MBNE0009.pdb
+C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\bin\x86\Debug\QAEXCA.pdb
+C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\obj\x86\Debug\MB2X0009.csproj.AssemblyReference.cache
+C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\obj\x86\Debug\MB2X0009.csproj.CoreCompileInputs.cache
+C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\obj\x86\Debug\MB2X0009.csproj.CopyComplete
+C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\obj\x86\Debug\MB2X0009.dll
+C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\obj\x86\Debug\MB2X0009.pdb
