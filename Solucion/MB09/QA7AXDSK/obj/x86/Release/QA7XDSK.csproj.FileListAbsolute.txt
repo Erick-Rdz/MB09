@@ -1,0 +1,10 @@
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXDSK\bin\x86\Release\QA7XDSK.dll
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXDSK\bin\x86\Release\QA7XDSK.pdb
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXDSK\obj\x86\Release\QA7XDSK.csproj.CoreCompileInputs.cache
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXDSK\obj\x86\Release\QA7XDSK.dll
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXDSK\obj\x86\Release\QA7XDSK.pdb
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA7AXDSK\bin\x86\Release\QA7XDSK.dll
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA7AXDSK\bin\x86\Release\QA7XDSK.pdb
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA7AXDSK\obj\x86\Release\QA7XDSK.csproj.CoreCompileInputs.cache
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA7AXDSK\obj\x86\Release\QA7XDSK.dll
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA7AXDSK\obj\x86\Release\QA7XDSK.pdb

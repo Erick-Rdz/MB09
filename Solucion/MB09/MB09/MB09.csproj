@@ -58,15 +58,5 @@
     <Compile Include="MB09.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\..\Documents\R\MB09\Nueva carpeta\QA1AXENT\QA1XENT.csproj">
-      <Project>{c274b653-43d1-4b1b-ac26-8090d7d58f4c}</Project>
-      <Name>QA1XENT</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\Documents\R\MB09\Nueva carpeta\QAEAXCA\QAEXCA.csproj">
-      <Project>{e777d112-e619-4ce1-8339-82d369bfb552}</Project>
-      <Name>QAEXCA</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

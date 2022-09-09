@@ -1,0 +1,11 @@
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXCNK\bin\x86\Release\QA7XCNK.dll
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXCNK\bin\x86\Release\QA7XCNK.pdb
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXCNK\obj\x86\Release\QA7XCNK.csproj.CoreCompileInputs.cache
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXCNK\obj\x86\Release\QA7XCNK.dll
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXCNK\obj\x86\Release\QA7XCNK.pdb
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXCNK\obj\x86\Release\QA7XCNK.csprojAssemblyReference.cache
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA7AXCNK\bin\x86\Release\QA7XCNK.dll
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA7AXCNK\bin\x86\Release\QA7XCNK.pdb
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA7AXCNK\obj\x86\Release\QA7XCNK.csproj.CoreCompileInputs.cache
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA7AXCNK\obj\x86\Release\QA7XCNK.dll
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA7AXCNK\obj\x86\Release\QA7XCNK.pdb

@@ -1,0 +1,6 @@
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXDSK\bin\Release\QA7XDSK.dll
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXDSK\bin\Release\QA7XDSK.pdb
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXDSK\obj\Release\QA7XDSK.csprojAssemblyReference.cache
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXDSK\obj\Release\QA7XDSK.csproj.CoreCompileInputs.cache
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXDSK\obj\Release\QA7XDSK.dll
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXDSK\obj\Release\QA7XDSK.pdb

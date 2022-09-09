@@ -1,0 +1,5 @@
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QA7AXDSK\bin\x64\Release\QA7XDSK.dll
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QA7AXDSK\bin\x64\Release\QA7XDSK.pdb
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QA7AXDSK\obj\x64\Release\QA7XDSK.csproj.CoreCompileInputs.cache
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QA7AXDSK\obj\x64\Release\QA7XDSK.dll
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QA7AXDSK\obj\x64\Release\QA7XDSK.pdb

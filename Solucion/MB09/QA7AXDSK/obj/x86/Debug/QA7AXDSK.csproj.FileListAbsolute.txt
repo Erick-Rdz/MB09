@@ -1,0 +1,6 @@
+D:\Users\B1007063\source\repos\PE2AX0075\QA7AXDSK\bin\x86\Debug\QA7AXDSK.dll
+D:\Users\B1007063\source\repos\PE2AX0075\QA7AXDSK\bin\x86\Debug\QA7AXDSK.pdb
+D:\Users\B1007063\source\repos\PE2AX0075\QA7AXDSK\obj\x86\Debug\QA7AXDSK.csprojAssemblyReference.cache
+D:\Users\B1007063\source\repos\PE2AX0075\QA7AXDSK\obj\x86\Debug\QA7AXDSK.csproj.CoreCompileInputs.cache
+D:\Users\B1007063\source\repos\PE2AX0075\QA7AXDSK\obj\x86\Debug\QA7AXDSK.dll
+D:\Users\B1007063\source\repos\PE2AX0075\QA7AXDSK\obj\x86\Debug\QA7AXDSK.pdb

@@ -1,0 +1,15 @@
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA1AXENT\bin\x86\Debug\QA1XENT.dll
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA1AXENT\bin\x86\Debug\QA1XENT.pdb
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA1AXENT\bin\x86\Debug\MB2X0009.dll
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA1AXENT\bin\x86\Debug\QA1XIP9.dll
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA1AXENT\bin\x86\Debug\QA1XOP9.dll
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA1AXENT\bin\x86\Debug\QAEXCA.dll
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA1AXENT\bin\x86\Debug\MB2X0009.pdb
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA1AXENT\bin\x86\Debug\QA1XIP9.pdb
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA1AXENT\bin\x86\Debug\QA1XOP9.pdb
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA1AXENT\bin\x86\Debug\QAEXCA.pdb
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA1AXENT\obj\x86\Debug\QA1XENT.csproj.AssemblyReference.cache
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA1AXENT\obj\x86\Debug\QA1XENT.csproj.CoreCompileInputs.cache
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA1AXENT\obj\x86\Debug\QA1XENT.csproj.CopyComplete
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA1AXENT\obj\x86\Debug\QA1XENT.dll
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA1AXENT\obj\x86\Debug\QA1XENT.pdb

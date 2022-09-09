@@ -1,0 +1,13 @@
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QA1AXENT\bin\x64\Release\QA1XENT.dll
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QA1AXENT\bin\x64\Release\QA1XENT.pdb
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QA1AXENT\bin\x64\Release\QA1XIP9.dll
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QA1AXENT\bin\x64\Release\QA1XOP9.dll
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QA1AXENT\bin\x64\Release\QAEXCA.dll
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QA1AXENT\bin\x64\Release\QA1XIP9.pdb
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QA1AXENT\bin\x64\Release\QA1XOP9.pdb
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QA1AXENT\bin\x64\Release\QAEXCA.pdb
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QA1AXENT\obj\x64\Release\QA1XENT.csproj.AssemblyReference.cache
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QA1AXENT\obj\x64\Release\QA1XENT.csproj.CoreCompileInputs.cache
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QA1AXENT\obj\x64\Release\QA1XENT.csproj.CopyComplete
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QA1AXENT\obj\x64\Release\QA1XENT.dll
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QA1AXENT\obj\x64\Release\QA1XENT.pdb

@@ -1,0 +1,5 @@
+D:\Users\B1007063\source\repos\PE2AX0075\QA7AXCNK\bin\Debug\QA7AXCNK.dll
+D:\Users\B1007063\source\repos\PE2AX0075\QA7AXCNK\bin\Debug\QA7AXCNK.pdb
+D:\Users\B1007063\source\repos\PE2AX0075\QA7AXCNK\obj\Debug\QA7AXCNK.csproj.CoreCompileInputs.cache
+D:\Users\B1007063\source\repos\PE2AX0075\QA7AXCNK\obj\Debug\QA7AXCNK.dll
+D:\Users\B1007063\source\repos\PE2AX0075\QA7AXCNK\obj\Debug\QA7AXCNK.pdb

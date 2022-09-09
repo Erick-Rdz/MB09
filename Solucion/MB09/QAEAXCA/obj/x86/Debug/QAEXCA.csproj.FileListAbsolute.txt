@@ -1,0 +1,6 @@
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QAEAXCA\bin\x86\Debug\QAEXCA.dll
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QAEAXCA\bin\x86\Debug\QAEXCA.pdb
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QAEAXCA\obj\x86\Debug\QAEXCA.csproj.AssemblyReference.cache
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QAEAXCA\obj\x86\Debug\QAEXCA.csproj.CoreCompileInputs.cache
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QAEAXCA\obj\x86\Debug\QAEXCA.dll
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QAEAXCA\obj\x86\Debug\QAEXCA.pdb

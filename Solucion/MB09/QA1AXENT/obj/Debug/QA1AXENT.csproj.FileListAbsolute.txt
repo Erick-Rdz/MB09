@@ -1,0 +1,13 @@
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXENT\bin\Debug\QA1AXENT.dll
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXENT\bin\Debug\QA1AXENT.pdb
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXENT\bin\Debug\QA1AXIP9.dll
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXENT\bin\Debug\QA1AXOP9.dll
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXENT\bin\Debug\QAEAXCA.dll
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXENT\bin\Debug\QA1AXIP9.pdb
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXENT\bin\Debug\QA1AXOP9.pdb
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXENT\bin\Debug\QAEAXCA.pdb
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXENT\obj\Debug\QA1AXENT.csprojAssemblyReference.cache
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXENT\obj\Debug\QA1AXENT.csproj.CoreCompileInputs.cache
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXENT\obj\Debug\QA1AXENT.csproj.CopyComplete
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXENT\obj\Debug\QA1AXENT.dll
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXENT\obj\Debug\QA1AXENT.pdb
