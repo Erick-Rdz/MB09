@@ -19,9 +19,9 @@
       * ------- ----- ----------- ------------------------------------ *
       *  MCV001 185940 24-11-2016 SE MODIFICA FORMATO DE HORA PARA LA  *
       *                           TABLA BGDT089.                      **
-      *  MCV002 GICE   30/12/2016 SE CAMBIA DESCRIPCIÓN A CÓDIGOS DE   *
-      *                           OPERACIÓN                            *
-      *  MCV003 GICE   02/01/2017 SE CAMBIA DECLARACIÓN DE VARIABLES   *
+      *  MCV002 GICE   30/12/2016 SE CAMBIA DESCRIPCIï¿½N A Cï¿½DIGOS DE   *
+      *                           OPERACIï¿½N                            *
+      *  MCV003 GICE   02/01/2017 SE CAMBIA DECLARACIï¿½N DE VARIABLES   *
       * @BAZ005 AAG    16/01/2017 MOD.DESCRIPCIONES SEGUNDAS LINEAS    *
       * LCR-INI2 LCR    01/03/17   SE ANEXAN COPY DE SALIDA CON FOLIO Y*
       *                                                      ESTATUS   *
@@ -40,7 +40,7 @@
       * @BAZ018 IMM    04/09/2018 AGREGAR DESCRIPCION PARA CODIGO T53  *
       *                           PROMOCION BILLETAZO                  *
       * @BAZ019 MLR    21/03/2019 AGREGAR DESCRIPCION PARA CODIGO V06  *
-      * @BAZ020 RLV    29/04/2019 RECOMPILACIÓN MODF.SECUENCIA MBDT010 *
+      * @BAZ020 RLV    29/04/2019 RECOMPILACIï¿½N MODF.SECUENCIA MBDT010 *
       * @BAZ021 RSC    29/07/2019 SE AGREGAN LAS FUNCKEY 03 CONS CTA   *
       *                           WALLET Y 04 CONS RET CUENTA WALLET   *
       *                           SE VALIDAN EN LA MBDT036             *
@@ -68,7 +68,7 @@
       * @BAZ030 AISP   15/04/2020 CAMBIO DE NUMERO DE REFERENCIA AL    *
       *                           CONSULTAR LOS DOLARES DEL CLIENTE    *
       * @BAZ031 FYZB   16/04/2020 SE CAMBIA INFORMACION DE SALIDA      *
-      *                           PARA RETENCIONES DE ALCANCÍA         *
+      *                           PARA RETENCIONES DE ALCANCï¿½A         *
       * @BAZ032 RSC    21/04/2020 SE ELIMINA CONSULTA A GADT001        *
       * @BAZ033 IASJ   04/05/2020 SE AGREGAN CODIGOS DE OPERACION EN   *
       *                           DEPOSITOS Y RETIROS EN CORRESPONSALES*
@@ -95,8 +95,8 @@
       *                           U50 TX MBW9.                         *
       * @BAZ041 IASJ   20/08/2020 SE MODIFICA DESCRIPCION DE ENVIO SPEI*
       *                          SE MAPEA B520 PARA ENVIOS POR SUCURSA *
-      * @BAZ042 MAR   09/09/2020  SE CAMBIA EL TIPO DE CAMPO DE NÚMERO *
-      *                           DE MOV A ALFANÚMERICO                *
+      * @BAZ042 MAR   09/09/2020  SE CAMBIA EL TIPO DE CAMPO DE Nï¿½MERO *
+      *                           DE MOV A ALFANï¿½MERICO                *
       * @BAZ043 GGS   14/09/2020  SE MODIFICA LA DESCRIPCION PARA LOS  *
       *                           MOVIMIENTOS DE APERTURA DE SOCIO PLUS*
       *                           ADEMAS SE OMITE LA APERTURA DEL CURSOR
@@ -106,7 +106,7 @@
       *                           EN DEPOSITO SIN TARJETA, SE AGREGA   *
       *                           TICKET PARA PROMO 2 PESOS            *
       *                                                                *
-      * @BAZ045 GGS    20/10/2020 SE MODIFICA LA DESCRIPCIÓN PARA      *
+      * @BAZ045 GGS    20/10/2020 SE MODIFICA LA DESCRIPCIï¿½N PARA      *
       *                           MOSTRAR LOS MOVIMIENTOS DE FIAR PLUS *
       * @BAZ046 JML    26/10/2020 ACCESO A LA MCDT279 CUANDO NO SE     *
       *                           ENCUENTRA EL BIN DE AMERICAN EXPRESS *
@@ -122,18 +122,18 @@
       *                           Y SE AGREGA VALIDACION DE TX MBL7    *
       * @BAZ051 EPS    12-04-2021 SE ENMASCARA EL NUMERO DE TARJETA,   *
       *                           CUANDO EL MOVTO CORREPSONDE A PAGO   *
-      *                           TDC CON CODIGO DE OPERACIÓN R81      *
+      *                           TDC CON CODIGO DE OPERACIï¿½N R81      *
       * @BAZ052 YYGO   06-04-2021 SUMATORIA DE SOBRES DE LA CTA        *
       *                           SUMATORIA DE ALCANCIA DE LA CTA      *
       *                           TOTAL DE SOBRES Y TOTAL DE ALCANCIA  *
       * @BAZ053 JCGM   03-05-2021 SE AGREGA BANDERA CR PARA MOVTOS     *
       *                           RECURRENTES Y 1 PARA MOVTOS DE       *
-      *                           DOMICILIACIÓN.                       *
+      *                           DOMICILIACIï¿½N.                       *
       * @BAZ054 JCGM   10-05-2021 SE CAMBIA EL CONCEPTO EN MOVTOS DE   *
       *                           SEGUROS                              *
       * @BAZ055 YYGO   09-07-2021 CONSULTA CLIENTE TUTOR GUARDADITO KIDS
       * @BAZ056 IASJ   14-07-2021 AGREGA FLUJO SAPP                    *
-      * @BAZ057  JAA   25/08/2021 SE INFORMA ID DE OPERACIÓN PARA RETE-*
+      * @BAZ057  JAA   25/08/2021 SE INFORMA ID DE OPERACIï¿½N PARA RETE-*
       *                           NCIONES DE ENVIO A CELULAR. Y EL     *
       *                           CONCEPTO PARA CARGOS RECURRENTES.    *
       * @BAZ058  JAA   31/08/2021 SE CAMBIA LEYENDA DE LA CONSTANTE    *
@@ -478,13 +478,13 @@
          88 SW-T27                           VALUE 'T27'.
          88 SW-C75                           VALUE 'C75'.
       *@BAZ033-F
-      * ABONO DE NÓMINA
+      * ABONO DE Nï¿½MINA
          88 SW-907                           VALUE '907'.
       * VENTA DE DOLARES
          88 SW-129                           VALUE '129'.
-      * BONIFICACIÓN POR PRIMERA COMPRA
+      * BONIFICACIï¿½N POR PRIMERA COMPRA
          88 SW-S39                           VALUE 'S39'.
-      * CARGO AUTOMÁTICO
+      * CARGO AUTOMï¿½TICO
          88 SW-CARGO-AUT                     VALUE 'A24' '708' '707'
                                                    '579' '082'.
       * CARGOS VARIOS EXEMPLEADOS
@@ -497,24 +497,24 @@
          88 SW-036                           VALUE '036'.
       * COBRO DE DINERO EXPRESS
          88 SW-S06                           VALUE 'S06'.
-      * COMISIÓN CHEQUE DE CAJA
+      * COMISIï¿½N CHEQUE DE CAJA
          88 SW-731                           VALUE '731'.
-      * COMISIÓN CHEQUE SIN FONDOS
+      * COMISIï¿½N CHEQUE SIN FONDOS
          88 SW-442                           VALUE '442'.
-      * COMISIÓN CONSULTA EN CAJERO
+      * COMISIï¿½N CONSULTA EN CAJERO
          88 SW-078                           VALUE '078'.
-      * COMISIÓN PAGO DE SERVICIOS
+      * COMISIï¿½N PAGO DE SERVICIOS
          88 SW-COM-PAGO-SER                  VALUE 'G25' '379'.
-      * COMISIÓN POR ENVIO DE DINERO(TEF)
+      * COMISIï¿½N POR ENVIO DE DINERO(TEF)
          88 SW-155                           VALUE '155'.
-      * COMISIÓN POR RETIRO
+      * COMISIï¿½N POR RETIRO
          88 SW-S10                           VALUE 'S10'.
          88 SW-013                           VALUE '013'.
-      * COMISIÓN POR TRASPASOS MASIVOS
+      * COMISIï¿½N POR TRASPASOS MASIVOS
          88 SW-550                           VALUE '550'.
-      * COMISIÓN PROTECCIÓN DE CHEQUE
+      * COMISIï¿½N PROTECCIï¿½N DE CHEQUE
          88 SW-465                           VALUE '465'.
-      * COMISIÓN SPEI
+      * COMISIï¿½N SPEI
          88 SW-216                           VALUE '216'.
       * COMPRA CON TARJETA
          88 SW-114                           VALUE '114'.
@@ -526,15 +526,15 @@
          88 SW-DEPOSITO                      VALUE '756' '416'.
       * DEPOSITO CHEQUE DE CAJA
          88 SW-533                           VALUE '533'.
-      * DEPOSITO DE INVERSIÓN
+      * DEPOSITO DE INVERSIï¿½N
          88 SW-A36                           VALUE 'A36'.
       * DEPOSITO MONEDAS DE PLATA
          88 SW-350                           VALUE '350'.
-      * DEPÓSITO DE PRESTAMO
+      * DEPï¿½SITO DE PRESTAMO
          88 SW-DEP-PREST                     VALUE 'P80' 'N95' 'N29'
                                                    'F23' 'S79' 'R82'
                                                    'J06' 'G10'.
-      * DEPÓSITO DE PRESTAMO GRUPAL
+      * DEPï¿½SITO DE PRESTAMO GRUPAL
          88 SW-DEP-GRUP                      VALUE 'S87' 'L83' 'H08'.
       * DEPOSITO DE TERCEROS
          88 SW-160                           VALUE '160'.
@@ -548,17 +548,17 @@
          88 SW-229                           VALUE '229'.
       * DEPOSITO PRESTA PRENDA
          88 SW-M52                           VALUE 'M52'.
-      * DEVOLUCIÓN COMISIÓN
+      * DEVOLUCIï¿½N COMISIï¿½N
          88 SW-R20                           VALUE 'R20'.
-      * DECOLUCIÓN DE CHEQUE
+      * DECOLUCIï¿½N DE CHEQUE
          88 SW-874                           VALUE '874'.
-      * DECOLUCIÓN DE ENVIO DE DINERO (TEF)
+      * DECOLUCIï¿½N DE ENVIO DE DINERO (TEF)
          88 SW-283                           VALUE '283'.
-      * DEVOLUCIÓN DE SPEI
+      * DEVOLUCIï¿½N DE SPEI
          88 SW-DEV-SPEI                      VALUE '217' '214'.
-      * DEVOLUCIÓN POR VENTA
+      * DEVOLUCIï¿½N POR VENTA
          88 SW-869                           VALUE '869'.
-      * ENVÍO DE DINERO (DEX)
+      * ENVï¿½O DE DINERO (DEX)
          88 SW-S08                           VALUE 'S08'.
       * ENVIO DE DINERO A TERCEROS
          88 SW-169                           VALUE '169'.
@@ -566,11 +566,11 @@
          88 SW-152                           VALUE '152'.
       * FONDEO DE CHEQUE CON INFINITE
          88 SW-A85                           VALUE 'A85'.
-      * INVERSIÓN A PAGO FIJO
+      * INVERSIï¿½N A PAGO FIJO
          88 SW-M78                           VALUE 'M78'.
-      * INVERSIÓN EN MERCADO DE DINERO
+      * INVERSIï¿½N EN MERCADO DE DINERO
          88 SW-L67                           VALUE 'L67'.
-      * IVA DE COMISIÓN
+      * IVA DE COMISIï¿½N
          88 SW-IVA-COMISION                  VALUE 'S12' 'N75' 'M31'
                                                    'F71' '383' '193'
                                                    '192' 'R05'.
@@ -592,11 +592,11 @@
                                                    'G46' 'G16' 'G07'.
       * PAGO PRESTA PRENDA
          88 SW-PAGO-PP                       VALUE 'J73' 'J71'.
-      * PAGO A TARJETA DE CRÉDITO
+      * PAGO A TARJETA DE CRï¿½DITO
          88 SW-PAGO-TC                       VALUE 'R81' '826'.
          88 SW-R80                           VALUE 'R80'.
          88 SW-U05                           VALUE 'U05'.
-      * PRESTAMO DE NÓMINA
+      * PRESTAMO DE Nï¿½MINA
          88 SW-PREST-NOM                     VALUE 'S20' 'H49'.
       * DEPOSITO DE PRESTAMO
          88 SW-R96                           VALUE 'R96'.
@@ -604,7 +604,7 @@
          88 SW-S34                           VALUE 'S34'.
       * PAGO DE PRESTAMO
          88 SW-D25                           VALUE 'D25'.
-      * RENOVACIÓN DE INVERSIÓN
+      * RENOVACIï¿½N DE INVERSIï¿½N
          88 SW-RENOV-INV                     VALUE '923' '664' '178'.
       * RETIRO A CUENTA
          88 SW-417                           VALUE '417'.
@@ -632,12 +632,12 @@
          88 SW-A35                           VALUE 'A35'.
       * Venta de Monedas de Plata
          88 SW-A95                           VALUE 'A95'.
-      *@BAZ060-I Envío Dinero Express MTCN/IVA MB20yMB90(cargo)
+      *@BAZ060-I Envï¿½o Dinero Express MTCN/IVA MB20yMB90(cargo)
          88 SW-T96                           VALUE 'T96'.
       *@BAZ060-F
-      * Envío Dinero Express MTCN/IVA MB20yMB90(cargo)
+      * Envï¿½o Dinero Express MTCN/IVA MB20yMB90(cargo)
          88 SW-S56                           VALUE 'S56'.
-      * Comisión MTCN MB20yMB90 (cargo)
+      * Comisiï¿½n MTCN MB20yMB90 (cargo)
          88 SW-S58                           VALUE 'S58'.
       * Compra Tiempo Aire
          88 SW-T05                           VALUE 'T05'.
@@ -659,9 +659,9 @@
          88 SW-S59                           VALUE 'S59'.
       * MTCN MB48 (cargo)
          88 SW-S60                           VALUE 'S60'.
-      * Envío Dinero Express MTCN/IVA MB20yMB90 (abono)
+      * Envï¿½o Dinero Express MTCN/IVA MB20yMB90 (abono)
          88 SW-S55                           VALUE 'S55'.
-      * Comisión MTCN MB20yMB90 (abono)
+      * Comisiï¿½n MTCN MB20yMB90 (abono)
          88 SW-S57                           VALUE 'S57'.
       * Impuesto retenido a cuenta Plazo
          88 SW-683                           VALUE '683'.
@@ -674,10 +674,10 @@
          88 SW-T13                           VALUE 'T13'.
       * Retiro PagoQR3
          88 SW-T15                           VALUE 'T15'.
-      * Cargo por pago de Crédito
+      * Cargo por pago de Crï¿½dito
          88 SW-T39                           VALUE 'T39'.
          88 SW-U08                           VALUE 'U08'.
-      * Prestamo personal (crédito)
+      * Prestamo personal (crï¿½dito)
          88 SW-P48                           VALUE 'P48'.
          88 SW-P50                           VALUE 'P50'.
       * Compras con Guardadito Go
@@ -943,17 +943,17 @@
                                         'Bonificacion Promo de 2 pesos'.
       *@BAZ044-F
           05 CA-DEP-BANCO              PIC X(17)  VALUE
-                                                    'Depósito en banco'.
+                                                    'Depï¿½sito en banco'.
           05 CA-ENV-ATM-TOMIIN         PIC X(18)  VALUE
                                                    'Envio a ATM Tomiin'.
           05 CA-RET-ATM-TOMIIN         PIC X(23)  VALUE
                                               'Retiraste dinero de ATM'.
           05 CA-DEP-EFECTIVO           PIC X(24)  VALUE
-                                             'Depósito de efectivo en '.
+                                             'Depï¿½sito de efectivo en '.
           05 CA-RET-VEN-TOMIIN         PIC X(30)  VALUE
                                        'Retiraste dinero de ventanilla'.
           05 CA-DEP-TELECOMM           PIC X(32)  VALUE
-                                     'Depósito de efectivo en Telecomm'.
+                                     'Depï¿½sito de efectivo en Telecomm'.
       *@BAZ049-I
           05 CA-ADEUDO-ENTR            PIC X(14)  VALUE
                                                        'ADEUDO ENTRADA'.
@@ -968,19 +968,19 @@
           05 CA-ENTRADA-METRO          PIC X(21)  VALUE
                                                 'Entrada al Metro CDMX'.
           05 CA-COMISION-COMPRA        PIC X(23)  VALUE
-                                              'Comisión por compra de '.
+                                              'Comisiï¿½n por compra de '.
           05 CA-COMISION-ENTRADA       PIC X(26)  VALUE
-                                           'Comisión compra de entrada'.
+                                           'Comisiï¿½n compra de entrada'.
           05 CA-COMI-REUT-ENTRA        PIC X(26)  VALUE
-                                           'Comisión reutiliza entrada'.
+                                           'Comisiï¿½n reutiliza entrada'.
           05 CA-ADEU-ENTMET            PIC X(37)  VALUE
                                 'Adeudo entrada reutilizada metro CDMX'.
           05 CA-COMI-REUT-ENTMET       PIC X(40)  VALUE
-                             'Comisión al reutilizar entradas al Metro'.
+                             'Comisiï¿½n al reutilizar entradas al Metro'.
           05 CA-ENTRADA-REU-MET        PIC X(41)  VALUE
                             'Entrada reutilizada para acceder al Metro'.
           05 CA-COMI-ADEU-ENTMET       PIC X(46)  VALUE
-                       'Adeudo comisión entrada reutilizada metro CDMX'.
+                       'Adeudo comisiï¿½n entrada reutilizada metro CDMX'.
       *@BAZ049-F
       *@BAZ050.I
           05 CA-COMP-GIFTCARD          PIC X(22)  VALUE
@@ -988,7 +988,7 @@
       *@BAZ050.F
       *@BAZ066.I
           05 CA-DEPGO-BAZ-USA          PIC X(31)  VALUE
-                                     'Depósito desde EUA a cuenta baz'.
+                                     'Depï¿½sito desde EUA a cuenta baz'.
       *@BAZ066.F
       *@BAZ027-F
           05 CA-QG1CABC                PIC X(07)  VALUE 'QG1CABC'.
@@ -3126,8 +3126,8 @@
       *
       ******************************************************************
       *                    21100-CAMPOS-POSICION                       *
-      *SE VALIDA QUE LOS CAMPOS RELACIONADOS CON LA POSICIÓN SATELITAL *
-      *TENGAN CARACTERES VÁLIDOS.                                      *
+      *SE VALIDA QUE LOS CAMPOS RELACIONADOS CON LA POSICIï¿½N SATELITAL *
+      *TENGAN CARACTERES Vï¿½LIDOS.                                      *
       ******************************************************************
        21100-CAMPOS-POSICION.
       *
@@ -4869,7 +4869,7 @@
       *@BAZ066.I
            SET SW-B925-NO               TO TRUE
       *@BAZ066.F
-      * -- Primera Línea
+      * -- Primera Lï¿½nea
            PERFORM 29991-CONSULTA-BLDT002
       *BAZ019-I
            IF VA-COD-MOV = CA-V06
@@ -4901,7 +4901,7 @@
            IF SW-WALLET
                PERFORM CONSULTA-DESC-OPER-WALLET
            END-IF
-      * -- Segunda Línea
+      * -- Segunda Lï¿½nea
            IF SW-OPE-WALLET-NK OR SW-BAZ
                PERFORM CONSULTA-DESC-OPER
            END-IF
@@ -5204,8 +5204,8 @@
       *@BAZ071-FIN
       ******************************************************************
       *29991-CONSULTA-BLDT002.                                         *
-      * SE CONSULTA LA TABLA,BLDT002(CATÁLOGO DE CODIGO DE OPERACIONES)*
-      *PARA OBTENER LA DESCRIPCION DEL CÓDIGO DE OPERACIÓN.            *
+      * SE CONSULTA LA TABLA,BLDT002(CATï¿½LOGO DE CODIGO DE OPERACIONES)*
+      *PARA OBTENER LA DESCRIPCION DEL Cï¿½DIGO DE OPERACIï¿½N.            *
       ******************************************************************
        29991-CONSULTA-BLDT002.
       *
@@ -5465,7 +5465,7 @@
       *@BAZ038 - F
       ******************************************************************
       *CONSULTA-DESC-OPER-WALLET.                                      *
-      * SE OBTIENE LA DESCRIPCIÓN DEL CÓDIGO DE OPERACIÓN PREVIAMENTE  *
+      * SE OBTIENE LA DESCRIPCIï¿½N DEL Cï¿½DIGO DE OPERACIï¿½N PREVIAMENTE  *
       * EVALUADO.                                                      *
       ******************************************************************
        CONSULTA-DESC-OPER-WALLET.
@@ -5525,7 +5525,7 @@
                INITIALIZE VA-DESC-OPE
       *@BAZ027-I
       *        STRING 'Envio de dinero a|' DELIMITED BY SIZE
-               STRING 'Envío a banco|' DELIMITED BY SIZE
+               STRING 'Envï¿½o a banco|' DELIMITED BY SIZE
       *@BAZ027-F
                             AUX-DES-TRANF1 DELIMITED BY '  '
                                        ' ' DELIMITED BY SIZE
@@ -5555,7 +5555,7 @@
                  WHEN 'MBW4'
       *@BAZ027-I
       *            STRING 'Envio de dinero a Celular|' DELIMITED BY SIZE
-                   STRING 'Envío de dinero|' DELIMITED BY SIZE
+                   STRING 'Envï¿½o de dinero|' DELIMITED BY SIZE
       *@BAZ027-F
                                       'a ****' DELIMITED BY SIZE
                             WSV-AUX-DESC(15:4) DELIMITED BY '  '
@@ -5563,7 +5563,7 @@
                  WHEN 'MBW5'
       *@BAZ027-I
       *            STRING 'Envio de dinero a Cuenta|' DELIMITED BY SIZE
-                   STRING 'Envío a banco|' DELIMITED BY SIZE
+                   STRING 'Envï¿½o a banco|' DELIMITED BY SIZE
       *@BAZ027-F
                                       'a ****' DELIMITED BY SIZE
                             WSV-AUX-DESC(20:4) DELIMITED BY '  '
@@ -5572,7 +5572,7 @@
                   IF AUX-USERUPD EQUAL 'MB4C0100
       *@BAZ027-I
       *            STRING 'Envio de dinero a Celular|' DELIMITED BY SIZE
-                   STRING 'Envío de dinero|' DELIMITED BY SIZE
+                   STRING 'Envï¿½o de dinero|' DELIMITED BY SIZE
       *@BAZ027-F
                                       'a ****' DELIMITED BY SIZE
                             WSV-AUX-DESC(15:4) DELIMITED BY '  '
@@ -5634,7 +5634,7 @@
                  IF T089-OBSERVATIONS(1:18) = CA-ENV-ATM-TOMIIN
                     MOVE CA-RET-ATM            TO VA-DESC-OPE
                  ELSE
-                   STRING 'Retención Envío a celular|' DELIMITED BY SIZE
+                   STRING 'Retenciï¿½n Envï¿½o a celular|' DELIMITED BY SIZE
                                         'a ****' DELIMITED BY SIZE
                               WSV-AUX-DESC(23:4) DELIMITED BY '  '
                                                  INTO VA-DESC-OPE
@@ -5667,14 +5667,14 @@
                   PERFORM ARMA-DESC-DEVSPEI
                   IF AUX-INTREF71(12:4) = CA-0600
                      MOVE VA-DESC-OPE                 TO S209-CONCEPT
-                     MOVE 'Devolución de envío bancario'
+                     MOVE 'Devoluciï¿½n de envï¿½o bancario'
                                                       TO VA-DESC-OPE
                      MOVE V0040-DES-RECVENT           TO S209-FOTO
                   ELSE
                      IF AUX-INTREF71(12:4) = CA-0700
-                        MOVE 'Cancelación SPEI BCO desconectado'
+                        MOVE 'Cancelaciï¿½n SPEI BCO desconectado'
                                                       TO S209-CONCEPT
-                        MOVE 'Cancelación de envío bancario'
+                        MOVE 'Cancelaciï¿½n de envï¿½o bancario'
                                                       TO VA-DESC-OPE
                      END-IF
                   END-IF
@@ -5812,7 +5812,7 @@
       *@BAZ0021-FIN
       ******************************************************************
       *CONSULTA-DESC-OPER.                                             *
-      * SE OBTIENE LA DESCRIPCIÓN DEL CÓDIGO DE OPERACIÓN PREVIAMENTE  *
+      * SE OBTIENE LA DESCRIPCIï¿½N DEL Cï¿½DIGO DE OPERACIï¿½N PREVIAMENTE  *
       * EVALUADO.                                                      *
       ******************************************************************
        CONSULTA-DESC-OPER.
@@ -6091,7 +6091,7 @@
                    PERFORM ARMA-DESC-COD683
       *LCR-INI
               WHEN SW-S02
-                   MOVE 'Depósito crédito nomina' TO VA-DESC-OPE
+                   MOVE 'Depï¿½sito crï¿½dito nomina' TO VA-DESC-OPE
       *LCR-FIN
               WHEN SW-R80
                    PERFORM ARMA-DESC-CODR80
@@ -6150,7 +6150,7 @@
       *@BAZ056-I
       ******************************************************************
        CONSULTA-DESCOPER-SAPP.
-      * SE OBTIENE LA DESCRIPCIÓN DEL CÓDIGO DE OPERACIÓN PREVIAMENTE  *
+      * SE OBTIENE LA DESCRIPCIï¿½N DEL Cï¿½DIGO DE OPERACIï¿½N PREVIAMENTE  *
       * EVALUADO EN SUPER APP      .                                   *
       ******************************************************************
       *
@@ -6403,7 +6403,7 @@
       ******************************************************************
       *CONSULTA-TCDT010.                                               *
       * SE CONSULTA LA TABLA, TCDT010 (CATALOGO DE DESCRIPCIONES), PARA*
-      *TRAEAR EL MOTIVO DE LA DEVOLUCIÓN DEL CHEQUE.                   *
+      *TRAEAR EL MOTIVO DE LA DEVOLUCIï¿½N DEL CHEQUE.                   *
       ******************************************************************
        CONSULTA-TCDT010.
       *
@@ -6440,8 +6440,8 @@
       *
       ******************************************************************
       *CONSULTA-TCDT040.                                               *
-      * SE CONSULTA LA TABLA, TCDT040 (CATÁLOGO DE BANCOS), PARA TRAER *
-      *LA DESCRIPCIÓN DE LA ENTIDAD EMISORA DEL CHEQUE.                *
+      * SE CONSULTA LA TABLA, TCDT040 (CATï¿½LOGO DE BANCOS), PARA TRAER *
+      *LA DESCRIPCIï¿½N DE LA ENTIDAD EMISORA DEL CHEQUE.                *
       ******************************************************************
        CONSULTA-TCDT040.
       *
@@ -6782,7 +6782,7 @@
               PERFORM SELECT-MCDT403-CEL
       *@BAZ016-->INI
               IF AUX-USERUPD EQUAL 'BCARDIGI'
-                 MOVE 'Envío Realizado Wallet   ' TO S209-CONCEPT
+                 MOVE 'Envï¿½o Realizado Wallet   ' TO S209-CONCEPT
                  MOVE  AUX-CEL                    TO VA-DESC-OPE
               ELSE
                  MOVE 'Envio de dinero a celular' TO S209-CONCEPT
@@ -6792,9 +6792,9 @@
       *@BAZ016<--FIN
            ELSE
       *@BAZ007C.I
-      * --Aportación Afore
+      * --Aportaciï¿½n Afore
             IF (AUX-INTREF71(12:4) = 'MB41')
-               MOVE 'Aportación voluntaria Afore' TO VA-DESC-OPE
+               MOVE 'Aportaciï¿½n voluntaria Afore' TO VA-DESC-OPE
             ELSE
       *@BAZ007C.F
       * --Socio Plus
@@ -6806,7 +6806,7 @@
       *@BAZ007H.I
       *            MOVE 'Retiro de cuenta Socio Plus' TO VA-DESC-OPE
                    INITIALIZE S209-CONCEPT
-                   MOVE 'Depósito por Retiro de Cuenta Socio Plus'
+                   MOVE 'Depï¿½sito por Retiro de Cuenta Socio Plus'
       *                                               TO VA-DESC-OPE
                                                       TO S209-CONCEPT
       *@BAZ007H.F
@@ -6817,7 +6817,7 @@
                 IF (AUX-INTREF71(12:4) = 'MB03') AND
                   AUX-USERUPD = 'BCARDIGI'
                   INITIALIZE S209-CONCEPT
-                  MOVE 'Envío Realizado Wallet   ' TO S209-CONCEPT
+                  MOVE 'Envï¿½o Realizado Wallet   ' TO S209-CONCEPT
                   MOVE AUX-DESC(10:15)             TO VA-DESC-OPE
                 ELSE
       *
@@ -6851,7 +6851,7 @@
            IF (AUX-INTREF71(12:4) = 'MBPB' OR
                WSV-AUX-DESC(1:05) = 'VFP_2')
                  INITIALIZE S209-CONCEPT
-                 MOVE 'Depósito por Retiro de Cuenta FIAR Plus'
+                 MOVE 'Depï¿½sito por Retiro de Cuenta FIAR Plus'
                                                     TO S209-CONCEPT
            END-IF
       *@BAZ045-FIN
@@ -6899,7 +6899,7 @@
               PERFORM SELECT-MCDT403-CEL
       *@BAZ016-->INI
               IF AUX-USERUPD EQUAL 'BCARDIGI'
-                 MOVE 'Envío Realizado Wallet   ' TO S209-CONCEPT
+                 MOVE 'Envï¿½o Realizado Wallet   ' TO S209-CONCEPT
                  MOVE  AUX-CEL                    TO VA-DESC-OPE
               ELSE
                  MOVE 'Envio de dinero a celular' TO S209-CONCEPT
@@ -6920,9 +6920,9 @@
       *@BAZ016<--FIN
            ELSE
       *@BAZ007C.I
-      * --Aportación Afore
+      * --Aportaciï¿½n Afore
             IF (AUX-INTREF71(12:4) = 'MB41')
-               MOVE 'Aportación voluntaria Afore' TO VA-DESC-OPE
+               MOVE 'Aportaciï¿½n voluntaria Afore' TO VA-DESC-OPE
             ELSE
       *@BAZ007C.F
       * --Socio Plus
@@ -6932,9 +6932,9 @@
                    MOVE WSV-AUX-DESC     TO VA-DESC-OPE
                  ELSE
       *@BAZ007H.I
-      *            MOVE 'Depósito a cuenta Socio Plus' TO VA-DESC-OPE
+      *            MOVE 'Depï¿½sito a cuenta Socio Plus' TO VA-DESC-OPE
                    INITIALIZE S209-CONCEPT
-                   MOVE 'Cargo por depósito a Cuenta Socio Plus'
+                   MOVE 'Cargo por depï¿½sito a Cuenta Socio Plus'
       *                                                TO VA-DESC-OPE
                                                        TO S209-CONCEPT
       *@BAZ007H.F
@@ -6945,7 +6945,7 @@
                 IF (AUX-INTREF71(12:4) = 'MB03') AND
                   AUX-USERUPD = 'BCARDIGI'
                   INITIALIZE S209-CONCEPT
-                  MOVE 'Envío Realizado Wallet   ' TO S209-CONCEPT
+                  MOVE 'Envï¿½o Realizado Wallet   ' TO S209-CONCEPT
                   MOVE AUX-DESC(10:15)             TO VA-DESC-OPE
                 ELSE
       *
@@ -6978,7 +6978,7 @@
            IF (AUX-INTREF71(12:4) = 'MBPB' OR
                WSV-AUX-DESC(1:05) = 'CFP_2')
                  INITIALIZE S209-CONCEPT
-                 MOVE 'Cargo por depósito a Cuenta FIAR Plus'
+                 MOVE 'Cargo por depï¿½sito a Cuenta FIAR Plus'
                                                     TO S209-CONCEPT
            END-IF
       *@BAZ045-FIN
@@ -7416,7 +7416,7 @@
       *
            INITIALIZE S209-CONCEPT  DCLMBDT010  AUX-DESTDC-PAGO
       *
-           MOVE 'Pago a tarjeta de crédito' TO S209-CONCEPT
+           MOVE 'Pago a tarjeta de crï¿½dito' TO S209-CONCEPT
       *
            IF VA-COD-MOV = 'R81'
               IF WSV-AUX-DESC(1:9) = 'PAGO TDC '
@@ -7519,8 +7519,8 @@
       ******************************************************************
       *.PN ARMA-DESC-RENINVPZO.                                        *
       * 923 - [Nombre del producto] + [Numero de inversion] + [Plazo]  *
-      * 664 - "Renovación a " + [Periodo de renovación]                *
-      * 178 - "Renovación a " + [Periodo de renovación]                *
+      * 664 - "Renovaciï¿½n a " + [Periodo de renovaciï¿½n]                *
+      * 178 - "Renovaciï¿½n a " + [Periodo de renovaciï¿½n]                *
       ******************************************************************
        ARMA-DESC-RENINVPZO.
       *
@@ -7566,7 +7566,7 @@
                     MOVE V041-CEN-REG     TO AUX-DESINT-RENEJE2(1:4)
                     MOVE V041-ACC         TO AUX-DESINT-RENEJE2(5:10)
                     PERFORM BUSCA-PLAZO
-                    MOVE 'días'           TO AUX-DESINT-RENEJE4
+                    MOVE 'dï¿½as'           TO AUX-DESINT-RENEJE4
                     STRING AUX-DESINT-RENEJE1  DELIMITED BY '  '
                                            ' ' DELIMITED BY SIZE
                             AUX-DESINT-RENEJE2 DELIMITED BY '  '
@@ -7587,7 +7587,7 @@
            END-IF
       *
            IF VA-COD-MOV = ('664' OR '178')
-              MOVE 'Renovación a'        TO AUX-DESINT-RENPZO1
+              MOVE 'Renovaciï¿½n a'        TO AUX-DESINT-RENPZO1
               MOVE AUX-INTREF71(5:3)     TO AUX-DIAS
               MOVE 1 TO AUX-X
               MOVE 1 TO AUX-Y
@@ -7606,7 +7606,7 @@
                END-IF
               END-PERFORM
               SET SW-FINEDIT-N TO TRUE
-              MOVE 'días'                TO AUX-DESINT-RENPZO3
+              MOVE 'dï¿½as'                TO AUX-DESINT-RENPZO3
                     STRING AUX-DESINT-RENPZO1 DELIMITED BY '  '
                                           ' ' DELIMITED BY SIZE
                            AUX-DESINT-RENPZO2 DELIMITED BY '  '
@@ -7900,7 +7900,7 @@
       *
            INITIALIZE S209-CONCEPT  TCGT010
       *
-           MOVE 'Depósito en ATM'  TO S209-CONCEPT
+           MOVE 'Depï¿½sito en ATM'  TO S209-CONCEPT
            PERFORM QUERY-TCDT010-CAJERO
            MOVE SQLCODE            TO SQL-VALUES
            IF SQL-88-OK
@@ -7929,7 +7929,7 @@
       *
            INITIALIZE S209-CONCEPT
       *    IF WSV-AUX-DESC(1:4) = 'MTCN'
-      *       MOVE 'Envío Dinero Express MTCN' TO S209-CONCEPT(1:25)
+      *       MOVE 'Envï¿½o Dinero Express MTCN' TO S209-CONCEPT(1:25)
       *       MOVE WSV-AUX-DESC(5:11)          TO S209-CONCEPT(27:11)
       *       MOVE 'Para'                      TO VA-DESC-OPE(1:4)
       *       MOVE T606-DESCRIPTION(1:40)      TO VA-DESC-OPE(6:40)
@@ -7940,7 +7940,7 @@
                WSV-AUX-DESC(1:9) = 'ENVIO DEX' OR
                WSV-AUX-DESC(1:3) = 'DEX')
               INITIALIZE S209-CONCEPT
-              MOVE 'Envío de Dinero '     TO S209-CONCEPT(1:16)
+              MOVE 'Envï¿½o de Dinero '     TO S209-CONCEPT(1:16)
               MOVE T606-DESCRIPTION(1:40) TO S209-CONCEPT(17:34)
               MOVE 'MTCN '                TO VA-DESC-OPE(1:5)
               MOVE WSV-AUX-DESC(1:30)     TO VA-DESC-OPE(6:45)
@@ -7955,7 +7955,7 @@
            ELSE
               IF WSV-AUX-DESC(1:3) = 'IVA'
                  INITIALIZE S209-CONCEPT
-                 MOVE 'IVA de comisión'  TO S209-CONCEPT(1:15)
+                 MOVE 'IVA de comisiï¿½n'  TO S209-CONCEPT(1:15)
                  MOVE 'Tasa'             TO VA-DESC-OPE(1:4)
                  MOVE '16%'              TO VA-DESC-OPE(6:3)
               END-IF
@@ -7968,9 +7968,9 @@
        ARMA-DESC-COMMTCNS58.
       *
            INITIALIZE S209-CONCEPT
-           IF WSV-AUX-DESC(1:8) = ('COMISION' OR 'Comisión' OR
+           IF WSV-AUX-DESC(1:8) = ('COMISION' OR 'Comisiï¿½n' OR
                                    'Comision')
-              MOVE 'Comisión envío Dinero Express' TO S209-CONCEPT
+              MOVE 'Comisiï¿½n envï¿½o Dinero Express' TO S209-CONCEPT
            END-IF
            .
       *
@@ -7986,7 +7986,7 @@
                WSV-AUX-DESC(1:9) = 'ENVIO DEX' OR
                WSV-AUX-DESC(1:3) = 'DEX')
               INITIALIZE S209-CONCEPT
-              MOVE 'Envío de Dinero '     TO S209-CONCEPT(1:16)
+              MOVE 'Envï¿½o de Dinero '     TO S209-CONCEPT(1:16)
               MOVE T606-DESCRIPTION(1:40) TO S209-CONCEPT(17:34)
               MOVE 'MTCN '                TO VA-DESC-OPE(1:5)
               MOVE WSV-AUX-DESC(1:30)     TO VA-DESC-OPE(6:45)
@@ -7999,16 +7999,16 @@
            ELSE
               IF WSV-AUX-DESC(1:3) = 'IVA'
                  INITIALIZE S209-CONCEPT
-                 MOVE 'IVA de comisión'  TO S209-CONCEPT(1:15)
+                 MOVE 'IVA de comisiï¿½n'  TO S209-CONCEPT(1:15)
                  MOVE 'Tasa'             TO VA-DESC-OPE(1:4)
                  MOVE '16%'              TO VA-DESC-OPE(6:3)
               END-IF
            END-IF
       *
-           IF WSV-AUX-DESC(1:8) = ('COMISION' OR 'Comisión' OR
+           IF WSV-AUX-DESC(1:8) = ('COMISION' OR 'Comisiï¿½n' OR
                                    'Comision')
               INITIALIZE S209-CONCEPT
-              MOVE 'Comisión envío Western Union' TO S209-CONCEPT
+              MOVE 'Comisiï¿½n envï¿½o Western Union' TO S209-CONCEPT
            END-IF
            .
       *@BAZ061-F
@@ -8107,7 +8107,7 @@
             ELSE
       *@BAZ007L
       *       MOVE 'PagaFacil'        TO S209-CONCEPT
-      *       MOVE 'PagaMóvil'        TO S209-CONCEPT
+      *       MOVE 'PagaMï¿½vil'        TO S209-CONCEPT
               MOVE 'Pago con la App'  TO S209-CONCEPT
             END-IF
       *@BAZ007D.F
@@ -8127,7 +8127,7 @@
                      MOVE BGNC477-ACC-CRED   TO AUX1-CTABEN
                      MOVE AUX1-CTABEN(5:4)   TO AUX2-NUMCEN
                      MOVE AUX1-CTABEN(11:10) TO AUX2-NUMACC
-      *              -- Obtiene Nombre a quien envío
+      *              -- Obtiene Nombre a quien envï¿½o
                      PERFORM OBTEN-DATOS-CLIENTE
                      MOVE 'para '       TO VA-DESC-OPE(1:5)
                      MOVE AUX-NOMBRECTE TO VA-DESC-OPE(6:40)
@@ -8157,7 +8157,7 @@
       * T60(+)
       *@BAZ007L
       *     MOVE 'CobraFacil'      TO S209-CONCEPT
-      *      MOVE 'CobraMóvil'      TO S209-CONCEPT
+      *      MOVE 'CobraMï¿½vil'      TO S209-CONCEPT
             MOVE 'Cobro con la App'      TO S209-CONCEPT
             INITIALIZE BGNC477
             MOVE WSV-AUX-NUMOPE    TO BGNC477-NUM-OP
@@ -8261,7 +8261,7 @@
             ELSE
       *@BAZ007L
       *       MOVE 'CobraFacil'        TO S209-CONCEPT
-      *        MOVE 'CobraMóvil'        TO S209-CONCEPT
+      *        MOVE 'CobraMï¿½vil'        TO S209-CONCEPT
               MOVE 'Cobro con la App'      TO S209-CONCEPT
             END-IF
       *@BAZ007D.F
@@ -8300,7 +8300,7 @@
       * T59(-)
       *@BAZ007L
       *     MOVE 'PagaFacil'       TO S209-CONCEPT
-      *      MOVE 'PagaMóvil'       TO S209-CONCEPT
+      *      MOVE 'PagaMï¿½vil'       TO S209-CONCEPT
             MOVE 'Pago con la App'  TO S209-CONCEPT
             IF T606-DESCRIPTION(1:30) = SPACES
               INITIALIZE BGNC477
@@ -8319,7 +8319,7 @@
                     MOVE BGNC477-ACC-CRED   TO AUX1-CTABEN
                     MOVE AUX1-CTABEN(5:4)   TO AUX2-NUMCEN
                     MOVE AUX1-CTABEN(11:10) TO AUX2-NUMACC
-      *             -- Obtiene Nombre a quien envío
+      *             -- Obtiene Nombre a quien envï¿½o
                     PERFORM OBTEN-DATOS-CLIENTE
       *             MOVE AUX-NOMBRECTE  TO VA-DESC-OPE
                     MOVE 'para '        TO VA-DESC-OPE(1:5)
@@ -8350,12 +8350,12 @@
            IF T606-DESCRIPTION(32:10) = 'Pago facil'
       *@BAZ007L
       *       MOVE 'PagaFacil'          TO S209-CONCEPT
-      *        MOVE 'PagaMóvil'          TO S209-CONCEPT
+      *        MOVE 'PagaMï¿½vil'          TO S209-CONCEPT
               MOVE 'Pago con la App'  TO S209-CONCEPT
            ELSE
-              MOVE 'Compra de dólares'    TO S209-CONCEPT
+              MOVE 'Compra de dï¿½lares'    TO S209-CONCEPT
            END-IF
-      *    MOVE 'Compra de dólares'    TO S209-CONCEPT
+      *    MOVE 'Compra de dï¿½lares'    TO S209-CONCEPT
       *    IF AUX-INTREF71(1:7) IS NOT NUMERIC
            IF AUX-INTREF71(1:5) IS NOT NUMERIC
              PERFORM TIPO-CAMBIO
@@ -8407,11 +8407,11 @@
            IF T606-DESCRIPTION(32:10) = 'Pago facil'
       *@BAZ007L
       *       MOVE 'CobraFacil'         TO S209-CONCEPT
-      *        MOVE 'CobraMóvil'         TO S209-CONCEPT
+      *        MOVE 'CobraMï¿½vil'         TO S209-CONCEPT
               MOVE 'Cobro con la App'      TO S209-CONCEPT
            ELSE
-      *       MOVE 'Compra de dólares'    TO S209-CONCEPT
-              MOVE 'Venta de dólares'     TO S209-CONCEPT
+      *       MOVE 'Compra de dï¿½lares'    TO S209-CONCEPT
+              MOVE 'Venta de dï¿½lares'     TO S209-CONCEPT
            END-IF
       *    IF AUX-INTREF71(1:7) IS NOT NUMERIC
            IF AUX-INTREF71(1:5) IS NOT NUMERIC
@@ -8463,11 +8463,11 @@
            IF T606-DESCRIPTION(32:10) = 'Pago facil'
       *@BAZ007L
       *       MOVE 'PagaFacil'          TO S209-CONCEPT
-      *       MOVE 'PagaMóvil'          TO S209-CONCEPT
+      *       MOVE 'PagaMï¿½vil'          TO S209-CONCEPT
               MOVE 'Pago con la App'  TO S209-CONCEPT
            ELSE
-      *       MOVE 'Compra de dólares'  TO S209-CONCEPT
-              MOVE 'Venta de dólares'   TO S209-CONCEPT
+      *       MOVE 'Compra de dï¿½lares'  TO S209-CONCEPT
+              MOVE 'Venta de dï¿½lares'   TO S209-CONCEPT
            END-IF
       *    IF AUX-INTREF71(1:7) IS NOT NUMERIC
            IF AUX-INTREF71(1:5) IS NOT NUMERIC
@@ -8496,12 +8496,12 @@
            IF T606-DESCRIPTION(32:10) = 'Pago facil'
       *@BAZ007L
       *       MOVE 'CobraFacil'         TO S209-CONCEPT
-      *        MOVE 'CobraMóvil'         TO S209-CONCEPT
+      *        MOVE 'CobraMï¿½vil'         TO S209-CONCEPT
               MOVE 'Cobro con la App'    TO S209-CONCEPT
            ELSE
-            MOVE 'Compra de dólares'    TO S209-CONCEPT
+            MOVE 'Compra de dï¿½lares'    TO S209-CONCEPT
            END-IF
-      *    MOVE 'Compra de dólares'    TO S209-CONCEPT
+      *    MOVE 'Compra de dï¿½lares'    TO S209-CONCEPT
       *    IF AUX-INTREF71(1:7) IS NOT NUMERIC
            IF AUX-INTREF71(1:5) IS NOT NUMERIC
              PERFORM TIPO-CAMBIO
@@ -8649,7 +8649,7 @@
       *
            INITIALIZE S209-CONCEPT
            IF WSV-AUX-DESC(1:5) = 'MTCN:'
-              MOVE 'Envío de '            TO S209-CONCEPT(1:9)
+              MOVE 'Envï¿½o de '            TO S209-CONCEPT(1:9)
               MOVE T606-DESCRIPTION(1:40) TO S209-CONCEPT(10:40)
               MOVE WSV-AUX-DESC(1:30) TO VA-DESC-OPE
            ELSE
@@ -8669,7 +8669,7 @@
       *@BAZ008C.F
                WSV-AUX-DESC(1:7) = 'DEX INT')
               INITIALIZE S209-CONCEPT
-              MOVE 'Envío de Dinero '          TO S209-CONCEPT(1:16)
+              MOVE 'Envï¿½o de Dinero '          TO S209-CONCEPT(1:16)
               MOVE WSV-AUX-DESC(1:30)          TO VA-DESC-OPE
       *@BAZ008C.I -- Complementar MTCN p/Homologar detalle como Trx.MB48
               IF (WSV-AUX-DESC(1:5) = 'MTCN ' OR
@@ -8679,7 +8679,7 @@
       *@BAZ008C.F
            ELSE
               IF WSV-AUX-DESC(1:3) = 'IVA'
-                 MOVE 'IVA de comisión'  TO S209-CONCEPT(1:15)
+                 MOVE 'IVA de comisiï¿½n'  TO S209-CONCEPT(1:15)
                  MOVE 'Tasa'             TO VA-DESC-OPE(1:4)
                  MOVE '16%'              TO VA-DESC-OPE(6:3)
               END-IF
@@ -8691,11 +8691,11 @@
       ******************************************************************
        ARMA-DESC-COMMTCNS57.
       *
-           IF (WSV-AUX-DESC(1:8) = ('COMISION' OR 'Comisión' OR
+           IF (WSV-AUX-DESC(1:8) = ('COMISION' OR 'Comisiï¿½n' OR
                                    'Comision') OR
                WSV-AUX-DESC(1:5) = 'MTCN:')
               INITIALIZE S209-CONCEPT
-              MOVE 'Comisión envío Dinero Express' TO S209-CONCEPT
+              MOVE 'Comisiï¿½n envï¿½o Dinero Express' TO S209-CONCEPT
            END-IF
            .
       *
@@ -8724,8 +8724,8 @@
       *        MOVE 'Pago credito'       TO VA-DESC-OPE
       *      END-IF
              INITIALIZE S209-CONCEPT
-             MOVE 'Pago crédito '        TO S209-CONCEPT
-      *      MOVE 'Nómina'               TO VA-DESC-OPE
+             MOVE 'Pago crï¿½dito '        TO S209-CONCEPT
+      *      MOVE 'Nï¿½mina'               TO VA-DESC-OPE
            ELSE
       *LCR-FIN
              MOVE 'No. DE PEDIDO'        TO VA-DESC-OPE
@@ -8752,12 +8752,12 @@
                       S209-CONCEPT
       *
       *    IF WSV-AUX-DESC(1:4) = 'ALTA'
-      *      MOVE 'Devolución por cargo de verificación' TO S209-CONCEPT
+      *      MOVE 'Devoluciï¿½n por cargo de verificaciï¿½n' TO S209-CONCEPT
            IF (WSV-AUX-DESC(1:4) = 'ALTA' OR
                WSV-AUX-DESC(1:8) = 'DEPOSITO' OR
                WSV-AUX-DESC(1:14) = 'ABONO POR ALTA')
-      *        MOVE 'Depósito con tarjeta de crédito/débito'
-               MOVE 'Depósito con tarjeta                  '
+      *        MOVE 'Depï¿½sito con tarjeta de crï¿½dito/dï¿½bito'
+               MOVE 'Depï¿½sito con tarjeta                  '
                                                        TO S209-CONCEPT
            END-IF
       *
@@ -8810,7 +8810,7 @@
       *    PERFORM CONSULTA-TCDT040
       *    MOVE V040-DES-ENTITY         TO VA-DESC-OPE(18:33)
       *
-           MOVE 'Depósito cheque'       TO S209-CONCEPT
+           MOVE 'Depï¿½sito cheque'       TO S209-CONCEPT
            IF WSV-AUX-DESC(22:9) IS NUMERIC
               MOVE WSV-AUX-DESC(22:9)   TO VA-NUM-CHEQUE
               MOVE E009-NUMCUEN(1:4)    TO T089-CEN-REG
@@ -8860,7 +8860,7 @@
            INITIALIZE S209-CONCEPT
                       AUX-DESDEP-CHEQ
       *@BAZ007B.I
-      *    MOVE 'Depósito cheque'       TO S209-CONCEPT
+      *    MOVE 'Depï¿½sito cheque'       TO S209-CONCEPT
       *    IF WSV-AUX-DESC(9:7) IS NUMERIC
       *       MOVE WSV-AUX-DESC(9:7)    TO VA-NUM-CHEQUE
       *       PERFORM CONSULTA-BADT001
@@ -8915,7 +8915,7 @@
       *@BAZ007B.F
            ELSE
               INITIALIZE S209-CONCEPT
-              MOVE 'Depósito cheque'       TO S209-CONCEPT
+              MOVE 'Depï¿½sito cheque'       TO S209-CONCEPT
               MOVE 'BANCO AZTECA'          TO AUX-DESDEP-CHEQ1
               MOVE WSV-AUX-DESC(24:7)      TO AUX-DESDEP-CHEQ2
                 STRING AUX-DESDEP-CHEQ1 DELIMITED BY '  '
@@ -9909,7 +9909,7 @@
       *
       *@BAZ021-FIN
       ******************************************************************
-      *.PN VALIDA-RELACION-BDMID.                                      *
+      *.PN     VALIDA-RELACION-BDMID.                                      *
       ******************************************************************
        VALIDA-RELACION-BDMID.
       *
@@ -10117,7 +10117,7 @@
       *
            INITIALIZE S209-CONCEPT
       *
-           MOVE 'Depósito con tarjeta'     TO S209-CONCEPT
+           MOVE 'Depï¿½sito con tarjeta'     TO S209-CONCEPT
       *
            IF WSV-AUX-DESC(15:16) = SPACES
               MOVE SPACES TO VA-DESC-OPE
@@ -10133,12 +10133,12 @@
       *
            IF VA-COD-MOV = 'G10'
               INITIALIZE S209-CONCEPT
-              MOVE 'Depósito crédito personal' TO S209-CONCEPT
+              MOVE 'Depï¿½sito crï¿½dito personal' TO S209-CONCEPT
            ELSE
       *@BAZ007I.I
             IF VA-COD-MOV = 'S79'
               INITIALIZE S209-CONCEPT
-              MOVE 'Depósito por Préstamo Personal' TO S209-CONCEPT
+              MOVE 'Depï¿½sito por Prï¿½stamo Personal' TO S209-CONCEPT
               MOVE 'Pedido:'               TO VA-DESC-OPE(1:7)
               MOVE WSV-AUX-DESC(7:14)      TO VA-DESC-OPE(8:14)
             ELSE
@@ -10155,7 +10155,7 @@
       *
            INITIALIZE S209-CONCEPT
       *
-           MOVE 'Compra en Elektra con Código Azteca' TO S209-CONCEPT
+           MOVE 'Compra en Elektra con Cï¿½digo Azteca' TO S209-CONCEPT
            IF SW-T15
               MOVE T606-DESCRIPTION        TO VA-DESC-OPE
            END-IF
@@ -10179,7 +10179,7 @@
       *
            INITIALIZE S209-CONCEPT
       *
-           MOVE 'Pago a Crédito'           TO S209-CONCEPT
+           MOVE 'Pago a Crï¿½dito'           TO S209-CONCEPT
            .
       *
       ******************************************************************
@@ -10189,11 +10189,11 @@
       *
            INITIALIZE S209-CONCEPT
       *
-           MOVE 'Crédito por Préstamo Personal' TO S209-CONCEPT
+           MOVE 'Crï¿½dito por Prï¿½stamo Personal' TO S209-CONCEPT
       *@BAZ007I.I
            IF VA-COD-MOV = 'P48'
              INITIALIZE S209-CONCEPT
-             MOVE 'Depósito por Préstamo Personal' TO S209-CONCEPT
+             MOVE 'Depï¿½sito por Prï¿½stamo Personal' TO S209-CONCEPT
              MOVE 'Pedido:'               TO VA-DESC-OPE(1:7)
              MOVE WSV-AUX-DESC(7:14)      TO VA-DESC-OPE(8:14)
            END-IF
@@ -10309,7 +10309,7 @@
       *@BAZ005D.F
       *@BAZ007K.I*******************************************************
       *.PN ARMA-DESC-DEVSPEI.                                          *
-      * lin1:  Leyenda devolución                                      *
+      * lin1:  Leyenda devoluciï¿½n                                      *
       * lin2:  motivo                                                  *
       ******************************************************************
        ARMA-DESC-DEVSPEI.
@@ -10317,7 +10317,7 @@
            INITIALIZE FEVC0040    AUX-DEVSPEI
            INITIALIZE S209-CONCEPT   TCGT010  VA-DATOS-TC
       *
-           MOVE 'Devolución de Transferencia SPEI' TO S209-CONCEPT
+           MOVE 'Devoluciï¿½n de Transferencia SPEI' TO S209-CONCEPT
            MOVE CAA-ENT-ACC          TO V0040-ENT-ORIGIN OF FEVC0040
            MOVE WSV-AUX-FECHA        TO V0040-DAT-OPERATION OF FEVC0040
            MOVE WSV-AUX-DESC(8:19)   TO V0040-ADR        OF FEVC0040
@@ -10411,7 +10411,7 @@
       *.PN ARMA-DESC-U50.                                              *
       * conceptoOperacion = CONCEPT => leyenda de T071_OBSERVATIONS    *
       * descripcion = DESCM01       => concepto de T071_OBSERVATIONS   *
-      * descripcionOperacion = DESCOPE => BLDT002 ó leyenda PeticionUser
+      * descripcionOperacion = DESCOPE => BLDT002 ï¿½ leyenda PeticionUser
       ******************************************************************
        ARMA-DESC-U50.
       *
@@ -10433,7 +10433,7 @@
       *
            INITIALIZE S209-CONCEPT
       *
-           MOVE 'Depósito por Cancelación' TO S209-CONCEPT
+           MOVE 'Depï¿½sito por Cancelaciï¿½n' TO S209-CONCEPT
            .
       *@BAZ005E.F
       ******************************************************************
@@ -11027,7 +11027,7 @@
       *
            IF EIBRESP EQUAL DFHRESP(NORMAL)
               IF BGNC477-COD-ERR EQUAL TO SPACES
-      *          -- Obtiene Nombre a quien envío
+      *          -- Obtiene Nombre a quien envï¿½o
                  IF BGNC477-ACC = BGNC477-ACC-CRED
                     MOVE BGNC477-ACC-DEB         TO AUX1-CTABEN
                  ELSE
@@ -11216,7 +11216,7 @@
            INSPECT VA-FMTCNT2         REPLACING ALL X'BE' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'BF' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'C0' BY SPACES
-      *Á   INSPECT VA-FMTCNT2         REPLACING ALL X'C1' BY SPACES
+      *ï¿½   INSPECT VA-FMTCNT2         REPLACING ALL X'C1' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'C2' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'C3' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'C4' BY SPACES
@@ -11224,30 +11224,30 @@
            INSPECT VA-FMTCNT2         REPLACING ALL X'C6' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'C7' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'C8' BY SPACES
-      *É   INSPECT VA-FMTCNT2         REPLACING ALL X'C9' BY SPACES
+      *ï¿½   INSPECT VA-FMTCNT2         REPLACING ALL X'C9' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'CA' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'CB' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'CC' BY SPACES
-      *Í   INSPECT VA-FMTCNT2         REPLACING ALL X'CD' BY SPACES
+      *ï¿½   INSPECT VA-FMTCNT2         REPLACING ALL X'CD' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'CE' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'CF' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'D0' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'D2' BY SPACES
-      *Ó   INSPECT VA-FMTCNT2         REPLACING ALL X'D3' BY SPACES
+      *ï¿½   INSPECT VA-FMTCNT2         REPLACING ALL X'D3' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'D4' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'D5' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'D6' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'D7' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'D8' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'D9' BY SPACES
-      *Ú   INSPECT VA-FMTCNT2         REPLACING ALL X'DA' BY SPACES
+      *ï¿½   INSPECT VA-FMTCNT2         REPLACING ALL X'DA' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'DB' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'DC' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'DD' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'DE' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'DF' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'E0' BY SPACES
-      *á   INSPECT VA-FMTCNT2         REPLACING ALL X'E1' BY SPACES
+      *ï¿½   INSPECT VA-FMTCNT2         REPLACING ALL X'E1' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'E2' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'E3' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'E4' BY SPACES
@@ -11255,23 +11255,23 @@
            INSPECT VA-FMTCNT2         REPLACING ALL X'E6' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'E7' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'E8' BY SPACES
-      *é   INSPECT VA-FMTCNT2         REPLACING ALL X'E9' BY SPACES
+      *ï¿½   INSPECT VA-FMTCNT2         REPLACING ALL X'E9' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'EA' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'EB' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'EC' BY SPACES
-      *í   INSPECT VA-FMTCNT2         REPLACING ALL X'ED' BY SPACES
+      *ï¿½   INSPECT VA-FMTCNT2         REPLACING ALL X'ED' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'EE' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'EF' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'F0' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'F2' BY SPACES
-      *ó   INSPECT VA-FMTCNT2         REPLACING ALL X'F3' BY SPACES
+      *ï¿½   INSPECT VA-FMTCNT2         REPLACING ALL X'F3' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'F4' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'F5' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'F6' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'F7' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'F8' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'F9' BY SPACES
-      *ú   INSPECT VA-FMTCNT2         REPLACING ALL X'FA' BY SPACES
+      *ï¿½   INSPECT VA-FMTCNT2         REPLACING ALL X'FA' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'FB' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'FC' BY SPACES
            INSPECT VA-FMTCNT2         REPLACING ALL X'FD' BY SPACES
