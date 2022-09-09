@@ -1,0 +1,5 @@
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXCNK\bin\Release\QA7XCNK.dll
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXCNK\bin\Release\QA7XCNK.pdb
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXCNK\obj\Release\QA7XCNK.csproj.CoreCompileInputs.cache
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXCNK\obj\Release\QA7XCNK.dll
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA7AXCNK\obj\Release\QA7XCNK.pdb

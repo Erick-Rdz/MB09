@@ -1,0 +1,18 @@
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA1AXOP9\bin\x86\Release\QAEXCA.dll
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA1AXOP9\bin\x86\Release\QAEXCA.pdb
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA1AXOP9\obj\x86\Release\QA1XOP9.csprojAssemblyReference.cache
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA1AXOP9\obj\x86\Release\QA1XOP9.csproj.CoreCompileInputs.cache
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA1AXOP9\obj\x86\Release\QA1XOP9.csproj.CopyComplete
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA1AXOP9\bin\x86\Release\QA1XOP9.dll
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA1AXOP9\bin\x86\Release\QA1XOP9.pdb
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA1AXOP9\obj\x86\Release\QA1XOP9.dll
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QA1AXOP9\obj\x86\Release\QA1XOP9.pdb
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA1AXOP9\bin\x86\Release\QA1XOP9.dll
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA1AXOP9\bin\x86\Release\QA1XOP9.pdb
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA1AXOP9\bin\x86\Release\QAEXCA.dll
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA1AXOP9\bin\x86\Release\QAEXCA.pdb
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA1AXOP9\obj\x86\Release\QA1XOP9.csproj.AssemblyReference.cache
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA1AXOP9\obj\x86\Release\QA1XOP9.csproj.CoreCompileInputs.cache
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA1AXOP9\obj\x86\Release\QA1XOP9.csproj.CopyComplete
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA1AXOP9\obj\x86\Release\QA1XOP9.dll
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA1AXOP9\obj\x86\Release\QA1XOP9.pdb

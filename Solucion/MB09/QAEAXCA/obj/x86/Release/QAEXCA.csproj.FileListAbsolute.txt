@@ -1,0 +1,11 @@
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QAEAXCA\bin\x86\Release\QAEXCA.dll
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QAEAXCA\bin\x86\Release\QAEXCA.pdb
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QAEAXCA\obj\x86\Release\QAEXCA.csproj.CoreCompileInputs.cache
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QAEAXCA\obj\x86\Release\QAEXCA.dll
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QAEAXCA\obj\x86\Release\QAEXCA.pdb
+d:\Users\B1007063\Desktop\TargetGIT\TargetGIT\QAEAXCA\obj\x86\Release\QAEXCA.csprojAssemblyReference.cache
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QAEAXCA\bin\x86\Release\QAEXCA.dll
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QAEAXCA\bin\x86\Release\QAEXCA.pdb
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QAEAXCA\obj\x86\Release\QAEXCA.csproj.CoreCompileInputs.cache
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QAEAXCA\obj\x86\Release\QAEXCA.dll
+d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QAEAXCA\obj\x86\Release\QAEXCA.pdb

@@ -1,0 +1,9 @@
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXIP9\bin\Release\QA1AXIP9.dll
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXIP9\bin\Release\QA1AXIP9.pdb
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXIP9\bin\Release\QAEAXCA.dll
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXIP9\bin\Release\QAEAXCA.pdb
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXIP9\obj\Release\QA1AXIP9.csprojAssemblyReference.cache
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXIP9\obj\Release\QA1AXIP9.csproj.CoreCompileInputs.cache
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXIP9\obj\Release\QA1AXIP9.csproj.CopyComplete
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXIP9\obj\Release\QA1AXIP9.dll
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXIP9\obj\Release\QA1AXIP9.pdb

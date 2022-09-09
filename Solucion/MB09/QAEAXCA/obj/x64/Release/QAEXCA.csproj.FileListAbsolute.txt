@@ -1,0 +1,5 @@
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QAEAXCA\bin\x64\Release\QAEXCA.dll
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QAEAXCA\bin\x64\Release\QAEXCA.pdb
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QAEAXCA\obj\x64\Release\QAEXCA.csproj.CoreCompileInputs.cache
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QAEAXCA\obj\x64\Release\QAEXCA.dll
+d:\Users\B1048023\Documents\Plem-Temp\COMPONENTES AREX\QAEAXCA\obj\x64\Release\QAEXCA.pdb

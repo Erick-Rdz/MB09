@@ -1,0 +1,5 @@
+D:\Users\B1007063\source\repos\PE2AX0075\QAEAXCA\bin\x86\Release\QAEAXCA.dll
+D:\Users\B1007063\source\repos\PE2AX0075\QAEAXCA\bin\x86\Release\QAEAXCA.pdb
+D:\Users\B1007063\source\repos\PE2AX0075\QAEAXCA\obj\x86\Release\QAEAXCA.csproj.CoreCompileInputs.cache
+D:\Users\B1007063\source\repos\PE2AX0075\QAEAXCA\obj\x86\Release\QAEAXCA.dll
+D:\Users\B1007063\source\repos\PE2AX0075\QAEAXCA\obj\x86\Release\QAEAXCA.pdb

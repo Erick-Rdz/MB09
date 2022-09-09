@@ -1,0 +1,6 @@
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA7AXDSK\bin\x86\Debug\QA7XDSK.dll
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA7AXDSK\bin\x86\Debug\QA7XDSK.pdb
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA7AXDSK\obj\x86\Debug\QA7XDSK.csproj.AssemblyReference.cache
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA7AXDSK\obj\x86\Debug\QA7XDSK.csproj.CoreCompileInputs.cache
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA7AXDSK\obj\x86\Debug\QA7XDSK.dll
+E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA7AXDSK\obj\x86\Debug\QA7XDSK.pdb

@@ -1,0 +1,9 @@
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXOP9\bin\Debug\QA1AXOP9.dll
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXOP9\bin\Debug\QA1AXOP9.pdb
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXOP9\bin\Debug\QAEAXCA.dll
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXOP9\bin\Debug\QAEAXCA.pdb
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXOP9\obj\Debug\QA1AXOP9.csprojAssemblyReference.cache
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXOP9\obj\Debug\QA1AXOP9.csproj.CoreCompileInputs.cache
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXOP9\obj\Debug\QA1AXOP9.csproj.CopyComplete
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXOP9\obj\Debug\QA1AXOP9.dll
+D:\Users\B1007063\source\repos\PE2AX0075\QA1AXOP9\obj\Debug\QA1AXOP9.pdb
