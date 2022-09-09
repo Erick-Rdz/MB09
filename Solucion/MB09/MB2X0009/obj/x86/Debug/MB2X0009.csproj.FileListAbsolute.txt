@@ -7,3 +7,5 @@ E:\Users\10039303\source\repos\MB09\MB2X0009\obj\x86\Debug\MB2X0009.csproj.CoreC
 E:\Users\10039303\source\repos\MB09\MB2X0009\obj\x86\Debug\MB2X0009.csproj.CopyComplete
 E:\Users\10039303\source\repos\MB09\MB2X0009\obj\x86\Debug\MB2X0009.dll
 E:\Users\10039303\source\repos\MB09\MB2X0009\obj\x86\Debug\MB2X0009.pdb
+E:\Users\10039303\source\repos\MB09\MB2X0009\bin\x86\Debug\MBNE0009.dll
+E:\Users\10039303\source\repos\MB09\MB2X0009\bin\x86\Debug\MBNE0009.pdb

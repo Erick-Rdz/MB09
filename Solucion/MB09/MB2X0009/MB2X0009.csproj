@@ -62,6 +62,10 @@
       <Project>{e777d112-e619-4ce1-8339-82d369bfb552}</Project>
       <Name>QAEXCA</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MBNE0009\MBNE0009.csproj">
+      <Project>{e2db2e50-2405-4e70-be0d-340ed27afeb3}</Project>
+      <Name>MBNE0009</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
