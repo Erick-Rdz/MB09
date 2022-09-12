@@ -61,8 +61,8 @@ SET ANSI_WARNINGS ON
         
     --------------------------------------------------
 
-    DECLARE @OK_SAPP boolean = FALSE;
-    DECLARE @NOK_SAPP BOOLEAN = FALSE
+    DECLARE @OK_SAPP char(5) = 'false'
+    DECLARE @NOK_SAPP char(5) = 'false'
     --1100-VAL-USUADIO-SAPP
     IF EXISTS(SELECT T140_DES_TABLE
              FROM MBDT140 with (nolock)
@@ -70,9 +70,9 @@ SET ANSI_WARNINGS ON
                     T140_COD_TABLE  ='SAPP' AND
                     T140_LANGUAGE   ='E' AND
                     T140_ENTITY     ='0127')
-                    SET @OK_SAPP = TRUE
+                    SET @OK_SAPP = 'TRUE'
                     ELSE
-                    SET @NOK_SAPP = TRUE                         
+                    SET @NOK_SAPP = 'TRUE'                         
     --------------------------------------------------
     --22000-CALCULA-FECHA (SE RESTAN 3 MESES A LA FECHA EN CURSO)
         --@fechaSELECT DATEADD(MONTH, -3,GETDATE())
@@ -80,17 +80,18 @@ SET ANSI_WARNINGS ON
 
 
     -- 22000-LLAMADO-SP
-        DECLARE @APAGA_JSON boolean = false;
-
+        DECLARE @APAGA_JSON char(5) = 'false';
+        DECLARE @PRENDE_JSON char(5) = 'false';
+        
     IF EXISTS(SELECT T140_DES_TABLE --6,            
             FROM MBDT140 with (nolock)
                WHERE T140_KEY_TABLE  = 'MB09'
                  AND T140_COD_TABLE  = 'JSON'
                  AND T140_ENTITY     =  0127
                  AND T140_LANGUAGE   = 'E') 
-                 SET @PRENDE_JSON = TRUE
+                 SET @PRENDE_JSON = 'TRUE'
                  ELSE
-                 SET @APAGA_JSON = TRUE
+                 SET @APAGA_JSON = 'TRUE'
     
     
     --METODOS DE EXTRACCION DE DATOS
