@@ -81,6 +81,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="QA1XIP9.cs" />
     <Compile Include="QA1XOP9.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

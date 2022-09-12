@@ -6,6 +6,7 @@ E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA7AXDSK\obj\x86\Debug\QA7XDSK.
 E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA7AXDSK\obj\x86\Debug\QA7XDSK.pdb
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA7AXDSK\bin\x86\Debug\QA7XDSK.dll
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA7AXDSK\bin\x86\Debug\QA7XDSK.pdb
+C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA7AXDSK\obj\x86\Debug\QA7XDSK.csproj.AssemblyReference.cache
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA7AXDSK\obj\x86\Debug\QA7XDSK.csproj.CoreCompileInputs.cache
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA7AXDSK\obj\x86\Debug\QA7XDSK.dll
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA7AXDSK\obj\x86\Debug\QA7XDSK.pdb

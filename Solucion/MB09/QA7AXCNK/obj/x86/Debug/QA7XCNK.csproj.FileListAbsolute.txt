@@ -9,4 +9,3 @@ C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA7AXCNK\bin\x86\Debug\QA7
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA7AXCNK\obj\x86\Debug\QA7XCNK.csproj.CoreCompileInputs.cache
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA7AXCNK\obj\x86\Debug\QA7XCNK.dll
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA7AXCNK\obj\x86\Debug\QA7XCNK.pdb
-C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA7AXCNK\obj\x86\Debug\QA7XCNK.csproj.AssemblyReference.cache

@@ -11,6 +11,7 @@ C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA1AXOP9\bin\x86\Debug\QA1
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA1AXOP9\bin\x86\Debug\QA1XOP9.pdb
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA1AXOP9\bin\x86\Debug\QAEXCA.dll
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA1AXOP9\bin\x86\Debug\QAEXCA.pdb
+C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA1AXOP9\obj\x86\Debug\QA1XOP9.csproj.AssemblyReference.cache
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA1AXOP9\obj\x86\Debug\QA1XOP9.csproj.CoreCompileInputs.cache
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA1AXOP9\obj\x86\Debug\QA1XOP9.csproj.CopyComplete
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA1AXOP9\obj\x86\Debug\QA1XOP9.dll
