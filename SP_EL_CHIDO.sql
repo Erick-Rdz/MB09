@@ -52,36 +52,53 @@ SET ANSI_WARNINGS ON
     
     --CONSULTA-PARAM-DIGITALES
         SELECT  @T140_DES_TABLE = T140_DES_TABLE
+                FROM MBDT140 with(nolock)
                WHERE T140_KEY_TABLE = 'BINVIRTUAL'
                  AND T140_COD_TABLE = 'MBT1'
                  AND T140_LANGUAGE  = 'E'
                  AND T140_ENTITY    = '0127'
+
+        
     --------------------------------------------------
 
+    DECLARE @OK_SAPP boolean = FALSE;
+    DECLARE @NOK_SAPP BOOLEAN = FALSE
     --1100-VAL-USUADIO-SAPP
-    SELECT @T140_DES_TABLE =T140_DES_TABLE
+    IF EXISTS(SELECT T140_DES_TABLE
              FROM MBDT140 with (nolock)
-             WHERE  T140_KEY_TABLE  =T140-KEY-TABLE AND
+             WHERE  T140_KEY_TABLE  ='BINVIRTUAL' AND
                     T140_COD_TABLE  ='SAPP' AND
                     T140_LANGUAGE   ='E' AND
-                    T140_ENTITY     ='0127'
+                    T140_ENTITY     ='0127')
+                    SET @OK_SAPP = TRUE
+                    ELSE
+                    SET @NOK_SAPP = TRUE                         
     --------------------------------------------------
+    --22000-CALCULA-FECHA (SE RESTAN 3 MESES A LA FECHA EN CURSO)
+        --@fechaSELECT DATEADD(MONTH, -3,GETDATE())
+
+
 
     -- 22000-LLAMADO-SP
-    SELECT @T140_DES_TABLE=ISNULL(T140_DES_TABLE,' ') --6,            
+        DECLARE @APAGA_JSON boolean = false;
+
+    IF EXISTS(SELECT T140_DES_TABLE --6,            
             FROM MBDT140 with (nolock)
                WHERE T140_KEY_TABLE  = 'MB09'
                  AND T140_COD_TABLE  = 'JSON'
                  AND T140_ENTITY     =  0127
-                 AND T140_LANGUAGE   = 'E'
+                 AND T140_LANGUAGE   = 'E') 
+                 SET @PRENDE_JSON = TRUE
+                 ELSE
+                 SET @APAGA_JSON = TRUE
     
     
-    -- EN CASO DE QUE SEA ALMACENADO
-    IF (@IP_OPCION = 'A') --MB09_MB2CF119
+    --METODOS DE EXTRACCION DE DATOS
+    IF (@IP_WSS_RET_CTA = TRUE) --MB09_MB2CF119
 
         BEGIN
 
-            --GET MAIN DATA FOR NEXT QUERYS
+            --OBTENER LOS DATOS PRINCIPALES DEL PROCESO
             SELECT @403_NUM_BIN=ISNULL(T403_NUM_BIN,' ') ,--6,
                     @403_NUM_CARD=ISNULL(T403_NUM_CRD,' '), --10
                     @403_NUM_CLTE=ISNULL(T403_NUM_CLTE,' '), --8
@@ -410,7 +427,7 @@ SET ANSI_WARNINGS ON
 
     
 
-    ELSE IF (@IP_OPCION = 'B') -- MB09_MB2CF119 V2
+    ELSE IF (@IP_WSS_CUENTA = TRUE AND @APAGA_JSON = true) -- MB09_MB2CF119 V2
         BEGIN
 
             --GET MAIN DATA FOR NEXT QUERYS
@@ -777,7 +794,7 @@ SET ANSI_WARNINGS ON
         
     
     
-    ELSE IF (@IP_OPCION = 'C') --MB09_MB2CF119 V5
+    ELSE IF (@PRENDE_JSON = TRUE AND (@IP_WSS_CUENTA = TRUE OR @IP_WSS_CUENTA-710 = TRUE)) --MB09_MB2CF119 V5
         BEGIN
             SET @403_Json  = ISNULL
                     ((SELECT ISNULL(T403_NUM_BIN,' ')  AS T403_NUM_BIN,
@@ -904,6 +921,10 @@ SET ANSI_WARNINGS ON
     END
     
 
+    --IF (@NOK_SAPP = TRUE)
+    --    BEGIN
+    --       @403_TEL_CEL 
+    --    END
 
     --SUMA SOBRES
     SELECT 
