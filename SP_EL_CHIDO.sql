@@ -11,7 +11,7 @@ AS
 SET NOCOUNT ON
 SET ANSI_WARNINGS ON
 
-DECLARE @CuentaN char(4000)
+    DECLARE @CuentaN char(4000)
     DECLARE @CuentaN710 char(4000)
     DECLARE @Cont int
     DECLARE @NumReg int
@@ -39,11 +39,33 @@ DECLARE @CuentaN char(4000)
     --V5
     DECLARE @NumRegRest int =0
 
+    --SUMA SOBRES
+    DECLARE @OP_T039_SALDO CHAR (5) = NULL 
+    DECLARE @OP_T039_ID_CTA_META CHAR (5) = NULL 
 
-      SET @Cont = 1 
-      SET @NumReg=15
 
-      SET LOCK_TIMEOUT 300
+    SET @Cont = 1 
+    SET @NumReg=15
+
+    SET LOCK_TIMEOUT 300
+
+    
+    --CONSULTA-PARAM-DIGITALES
+        SELECT  @T140_DES_TABLE = T140_DES_TABLE
+               WHERE T140_KEY_TABLE = 'BINVIRTUAL'
+                 AND T140_COD_TABLE = 'MBT1'
+                 AND T140_LANGUAGE  = 'E'
+                 AND T140_ENTITY    = '0127'
+    --------------------------------------------------
+
+    --1100-VAL-USUADIO-SAPP
+    SELECT @T140_DES_TABLE =T140_DES_TABLE
+             FROM MBDT140 with (nolock)
+             WHERE  T140_KEY_TABLE  =T140-KEY-TABLE AND
+                    T140_COD_TABLE  ='SAPP' AND
+                    T140_LANGUAGE   ='E' AND
+                    T140_ENTITY     ='0127'
+    --------------------------------------------------
 
     -- 22000-LLAMADO-SP
     SELECT @T140_DES_TABLE=ISNULL(T140_DES_TABLE,' ') --6,            
@@ -54,6 +76,7 @@ DECLARE @CuentaN char(4000)
                  AND T140_LANGUAGE   = 'E'
     
     
+    -- EN CASO DE QUE SEA ALMACENADO
     IF (@IP_OPCION = 'A') --MB09_MB2CF119
 
         BEGIN
@@ -880,6 +903,27 @@ DECLARE @CuentaN char(4000)
             FOR JSON PATH),'{}')
     END
     
+
+
+    --SUMA SOBRES
+    SELECT 
+        @OP_T039_SALDO_SOBRES= SUM(T039_SALDO),
+        @OP_T039_ID_CTA_META_SOBRES=COUNT(T039_ID_CTA_META)                 
+              FROM  MAZP.MBDT039 with(nolock)
+              WHERE T039_NUM_CLIENTE = @T039-NUM-CLIENTE
+                AND T039_CTA_EJE     = @T039-CTA-EJE
+                AND T039_ESTAT_CTA_META IN ('SA','SP','SV','SS')
+                AND T039_LOG_METAS   = 'SOBRES'
+
+    --SUMA ALCANCIA
+      SELECT @OP_T039_SALDO_ALCANCIA = SUM(T039_SALDO),
+             @OP_COUNT_ALCANCIA= COUNT(T039_ID_CTA_META)
+              FROM  MAZP.MBDT039 with(nolock)
+              WHERE T039_NUM_CLIENTE = @T039-NUM-CLIENTE
+                AND T039_CTA_EJE     = @T039-CTA-EJE
+                AND T039_ESTAT_CTA_META IN ('AC','IN','PA')
+                AND T039_LOG_METAS   = 'ALCANCIA'
+
 
 
 SET NOCOUNT OFF
