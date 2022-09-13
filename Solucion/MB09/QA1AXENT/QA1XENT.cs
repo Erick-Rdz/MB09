@@ -114,7 +114,7 @@ namespace QA1XENT
         public StringBuilder sbResult = new StringBuilder();
         QAEXCA.QAEXCA qaeaxca = new QAEXCA.QAEXCA();
         QA1XOP9.QA1XOP9 qa1axop9 = new QA1XOP9.QA1XOP9();
-        //QA1XIP9.QA1XIP9 qa1axip9 = new QA1XIP9.QA1XIP9();
+        QA1XIP9.QA1XIP9 qa1axip9 = new QA1XIP9.QA1XIP9();
         public static MB2X0009.MB2X0009 _componente = new MB2X0009.MB2X0009();
 
         int intQaeVal = -1;
