@@ -91,7 +91,7 @@ namespace MB2X0009
                                 + @"A(?<<LATITUD>\w{11})\s{2}"
                                 + @"A(?<LONGITD>\w{11})\s{2}"
                                 + @"A(?<CONTREG>\w{3})\s{2}"
-                                + @"A(?<DATPAG>\w{221})\s{2})"; 
+                                + @"A(?<DATPAG>\w{22})\s{2})"; 
 
 
                 var match = Regex.Match(this.qaexca.MensajeEntrada, regexPattern);
