@@ -103,9 +103,13 @@ namespace MB2X0009
                     mbne0009.NUMECEL = match.Groups["NUMECEL"].Value.Trim();
                     mbne0009.BDMID = match.Groups["NUMECEL"].Value.Trim();
 
-                    if (IsNullOrWhiteSpace(mbne0009.NUMTARJ) || IsNullOrWhiteSpace(merm770.CRDBIN) || IsNullOrWhiteSpace(merm770.FFC))
+                    if ((IsNullOrWhiteSpace(mbne0009.NUMTARJ) || !Regex.IsMatch(mbne0009.NUMTARJ, @"^[0-9]+$")) || ( IsNullOrWhiteSpace(mbne0009.NUMCUEN) || !Regex.IsMatch(mbne0009.NUMCUEN, @"^[0-9]+$") ))
                     {
-                        qaexca.CaaSwErrcod = "AQE0001";
+                        Console.WriteLine("ERROR CADENA");
+                    }
+                    else
+                    {
+                        Console.WriteLine("CORRECTO CADENA");
                     }
 
                     /* merm770.CRDTYP = match.Groups["CDRTYP"].Value.Trim();  //required
@@ -199,6 +203,7 @@ namespace MB2X0009
             //string query = "MAZP.SP_M025_MP2X0025";
             try
             {
+                /*
                 OdbcCommand cmd = new OdbcCommand("{CALL MAZP.SP_ME77_ME2X7700 (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}" +
                     "", conn);
                 //Inicializar el comando
@@ -232,8 +237,11 @@ namespace MB2X0009
                 OdbcDataAdapter adapter = new OdbcDataAdapter(cmd);
                 adapter.Fill(datos);
                 */
+                /*
                 Console.WriteLine("Respuesta del servidor: {0}", cmd.Parameters["@OP_NL_ERROR"].Value);
                 SetOutputVariables(cmd);
+                
+                */
             }
             catch (Exception e)
             {

@@ -15,3 +15,5 @@ E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA1AXENT\obj\x86\Debug\QA1XENT.
 E:\Users\10039303\Documents\R\MB09\Nueva carpeta\QA1AXENT\obj\x86\Debug\QA1XENT.pdb
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\obj\x86\Debug\QA1XENT.csproj.AssemblyReference.cache
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\obj\x86\Debug\QA1XENT.csproj.CoreCompileInputs.cache
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\obj\x86\Debug\QA1XENT.csproj.AssemblyReference.cache
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\obj\x86\Debug\QA1XENT.csproj.CoreCompileInputs.cache

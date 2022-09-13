@@ -17,3 +17,5 @@ E:\Users\10039303\source\repos\MB09\MB09\obj\x86\Debug\MB09.exe
 E:\Users\10039303\source\repos\MB09\MB09\obj\x86\Debug\MB09.pdb
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\MB09\obj\x86\Debug\MB09.csproj.CoreCompileInputs.cache
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\MB09\obj\x86\Debug\MB09.csproj.AssemblyReference.cache
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MB09\obj\x86\Debug\MB09.csproj.AssemblyReference.cache
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MB09\obj\x86\Debug\MB09.csproj.CoreCompileInputs.cache
