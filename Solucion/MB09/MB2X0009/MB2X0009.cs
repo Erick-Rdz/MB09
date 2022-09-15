@@ -50,9 +50,9 @@ namespace MB2X0009
         public QAEXCA.QAEXCA ExecuteTx(OdbcConnection conn, QAEXCA.QAEXCA qaexca)
         {
             Console.WriteLine("Imprimiendo ****");
-            Console.WriteLine(qaexca.getStringValues());
+            Console.WriteLine("GetInputMessage antes de llamar metodo " + qaexca.getStringValues());
 
-            Console.WriteLine("Inicia el ME2X7700 ---------------------------");
+            Console.WriteLine("Inicia el MB2X009 ---------------------------");
             System.Diagnostics.Stopwatch timer = new System.Diagnostics.Stopwatch();
             timer.Start();
 
@@ -72,15 +72,16 @@ namespace MB2X0009
 
         public void GetInputMessage(QAEXCA.QAEXCA qaexca)
         {
-            //Console.WriteLine(qaexca.getStringValues());
-            try
-            {
+            Console.WriteLine("GetInputMessage --> ");
+            Console.WriteLine("GetInputMessage --> " + qaexca.getStringValues());
 
-                //Se guarda el objeto de la commarea al objeto que instanciamos
-                this.qaexca = qaexca;
-                //Agregamos una expresión regular para validar despues la cadena
+            this.qaexca = qaexca;
+            Console.WriteLine(" <--- MENSAJE DE ENTRADA ANTES MATCH THIS --> " + this.qaexca.MensajeEntrada);
 
-                string regexPattern = @"\<ME\>(?<FILLER>\w{17}\s{2})"
+            String ME = qaexca.MensajeEntrada;
+            Console.WriteLine(" <--- MENSAJE DE ENTRADA ANTES MATCH --> " + ME);
+
+            string regexPattern = @"\<ME\>(?<FILLER>\w{17}\s{2})"
                                 + @"A(?<BDMID>\w{0,40})\s{2}"
                                 + @"A(?<NUMTARJ>\w{16})\s{2}"
                                 + @"A(?<NUMCUEN>\w{14})\s{2}"
@@ -91,10 +92,48 @@ namespace MB2X0009
                                 + @"A(?<<LATITUD>\w{11})\s{2}"
                                 + @"A(?<LONGITD>\w{11})\s{2}"
                                 + @"A(?<CONTREG>\w{3})\s{2}"
-                                + @"A(?<DATPAG>\w{22})\s{2})"; 
+                                + @"A(?<DATPAG>\w{22}))";
+
+            Console.WriteLine("regexPattern --> " + regexPattern);
+            var match = Regex.Match(ME, regexPattern);
+            Console.WriteLine(" <--- MENSAJE DE ENTRADA DESPUES MATCH --> " + this.qaexca.MensajeEntrada);
+
+            if (match.Success)
+            {
+                mbne0009.BDMID = match.Groups["BDMID"].Value.Trim();
+                Console.WriteLine(" MATCH SUCCES " + qaexca.MensajeEntrada);
+            }
+            else
+            {
+                Console.WriteLine(" MATCH NO SUCCES " + qaexca.MensajeEntrada);
+            }
+
+            /*
+            //Console.WriteLine(qaexca.getStringValues());
+            try
+            {
+
+                //Se guarda el objeto de la commarea al objeto que instanciamos
+                this.qaexca = qaexca;
+                //Agregamos una expresión regular para validar despues la cadena
+
+                string regexPattern = @"\<ME\>(?<FILLER>\w{17}\s{2})"
+                                + @"A(?<BDMID>\w{40})\s{2}"
+                                + @"A(?<NUMTARJ>\w{16})\s{2}"
+                                + @"A(?<NUMCUEN>\w{14})\s{2}"
+                                + @"A(?<FECHINI>\w{10})\s{2}"
+                                + @"A(?<FECHFIN>\w{10})\s{2}"
+                                + @"A(?<NUMECEL>\w{15})\s{2}"
+                                + @"A(?<IDCELUL>\w{13})\s{2}"
+                                + @"A(?<<LATITUD>\w{11})\s{2}"
+                                + @"A(?<LONGITD>\w{11})\s{2}"
+                                + @"A(?<CONTREG>\w{3})\s{2}"
+                                + @"A(?<DATPAG>\w{22}))"; 
 
 
                 var match = Regex.Match(this.qaexca.MensajeEntrada, regexPattern);
+                Console.WriteLine(qaexca.MensajeEntrada);
+                
                 if (match.Success)
                 {
                     mbne0009.BDMID = match.Groups["BDMID"].Value.Trim();
@@ -102,6 +141,7 @@ namespace MB2X0009
                     mbne0009.NUMCUEN = match.Groups["NUMCUEN"].Value.Trim();
                     mbne0009.NUMECEL = match.Groups["NUMECEL"].Value.Trim();
                     mbne0009.BDMID = match.Groups["NUMECEL"].Value.Trim();
+                    Console.WriteLine("MATCH CORRECTO");
 
                     if ((IsNullOrWhiteSpace(mbne0009.NUMTARJ) || !Regex.IsMatch(mbne0009.NUMTARJ, @"^[0-9]+$")) || ( IsNullOrWhiteSpace(mbne0009.NUMCUEN) || !Regex.IsMatch(mbne0009.NUMCUEN, @"^[0-9]+$") ))
                     {
@@ -111,60 +151,11 @@ namespace MB2X0009
                     {
                         Console.WriteLine("CORRECTO CADENA");
                     }
-
-                    /* merm770.CRDTYP = match.Groups["CDRTYP"].Value.Trim();  //required
-                     merm770.CRDBIN = match.Groups["CRDBIN"].Value.Trim();  //yes
-                     merm770.FFC = match.Groups["FFC"].Value.Trim();     //yes
-                     if (IsNullOrWhiteSpace(merm770.CRDTYP) || IsNullOrWhiteSpace(merm770.CRDBIN) || IsNullOrWhiteSpace(merm770.FFC))
-                     {
-                         qaexca.CaaSwErrcod = "AQE0001";
-                     }
-                     else
-                     {
-                         merm770.CRDTXT = match.Groups["CRDTXT"].Value.Trim();
-                         merm770.CREFLG = match.Groups["CREFLG"].Value.Trim();
-                         merm770.DRNWPRD = match.Groups["DRNWPRD"].Value.Trim().Length > 0 ? int.Parse(match.Groups["DRNWPRD"].Value.Trim()) : 0;
-                         merm770.RNWPRD = match.Groups["RNWPRD"].Value.Trim().Length > 0 ? int.Parse(match.Groups["RNWPRD"].Value.Trim()) : 0;
-                         merm770.RMAXPRD = match.Groups["RMAXPRD"].Value.Trim().Length > 0 ? int.Parse(match.Groups["RMAXPRD"].Value.Trim()) : 0;
-                         merm770.CHKVAL = match.Groups["CHKVAL"].Value.Trim();
-                         merm770.MINAGEH = match.Groups["MINAGEH"].Value.Trim().Length > 0 ? int.Parse(match.Groups["MINAGEH"].Value.Trim()) : 0;
-                         merm770.MAXAGEH = match.Groups["MAXAGEH"].Value.Trim().Length > 0 ? int.Parse(match.Groups["MAXAGEH"].Value.Trim()) : 0;
-                         merm770.PURCH = match.Groups["PURCH"].Value.Trim();
-                         merm770.CRDNUM = match.Groups["CRDNUM"].Value.Trim();
-                         merm770.CRDAMT = match.Groups["CRDAMT"].Value.Trim().Length > 0 ? int.Parse(match.Groups["CRDAMT"].Value.Trim()) : 0;
-                         merm770.MGNSSER = match.Groups["MGNSSER"].Value.Trim().Length > 0 ? int.Parse(match.Groups["MGNSSER"].Value.Trim()) : 0;
-                         merm770.ORITRM = match.Groups["ORITRM"].Value.Trim();
-                         merm770.BSSFLG = match.Groups["BSSFLG"].Value.Trim();
-                         merm770.DISLFLG = match.Groups["DISFLG"].Value.Trim();
-                         merm770.AFFFLG = match.Groups["AFFFLG"].Value.Trim();
-                         merm770.AFFTYP = match.Groups["AFFTYP"].Value.Trim();
-                         merm770.CHIPFLG = match.Groups["CHIPFLG"].Value.Trim();
-                         merm770.CHIPTYP = match.Groups["CHIPTYP"].Value.Trim();
-                         merm770.ADR = match.Groups["ADR"].Value.Trim();
-                         merm770.OWNADR = match.Groups["OWNADR"].Value.Trim();
-                         merm770.EXTADR = match.Groups["EXTADR"].Value.Trim();
-                         merm770.MINBIL = match.Groups["MINBIL"].Value.Trim().Length > 0 ? int.Parse(match.Groups["MINBIL"].Value.Trim()) : 0;
-                         merm770.INQOWN = match.Groups["INQOWN"].Value.Trim().Length > 0 ? int.Parse(match.Groups["INQOWN"].Value.Trim()) : 0;
-                         merm770.INQOTH = match.Groups["INQOTH"].Value.Trim().Length > 0 ? int.Parse(match.Groups["INQOTH"].Value.Trim()) : 0;
-                         merm770.INQPREF = match.Groups["INQPREF"].Value.Trim().Length > 0 ? int.Parse(match.Groups["INQPREF"].Value.Trim()) : 0;
-                         merm770.WTHOWN = match.Groups["WTHOWN"].Value.Trim().Length > 0 ? int.Parse(match.Groups["WTHOWN"].Value.Trim()) : 0;
-                         merm770.WTHOTH = match.Groups["WTHOTH"].Value.Trim().Length > 0 ? int.Parse(match.Groups["WTHOTH"].Value.Trim()) : 0;
-                         merm770.WTHPREF = match.Groups["WTHPREF"].Value.Trim().Length > 0 ? int.Parse(match.Groups["WTHPREF"].Value.Trim()) : 0;
-                         merm770.INACTIV = match.Groups["INACTIV"].Value.Trim().Length > 0 ? int.Parse(match.Groups["INACTIV"].Value.Trim()) : 0;
-                         merm770.FREE1 = match.Groups["FREE1"].Value.Trim().Length > 0 ? int.Parse(match.Groups["FREE1"].Value.Trim()) : 0;
-                         merm770.FREE2 = match.Groups["FREE2"].Value.Trim().Length > 0 ? int.Parse(match.Groups["FREE2"].Value.Trim()) : 0;
-                         merm770.FREE3 = match.Groups["FREE3"].Value.Trim().Length > 0 ? int.Parse(match.Groups["FREE3"].Value.Trim()) : 0;
-                         merm770.FREE4 = match.Groups["FREE4"].Value.Trim().Length > 0 ? int.Parse(match.Groups["FREE4"].Value.Trim()) : 0;
-                         merm770.INTRATE = match.Groups["INTRATE"].Value.Trim().Length > 0 ? int.Parse(match.Groups["INTRATE"].Value.Trim()) : 0;
-                         merm770.DAYSTAT = match.Groups["DAYSTAT"].Value.Trim().Length > 0 ? int.Parse(match.Groups["DAYSTAT"].Value.Trim()) : 0;
-                         merm770.DAYMINP = match.Groups["DAYMINP"].Value.Trim().Length > 0 ? int.Parse(match.Groups["DAYMINP"].Value.Trim()) : 0;
-                         merm770.WHDAYS = match.Groups["WHDAYS"].Value.Trim().Length > 0 ? int.Parse(match.Groups["WHDAYS"].Value.Trim()) : 0;
-                         merm770.TECNIND = match.Groups["TECNIND"].Value.Trim();
-                    }
-                     Console.WriteLine(merm770.ToString());
-
-                     Console.WriteLine();
-                */
+                   
+                }
+                else
+                {
+                    Console.WriteLine("MATCH CORRECTO");
                 }
             }
             catch (Exception e)
@@ -173,6 +164,9 @@ namespace MB2X0009
                 stringSbSalida.AppendLine();
                 throw;
             }
+            */
+
+
         }
 
         public bool ValidateInputMessage()

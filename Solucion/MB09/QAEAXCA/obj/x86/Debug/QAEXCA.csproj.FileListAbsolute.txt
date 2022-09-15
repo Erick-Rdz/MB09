@@ -10,3 +10,8 @@ C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QAEAXCA\obj\x86\Debug\QAEX
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QAEAXCA\obj\x86\Debug\QAEXCA.csproj.CoreCompileInputs.cache
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QAEAXCA\obj\x86\Debug\QAEXCA.dll
 C:\Users\PROR9902\Documents\GitHub\MB09\Solucion\MB09\QAEAXCA\obj\x86\Debug\QAEXCA.pdb
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QAEAXCA\bin\x86\Debug\QAEXCA.dll
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QAEAXCA\bin\x86\Debug\QAEXCA.pdb
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QAEAXCA\obj\x86\Debug\QAEXCA.csproj.CoreCompileInputs.cache
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QAEAXCA\obj\x86\Debug\QAEXCA.dll
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QAEAXCA\obj\x86\Debug\QAEXCA.pdb

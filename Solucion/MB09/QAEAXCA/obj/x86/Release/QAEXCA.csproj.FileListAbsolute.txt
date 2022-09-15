@@ -9,8 +9,3 @@ d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QAEAXCA\bin\x86\Release\QAEXCA
 d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QAEAXCA\obj\x86\Release\QAEXCA.csproj.CoreCompileInputs.cache
 d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QAEAXCA\obj\x86\Release\QAEXCA.dll
 d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QAEAXCA\obj\x86\Release\QAEXCA.pdb
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QAEAXCA\bin\x86\Release\QAEXCA.dll
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QAEAXCA\bin\x86\Release\QAEXCA.pdb
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QAEAXCA\obj\x86\Release\QAEXCA.csproj.CoreCompileInputs.cache
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QAEAXCA\obj\x86\Release\QAEXCA.dll
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QAEAXCA\obj\x86\Release\QAEXCA.pdb

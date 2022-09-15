@@ -16,12 +16,3 @@ d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA1AXOP9\obj\x86\Release\QA1XO
 d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA1AXOP9\obj\x86\Release\QA1XOP9.csproj.CopyComplete
 d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA1AXOP9\obj\x86\Release\QA1XOP9.dll
 d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA1AXOP9\obj\x86\Release\QA1XOP9.pdb
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXOP9\bin\x86\Release\QA1XOP9.dll
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXOP9\bin\x86\Release\QA1XOP9.pdb
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXOP9\bin\x86\Release\QAEXCA.dll
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXOP9\bin\x86\Release\QAEXCA.pdb
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXOP9\obj\x86\Release\QA1XOP9.csproj.AssemblyReference.cache
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXOP9\obj\x86\Release\QA1XOP9.csproj.CoreCompileInputs.cache
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXOP9\obj\x86\Release\QA1XOP9.csproj.CopyComplete
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXOP9\obj\x86\Release\QA1XOP9.dll
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXOP9\obj\x86\Release\QA1XOP9.pdb

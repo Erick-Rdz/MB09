@@ -22,6 +22,7 @@ namespace QA1XIP9
             {
                 string strPattern = @"\<IH\>(?<IdProtocolo>\d{2})(?<TerminalLogica>\w{0,8}\s{0,8})(?<TerminalFisica>\w{0,8}\s{0,8})(?<UsuarioDeTerminal>\w{0,8}|\w{0,8}\s{0,8})(?<NumeroSecuenciaPs9>\w{0,8}\s{0,8})(?<IdTransaccion>\w{0,8}\s{0,8})(?<LlaveDeFuncion>\w{0,2}\s{0,2})(?<TamañoMensajeEntrada>\d{5})(?<IndicadorCommit>\d{1})(?<TipoCabecera>\d{1})(?<TipoProceso>\w{1})(?<Canal>\d{2})(?<PreformateoDatos>\w{1})(?<Idioma>\w{1})\</IH\>(?<MensajeEntrada>\<ME\>.+)";
                 var match = Regex.Match(strInput, strPattern);
+                //Console.WriteLine("Pattern --->  " + strPattern);
 
                 if (match.Success)
                 {
@@ -40,6 +41,8 @@ namespace QA1XIP9
                     qaeaxca.PreformateoDatos = match.Groups["PreformateoDatos"].Value.Trim();
                     qaeaxca.Idioma = match.Groups["Idioma"].Value.Trim();
                     qaeaxca.MensajeEntrada = match.Groups["MensajeEntrada"].Value;
+                    //Console.WriteLine("Match success ME --->  " + qaeaxca.MensajeEntrada);
+
                     return -1;
                 }
                 else

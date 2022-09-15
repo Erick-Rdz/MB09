@@ -1,6 +1,0 @@
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MBNE0009\bin\Release\MBNE0009.dll
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MBNE0009\bin\Release\MBNE0009.pdb
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MBNE0009\obj\Release\MBNE0009.csproj.AssemblyReference.cache
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MBNE0009\obj\Release\MBNE0009.csproj.CoreCompileInputs.cache
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MBNE0009\obj\Release\MBNE0009.dll
-E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MBNE0009\obj\Release\MBNE0009.pdb
