@@ -1,11 +1,21 @@
+--      ******************************************************************
+--      *                                                                *
+--      ******************************************************************
+--      *     CODIGO     AUTOR           FECHA           DESCRIPCION     *
+--      *     ---------- ------- -------- ------------------------------ *
+--      *     SP        								                 *
+--		*												                 *
+--      *                                                                *
+--      ******************************************************************
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 ALTER PROCEDURE [MAZP].[MB09_MB2CF119]
+
 --- VARIABLES DE ENTRADA PARA DIFERENTES PROCEDIMIENTOS 
-@CAA_CEN_ACCOUNT  , 
-@CAA_CHANN
+@CAA_CEN_ACCOUNT VARCHAR(4) = 9546,
+@CAA_CHANN varchar (2) = 06,
 
 ---------------------------------
 
@@ -36,16 +46,22 @@ ALTER PROCEDURE [MAZP].[MB09_MB2CF119]
 @REG12 char(4000) OUTPUT, 
 @REG13 char(4000) OUTPUT, 
 @REG14 char(4000) OUTPUT, 
-@REG15 char(4000) OUTPUT
+@REG15 char(4000) OUTPUT,
 ---------------------------------
 
-,@BAN71 CHAR(03),@FECHA_ACCT char(10),
-@MOV71 VARCHAR(MAX) ='{}'OUT,@MOV710 VARCHAR(MAX)='{}' OUT, @403_Json VARCHAR(MAX)=' ' OUT,@datosCuenta VARCHAR(MAX)=' ' OUT
+@BAN71 CHAR(03), 
+@FECHA_ACCT char(10),
+@MOV71 VARCHAR(MAX) ='{}'OUT,
+@MOV710 VARCHAR(MAX)='{}' OUT, 
+@403_Json VARCHAR(MAX)=' ' OUT, 
+@datosCuenta VARCHAR(MAX)=' ' OUT
+
 WITH EXEC AS CALLER
 AS
 SET NOCOUNT ON
 SET ANSI_WARNINGS ON
 
+    DECLARE @fecha_tsm Date
     DECLARE @CuentaN char(4000)
     DECLARE @CuentaN710 char(4000)
     DECLARE @Cont int
@@ -84,39 +100,14 @@ SET ANSI_WARNINGS ON
 
     SET LOCK_TIMEOUT 300
 
-    
-    --CONSULTA-PARAM-DIGITALES
-        SELECT  @T140_DES_TABLE = T140_DES_TABLE
-                FROM MBDT140 with(nolock)
-               WHERE T140_KEY_TABLE = 'BINVIRTUAL'
-                 AND T140_COD_TABLE = 'MBT1'
-                 AND T140_LANGUAGE  = 'E'
-                 AND T140_ENTITY    = '0127'
-
-        
-    --------------------------------------------------
-
-    DECLARE @OK_SAPP char(5) = 'false'
-    DECLARE @NOK_SAPP char(5) = 'false'
-    --1100-VAL-USUADIO-SAPP
-    IF EXISTS(SELECT T140_DES_TABLE
-             FROM MBDT140 with (nolock)
-             WHERE  T140_KEY_TABLE  ='BINVIRTUAL' AND
-                    T140_COD_TABLE  ='SAPP' AND
-                    T140_LANGUAGE   ='E' AND
-                    T140_ENTITY     ='0127')
-                    SET @OK_SAPP = 'TRUE'
-                    ELSE
-                    SET @NOK_SAPP = 'TRUE'                         
-    --------------------------------------------------
-    --22000-CALCULA-FECHA (SE RESTAN 3 MESES A LA FECHA EN CURSO)
-        --@fechaSELECT DATEADD(MONTH, -3,GETDATE())
+ 
+ ------------ 22000-CALCULA-FECHA (SE RESTAN 3 MESES A LA FECHA EN CURSO)
+   SET @fecha_tsm = DATEADD(MONTH, -3,GETDATE())
 
 
-
-    -- 22000-LLAMADO-SP
-        DECLARE @APAGA_JSON char(5) = 'false';
-        DECLARE @PRENDE_JSON char(5) = 'false';
+ ------------ 22000-LLAMADO-SP
+    DECLARE @APAGA_JSON char(5) = 'false';
+    DECLARE @PRENDE_JSON char(5) = 'false';
         
     IF EXISTS(SELECT T140_DES_TABLE --6,            
             FROM MBDT140 with (nolock)
@@ -127,6 +118,34 @@ SET ANSI_WARNINGS ON
                  SET @PRENDE_JSON = 'TRUE'
                  ELSE
                  SET @APAGA_JSON = 'TRUE'
+ 
+ ------------ CONSULTA-PARAM-DIGITALES
+        SELECT  @T140_DES_TABLE = T140_DES_TABLE
+                FROM MBDT140 with(nolock)
+               WHERE T140_KEY_TABLE = 'BINVIRTUAL'
+                 AND T140_COD_TABLE = 'MBT1'
+                 AND T140_LANGUAGE  = 'E'
+                 AND T140_ENTITY    = '0127'
+
+        
+ --------------------------------------------------
+
+    DECLARE @OK_SAPP char(5) = 'false'
+    DECLARE @NOK_SAPP char(5) = 'false'
+
+    --1100-VAL-USUADIO-SAPP
+    IF (@CAA_CEN_ACCOUNT = 1156 AND @CAA_CHANN = 54)
+        IF EXISTS(SELECT T140_DES_TABLE
+             FROM MBDT140 with (nolock)
+             WHERE  T140_KEY_TABLE  ='BINVIRTUAL' AND
+                    T140_COD_TABLE  ='SAPP' AND
+                    T140_LANGUAGE   ='E' AND
+                    T140_ENTITY     ='0127')
+                    SET @OK_SAPP = 'TRUE'
+                    ELSE
+                    SET @NOK_SAPP = 'TRUE'
+                             
+    --------------------------------------------------
     
     
     --METODOS DE EXTRACCION DE DATOS
@@ -171,7 +190,7 @@ SET ANSI_WARNINGS ON
                                     AND T140_ENTITY    = @ENT_IN
 
 
-            --CURSORES  TERCERA SECCION
+-------------CURSORES  TERCERA SECCION-----------
             DECLARE CuentasCursor CURSOR 
             FOR 
                           
@@ -829,7 +848,7 @@ SET ANSI_WARNINGS ON
         END
         
     
-    
+----------- SP MB09_MB2CF119 V5 -----------
     ELSE IF (@PRENDE_JSON = TRUE AND (@IP_WSS_CUENTA = TRUE OR @IP_WSS_CUENTA-710 = TRUE)) --MB09_MB2CF119 V5
         BEGIN
             SET @403_Json  = ISNULL
@@ -898,7 +917,7 @@ SET ANSI_WARNINGS ON
                             T606_ACC           = T071_ACC
                         AND T606_NUM_OPERATION = T071_NUM_OPERATION
                         AND T606_DAT_OPERATION = T071_DAT_OPERATION
-                    WHERE A.T071_ACC                               = @COD_PROD+@NUM_ACC  AND 
+                    WHERE A.T071_ACC                             = @COD_PROD+@NUM_ACC  AND 
                         A.T071_CEN_REG                           = @BRN_OPEN           AND 
                         A.T071_ENT                               = @ENT_IN             AND
                         A.T071_DAT_OPERATION                    >=@FECHA               AND
@@ -945,7 +964,7 @@ SET ANSI_WARNINGS ON
                         T606_ACC           = T071_ACC
                     AND T606_NUM_OPERATION = T071_NUM_OPERATION
                     AND T606_DAT_OPERATION = T071_DAT_OPERATION                                                             
-                    WHERE A.T071_ACC                               = @COD_PROD+@NUM_ACC  AND 
+                    WHERE A.T071_ACC                             = @COD_PROD+@NUM_ACC  AND 
                         A.T071_CEN_REG                           = @BRN_OPEN           AND 
                         A.T071_ENT                               = @ENT_IN             AND
                         A.T071_DAT_OPERATION                    >=@FECHA               AND

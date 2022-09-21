@@ -1,0 +1,11 @@
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\bin\x86\Release\MB2X0009.dll
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\bin\x86\Release\MB2X0009.pdb
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\bin\x86\Release\MBNE0009.dll
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\bin\x86\Release\QAEXCA.dll
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\bin\x86\Release\MBNE0009.pdb
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\bin\x86\Release\QAEXCA.pdb
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\obj\x86\Release\MB2X0009.csproj.AssemblyReference.cache
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\obj\x86\Release\MB2X0009.csproj.CoreCompileInputs.cache
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\obj\x86\Release\MB2X0009.csproj.CopyComplete
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\obj\x86\Release\MB2X0009.dll
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\MB2X0009\obj\x86\Release\MB2X0009.pdb

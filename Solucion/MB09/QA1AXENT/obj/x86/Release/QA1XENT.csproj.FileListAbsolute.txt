@@ -24,3 +24,20 @@ d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA1AXENT\obj\x86\Release\QA1XE
 d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA1AXENT\obj\x86\Release\QA1XENT.csproj.CopyComplete
 d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA1AXENT\obj\x86\Release\QA1XENT.dll
 d:\Users\PMAG9911\Documents\Jair\COMPONENTES AREX\QA1AXENT\obj\x86\Release\QA1XENT.pdb
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\bin\x86\Release\QA1XENT.dll
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\bin\x86\Release\QA1XENT.pdb
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\bin\x86\Release\MB2X0009.dll
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\bin\x86\Release\QA1XIP9.dll
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\bin\x86\Release\QA1XOP9.dll
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\bin\x86\Release\QAEXCA.dll
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\bin\x86\Release\MBNE0009.dll
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\bin\x86\Release\MB2X0009.pdb
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\bin\x86\Release\QA1XIP9.pdb
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\bin\x86\Release\QA1XOP9.pdb
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\bin\x86\Release\QAEXCA.pdb
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\bin\x86\Release\MBNE0009.pdb
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\obj\x86\Release\QA1XENT.csproj.AssemblyReference.cache
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\obj\x86\Release\QA1XENT.csproj.CoreCompileInputs.cache
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\obj\x86\Release\QA1XENT.csproj.CopyComplete
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\obj\x86\Release\QA1XENT.dll
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1AXENT\obj\x86\Release\QA1XENT.pdb

@@ -56,9 +56,12 @@ namespace MB2X0009
             System.Diagnostics.Stopwatch timer = new System.Diagnostics.Stopwatch();
             timer.Start();
 
-            GetInputMessage(qaexca);
+            GetInputMessage(qaexca, conn);
 
-            if (ValidateInputMessage()) ExecuteStoreProcedure(conn);
+            // VALIDA LA ENTRADA Y LLAMA AL SP PRINCIPAL
+            //if (ValidateInputMessage()) ExecuteStoreProcedure(conn);
+
+
             //Se le asigna el mensaje de error, en caso de que tenga uno
             this.qaexca.Result = Convert.ToString(stringSbSalida);
             //Se retorna el objeto de la commarea
@@ -70,92 +73,38 @@ namespace MB2X0009
         }
 
 
-        public void GetInputMessage(QAEXCA.QAEXCA qaexca)
+        public void GetInputMessage(QAEXCA.QAEXCA qaexca, OdbcConnection conn)
         {
-            Console.WriteLine("GetInputMessage --> ");
+           
             Console.WriteLine("GetInputMessage --> " + qaexca.getStringValues());
 
             this.qaexca = qaexca;
-            Console.WriteLine(" <--- MENSAJE DE ENTRADA ANTES MATCH THIS --> " + this.qaexca.MensajeEntrada);
 
-            String ME = qaexca.MensajeEntrada;
-            Console.WriteLine(" <--- MENSAJE DE ENTRADA ANTES MATCH --> " + ME);
+            string regexPattern = @"\<ME\>(?<FILLER>\w{17}\s{2})" +
+                                    @"A(?<BDMID>[\w\W]{0,40}\s{2})" +
+                                    @"A(?<NUMTARJ>[\w\W]{16}\s{2})" +
+                                    @"A(?<NUMCUEN>[\w\W]{14}\s{2})" +
+                                    @"A(?<FECHINI>[\w\W]{10}\s{2})" +
+                                    @"A(?<FECHFIN>[\w\W]{10}\s{2})" +
+                                    @"A(?<NUMECEL>[\w\W]{15}\s{2})" +
+                                    @"A(?<IDCELUL>[\w\W]{13}\s{2})" +
+                                    @"A(?<LATITUD>[\w\W]{11}\s{2})" +
+                                    @"A(?<LONGITD>[\w\W]{11}\s{2})" +
+                                    @"A(?<CONTREG>[\w\W]{3}\s{2})" +
+                                    @"A(?<DATPAG>[\w\W]{22})";
 
-            string regexPattern = @"\<ME\>(?<FILLER>\w{17}\s{2})"
-                                + @"A(?<BDMID>\w{0,40})\s{2}"
-                                + @"A(?<NUMTARJ>\w{16})\s{2}"
-                                + @"A(?<NUMCUEN>\w{14})\s{2}"
-                                + @"A(?<FECHINI>\w{10})\s{2}"
-                                + @"A(?<FECHFIN>\w{10})\s{2}"
-                                + @"A(?<NUMECEL>\w{15})\s{2}"
-                                + @"A(?<IDCELUL>\w{13})\s{2}"
-                                + @"A(?<<LATITUD>\w{11})\s{2}"
-                                + @"A(?<LONGITD>\w{11})\s{2}"
-                                + @"A(?<CONTREG>\w{3})\s{2}"
-                                + @"A(?<DATPAG>\w{22}))";
-
-            Console.WriteLine("regexPattern --> " + regexPattern);
-            var match = Regex.Match(ME, regexPattern);
-            Console.WriteLine(" <--- MENSAJE DE ENTRADA DESPUES MATCH --> " + this.qaexca.MensajeEntrada);
-
-            if (match.Success)
-            {
-                mbne0009.BDMID = match.Groups["BDMID"].Value.Trim();
-                Console.WriteLine(" MATCH SUCCES " + qaexca.MensajeEntrada);
-            }
-            else
-            {
-                Console.WriteLine(" MATCH NO SUCCES " + qaexca.MensajeEntrada);
-            }
-
-            /*
-            //Console.WriteLine(qaexca.getStringValues());
+   
+            var match = Regex.Match(qaexca.MensajeEntrada, regexPattern);
+                      
             try
             {
-
-                //Se guarda el objeto de la commarea al objeto que instanciamos
-                this.qaexca = qaexca;
-                //Agregamos una expresión regular para validar despues la cadena
-
-                string regexPattern = @"\<ME\>(?<FILLER>\w{17}\s{2})"
-                                + @"A(?<BDMID>\w{40})\s{2}"
-                                + @"A(?<NUMTARJ>\w{16})\s{2}"
-                                + @"A(?<NUMCUEN>\w{14})\s{2}"
-                                + @"A(?<FECHINI>\w{10})\s{2}"
-                                + @"A(?<FECHFIN>\w{10})\s{2}"
-                                + @"A(?<NUMECEL>\w{15})\s{2}"
-                                + @"A(?<IDCELUL>\w{13})\s{2}"
-                                + @"A(?<<LATITUD>\w{11})\s{2}"
-                                + @"A(?<LONGITD>\w{11})\s{2}"
-                                + @"A(?<CONTREG>\w{3})\s{2}"
-                                + @"A(?<DATPAG>\w{22}))"; 
-
-
-                var match = Regex.Match(this.qaexca.MensajeEntrada, regexPattern);
-                Console.WriteLine(qaexca.MensajeEntrada);
-                
                 if (match.Success)
                 {
-                    mbne0009.BDMID = match.Groups["BDMID"].Value.Trim();
-                    mbne0009.NUMTARJ = match.Groups["NUMTARJ"].Value.Trim();
-                    mbne0009.NUMCUEN = match.Groups["NUMCUEN"].Value.Trim();
-                    mbne0009.NUMECEL = match.Groups["NUMECEL"].Value.Trim();
-                    mbne0009.BDMID = match.Groups["NUMECEL"].Value.Trim();
-                    Console.WriteLine("MATCH CORRECTO");
-
-                    if ((IsNullOrWhiteSpace(mbne0009.NUMTARJ) || !Regex.IsMatch(mbne0009.NUMTARJ, @"^[0-9]+$")) || ( IsNullOrWhiteSpace(mbne0009.NUMCUEN) || !Regex.IsMatch(mbne0009.NUMCUEN, @"^[0-9]+$") ))
-                    {
-                        Console.WriteLine("ERROR CADENA");
-                    }
-                    else
-                    {
-                        Console.WriteLine("CORRECTO CADENA");
-                    }
-                   
+                    ValidaEntrada(match, conn); 
                 }
                 else
                 {
-                    Console.WriteLine("MATCH CORRECTO");
+                    Console.WriteLine(" MATCH NO SUCCES " + qaexca.MensajeEntrada);
                 }
             }
             catch (Exception e)
@@ -164,28 +113,45 @@ namespace MB2X0009
                 stringSbSalida.AppendLine();
                 throw;
             }
-            */
-
 
         }
 
+        public void ValidaEntrada(Match match, OdbcConnection conn)
+        {
+            bool nt = false, nc = false;
+            mbne0009.BDMID = match.Groups["BDMID"].Value.Trim();
+            mbne0009.NUMTARJ = match.Groups["NUMTARJ"].Value.Trim();
+            mbne0009.NUMCUEN = match.Groups["NUMCUEN"].Value.Trim();
+            mbne0009.NUMECEL = match.Groups["NUMECEL"].Value.Trim();
+            mbne0009.BDMID = match.Groups["NUMECEL"].Value.Trim();
+
+            Console.WriteLine("MATCH SUCCES");
+            Console.WriteLine("CADENA DATOS" + " " + mbne0009.NUMTARJ + " " + mbne0009.NUMCUEN);
+            Console.WriteLine(" "+ mbne0009.BDMID + " " + mbne0009.NUMTARJ + " " + mbne0009.NUMCUEN);
+
+            ExecuteStoreProcedure(conn);
+
+            if (!IsNullOrWhiteSpace(mbne0009.NUMTARJ))
+                if (Regex.IsMatch(mbne0009.NUMTARJ, @"^[0-9]+$"))
+                    nt = true;
+
+            if (!IsNullOrWhiteSpace(mbne0009.NUMCUEN))
+                if (Regex.IsMatch(mbne0009.NUMCUEN, @"^[0-9]+$"))
+                    nc = true;
+
+
+            if ((nt == true && nc == true) || (nt == true && nc == false) || (nt == false && nc == true))
+            {
+                Console.WriteLine("CADENA CORRECTA" + "     NT " + mbne0009.NUMTARJ + "      NC " + mbne0009.NUMCUEN);
+            }
+            else
+            {
+                Console.WriteLine("ERROR CADENA");
+            }
+        }
+
         public bool ValidateInputMessage()
-        {/*
-            if (IsNullOrWhiteSpace(merm770.CRDTYP) || IsNullOrWhiteSpace(merm770.CRDBIN) || IsNullOrWhiteSpace(merm770.FFC))
-            {
-                return true;
-            }
-            try
-            {
-                //Si no existe ningun error, procede a ejecutar el procedimiento almacenado
-                return qaexca.CaaSwErrcod == "" || qaexca.CaaSwErrcod == null || qaexca.CaaSwErrcod == string.Empty;
-            }
-            catch (Exception ex)
-            {
-                stringSbSalida.AppendFormat($"ERROR AL VALIDAR MENSAJE DE ENTRADA: {0}", ex.Message.ToString());
-                stringSbSalida.AppendLine();
-                throw;
-            }*/
+        {
             return true;
         }
 
@@ -193,6 +159,13 @@ namespace MB2X0009
         {
             string entity = qaexca.Ent == string.Empty || qaexca.Ent == null || IsNullOrWhiteSpace(qaexca.Ent) ? "0127" : qaexca.Ent;
             string lngKey = qaexca.Idioma == string.Empty || qaexca.Idioma == null || IsNullOrWhiteSpace(qaexca.Idioma) ? "E" : qaexca.Idioma;
+
+            string centAcc = qaexca.Centro;
+            string canal = qaexca.Canal;
+
+            Console.WriteLine("centAcc --> " + centAcc + " canal --> " + canal);
+
+
 
             //string query = "MAZP.SP_M025_MP2X0025";
             try
