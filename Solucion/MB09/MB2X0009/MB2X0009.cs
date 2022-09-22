@@ -100,7 +100,7 @@ namespace MB2X0009
             {
                 if (match.Success)
                 {
-                    ValidaEntrada(match, conn); 
+                    ValidateInputMessage(match, conn); 
                 }
                 else
                 {
@@ -118,16 +118,28 @@ namespace MB2X0009
 
         public void ValidaEntrada(Match match, OdbcConnection conn)
         {
+       
+        }
+
+        public bool ValidateInputMessage(Match match, OdbcConnection conn)
+        {
             bool nt = false, nc = false;
             mbne0009.BDMID = match.Groups["BDMID"].Value.Trim();
-            mbne0009.NUMTARJ = match.Groups["NUMTARJ"].Value.Trim();
-            mbne0009.NUMCUEN = match.Groups["NUMCUEN"].Value.Trim();
-            mbne0009.NUMECEL = match.Groups["NUMECEL"].Value.Trim();
-            mbne0009.BDMID = match.Groups["NUMECEL"].Value.Trim();
+            Console.WriteLine("BDMID ---> " + mbne0009.BDMID);
 
-            Console.WriteLine("MATCH SUCCES");
-            Console.WriteLine("CADENA DATOS" + " " + mbne0009.NUMTARJ + " " + mbne0009.NUMCUEN);
-            Console.WriteLine(" "+ mbne0009.BDMID + " " + mbne0009.NUMTARJ + " " + mbne0009.NUMCUEN);
+            mbne0009.NUMTARJ = match.Groups["NUMTARJ"].Value.Trim();
+            Console.WriteLine(" NT ---> " + mbne0009.NUMTARJ);
+
+            mbne0009.NUMCUEN = match.Groups["NUMCUEN"].Value.Trim();
+            Console.WriteLine(" NC ---> " + mbne0009.NUMCUEN);
+
+            mbne0009.NUMECEL = match.Groups["NUMECEL"].Value.Trim();
+            mbne0009.DATPAG = match.Groups["DATPAG"].Value.Trim();
+            Console.WriteLine(" DATPAG ---> " + mbne0009.DATPAG);
+
+            Console.WriteLine(" MATCH SUCCES ");
+            Console.WriteLine(" CADENA DATOS " + " " + mbne0009.NUMTARJ + " " + mbne0009.NUMCUEN);
+            
 
             ExecuteStoreProcedure(conn);
 
@@ -148,10 +160,8 @@ namespace MB2X0009
             {
                 Console.WriteLine("ERROR CADENA");
             }
-        }
 
-        public bool ValidateInputMessage()
-        {
+
             return true;
         }
 
