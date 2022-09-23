@@ -170,10 +170,12 @@ namespace MB2X0009
             string entity = qaexca.Ent == string.Empty || qaexca.Ent == null || IsNullOrWhiteSpace(qaexca.Ent) ? "0127" : qaexca.Ent;
             string lngKey = qaexca.Idioma == string.Empty || qaexca.Idioma == null || IsNullOrWhiteSpace(qaexca.Idioma) ? "E" : qaexca.Idioma;
 
+            // VAR DE ENTRADA SP
             string centAcc = qaexca.Centro;
             string canal = qaexca.Canal;
+            string WSS_CUENTA_710 = "C7";
 
-            Console.WriteLine("centAcc --> " + centAcc + " canal --> " + canal);
+            Console.WriteLine("centAcc --> " + centAcc + " canal --> " + canal + " WSS_CUENTA_710 --> " + WSS_CUENTA_710);
 
 
 

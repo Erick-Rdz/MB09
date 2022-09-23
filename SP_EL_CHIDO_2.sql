@@ -1,8 +1,8 @@
 --      ******************************************************************
 --      *                                                                *
 --      ******************************************************************
---      *     CODIGO     AUTOR           FECHA           DESCRIPCION     *
---      *     ---------- ------- -------- ------------------------------ *
+--      *     CODIGO           AUTOR        FECHA           DESCRIPCION  *
+--      *     --------  ---------------- -------------- -----------------*
 --      *     SP        								                 *
 --		*												                 *
 --      *                                                                *
@@ -15,11 +15,11 @@ GO
 CREATE PROCEDURE [MAZP].[SP_MB09Prueba01]
 
 --- VARIABLES DE ENTRADA PARA DIFERENTES PROCEDIMIENTOS 
-@CAA_CEN_ACCOUNT VARCHAR(4) = 9546,
-@CAA_CHANN varchar (2) = 06,
-@IP_WSS_RET_CTA char(5) = 'FALSE',
-@IP_WSS_CUENTA char(5) = 'FALSE',
-
+@CAA_CEN_ACCOUNT VARCHAR(4),
+@CAA_CHANN varchar (2),
+@IP_WSS_RET_CTA char(5),
+@IP_WSS_CUENTA char(5),
+@IP_WSS_CUENTA_710 char(5),
 ---------------------------------
 
 --- VARIABLES ENTRADA SP's
@@ -31,7 +31,6 @@ CREATE PROCEDURE [MAZP].[SP_MB09Prueba01]
 @NUM_ACC char(8), 
 @FECHA char(10), 
 @ULLAVE char(20),
-
 ---------------------------------
 
 --- VARIABLES SALIDA SP's
@@ -58,7 +57,6 @@ CREATE PROCEDURE [MAZP].[SP_MB09Prueba01]
 @MOV710 VARCHAR(MAX)='{}' OUT, 
 @403_Json VARCHAR(MAX)=' ' OUT, 
 @datosCuenta VARCHAR(MAX)=' ' OUT
-
 
 WITH EXEC AS CALLER
 AS
@@ -120,13 +118,13 @@ SET ANSI_WARNINGS ON
 -----------------------------------------------------------------------------------
 
  
- ------------ 22000-CALCULA-FECHA (SE RESTAN 3 MESES A LA FECHA EN CURSO) ----------
+------------ 22000-CALCULA-FECHA (SE RESTAN 3 MESES A LA FECHA EN CURSO) ----------
    SET @fecha_tm = DATEADD(MONTH, -3,GETDATE())
 ------------------------------------------------------------------------------------
 
- ------------ 22000-LLAMADO-SP
-    DECLARE @APAGA_JSON char(5) = 'false';
-    DECLARE @PRENDE_JSON char(5) = 'false';
+------------ 22000-LLAMADO-SP -----------
+    DECLARE @APAGA_JSON char(5) = 'False';
+    DECLARE @PRENDE_JSON char(5) = 'False';
         
     IF EXISTS(SELECT T140_DES_TABLE --6,            
             FROM MBDT140 with (nolock)
@@ -138,10 +136,10 @@ SET ANSI_WARNINGS ON
                  ELSE
                  SET @APAGA_JSON = 'TRUE'
 ---BORRAR
-    PRINT 'PRENDE_JSON ' +  @PRENDE_JSON
-    PRINT 'APAGA_JSON ' + @APAGA_JSON
+    PRINT 'PRENDE_JSON --> ' +  @PRENDE_JSON
+    PRINT 'APAGA_JSON --> ' + @APAGA_JSON
  
- ------------ CONSULTA-PARAM-DIGITALES
+------------ CONSULTA-PARAM-DIGITALES
         SELECT  @T140_DES_TABLE = T140_DES_TABLE
                 FROM MBDT140 with(nolock)
                WHERE T140_KEY_TABLE = 'BINVIRTUAL'
@@ -150,7 +148,7 @@ SET ANSI_WARNINGS ON
                  AND T140_ENTITY    = '0127'
 
 ---BORRAR
- PRINT 'T140_DES_TABLE ' + @T140_DES_TABLE                 
+ PRINT 'T140_DES_TABLE --> ' + @T140_DES_TABLE                 
 
  --------------------------------------------------
     DECLARE @OK_SAPP char(5) = 'false'
@@ -168,18 +166,22 @@ SET ANSI_WARNINGS ON
                     ELSE
                     SET @NOK_SAPP = 'TRUE'
 
----BORAR                 
-    PRINT 'SAPP S ' + @OK_SAPP
-    PRINT 'SAPP N ' + @NOK_SAPP
-    -------------------------------------------------- FUNCIONA
+---BORRAR                 
+    PRINT 'SAPP S --> ' + @OK_SAPP
+    PRINT 'SAPP N --> ' + @NOK_SAPP
+-------------------------------------------------- FUNCIONA
     
     
-    --METODOS DE EXTRACCION DE DATOS
-    IF (@IP_WSS_RET_CTA = 'TRUE') --MB09_MB2CF119
+----------- METODOS DE EXTRACCION DE DATOS -----------
 
+----------- SP MB09_MB2CF219 -----------    
+    IF (@IP_WSS_RET_CTA = 'TRUE') 
+        
         BEGIN
+        ---
+            PRINT 'ENTRO MB09_MB2CF219 --- ' + @IP_WSS_RET_CTA
 
-            --OBTENER LOS DATOS PRINCIPALES DEL PROCESO
+            -- OBTENER LOS DATOS PRINCIPALES DEL PROCESO --
             SELECT @403_NUM_BIN=ISNULL(T403_NUM_BIN,' ') ,--6,
                     @403_NUM_CARD=ISNULL(T403_NUM_CRD,' '), --10
                     @403_NUM_CLTE=ISNULL(T403_NUM_CLTE,' '), --8
@@ -188,8 +190,6 @@ SET ANSI_WARNINGS ON
                 FROM MAZP.MCDT403 AS A with (nolock) 
             WHERE T403_BDMID = @BDMID_IN
             
-
-
             -- SECOND SECTION    
             SELECT @008_041_140=ISNULL(A.NUM_CUS,' '),--8
                     @T041_CAC_DIG1 = ISNULL(B.T041_CAC_DIG1,' '), -- 1
@@ -216,10 +216,10 @@ SET ANSI_WARNINGS ON
                                     AND T140_ENTITY    = @ENT_IN
 
 
--------------CURSORES  TERCERA SECCION-----------
+----------- CURSORES  TERCERA SECCION ----------------------
+
             DECLARE CuentasCursor CURSOR 
-            FOR 
-                          
+            FOR                
             SELECT TOP 15 
                 ISNULL(T071_DAT_OPERATION,' ') + ISNULL(CAST(T071_NUM_OPERATION as varchar(9)),'000000000') COLLATE SQL_Latin1_General_CP1_CI_AS + '|@' + --20 
                 ISNULL(T071_DAT_OPERATION,' ') + ISNULL(STR(T071_NUM_OPERATION),' ') COLLATE SQL_Latin1_General_CP1_CI_AS + '|@' + --20 
@@ -265,10 +265,8 @@ SET ANSI_WARNINGS ON
                 T071_DAT_OPERATION + STR(T071_NUM_OPERATION) < @ULLAVE AND --FIJO
                 T071_FLG_ANN = 'N' --FIJO
                 ORDER BY T071_DAT_OPERATION DESC , T071_NUM_OPERATION DESC  
-                FOR READ ONLY
-                
-                
-            
+                FOR READ ONLY  
+
             OPEN CuentasCursor
             FETCH NEXT FROM CuentasCursor INTO @CuentaN
       
@@ -346,14 +344,10 @@ SET ANSI_WARNINGS ON
                 BEGIN
                         SET @REG15 = RTRIM(isnull(@403,' |@ |@ |@ |@9|@ '))+RTRIM(isnull(@008_041_140,' |@ |@ |@ |@ |@ |@ |@ |@ '))+@CuentaN
                 END
-                
-                
-                SET @Cont = @Cont + 1
-                
+                SET @Cont = @Cont + 1 
                 FETCH NEXT FROM CuentasCursor INTO @CuentaN
-          
             END
-           
+
             CLOSE  CuentasCursor
             DEALLOCATE CuentasCursor
 
@@ -506,10 +500,12 @@ SET ANSI_WARNINGS ON
                 END
         END
 
----- MB09_MB2CF119 V2
-    ELSE IF (@IP_WSS_CUENTA = 'TRUE' AND @APAGA_JSON = 'TRUE') 
+----------- SP MB09_MB2CF119 V2 -----------
+    ELSE IF (@IP_WSS_CUENTA = 'TRUE' AND @APAGA_JSON = 'TRUE')         
         BEGIN
-            --GET MAIN DATA FOR NEXT QUERYS
+            ---
+            PRINT 'ENTRO MB09_MB2CF119 V2 --- WC ' + @IP_WSS_CUENTA + ' --- AJ  ' + @APAGA_JSON
+            -- GET MAIN DATA FOR NEXT QUERYS
             SELECT @403_NUM_BIN=ISNULL(T403_NUM_BIN,' ') ,--6,
                     @403_NUM_CARD=ISNULL(T403_NUM_CRD,' '), --10
                     @403_NUM_CLTE=ISNULL(T403_NUM_CLTE,' '), --8
@@ -870,11 +866,13 @@ SET ANSI_WARNINGS ON
                 END
 
         END
-        
     
 ----------- SP MB09_MB2CF119 V5 -----------
-    ELSE IF (@PRENDE_JSON = 'TRUE' AND (@IP_WSS_CUENTA = 'TRUE' OR @IP_WSS_CUENTA-710 = 'TRUE')) --MB09_MB2CF119 V5
+    ELSE IF (@PRENDE_JSON = 'TRUE' AND (@IP_WSS_CUENTA = 'TRUE' OR @IP_WSS_CUENTA_710 = 'TRUE')) 
         BEGIN
+        ---
+            PRINT 'ENTRO MB09_MB2CF119 V5 --- WC ' + @IP_WSS_CUENTA + ' --- AJ  ' + @IP_WSS_CUENTA_710
+        ---
             SET @403_Json  = ISNULL
                     ((SELECT ISNULL(T403_NUM_BIN,' ')  AS T403_NUM_BIN,
                     ISNULL(T403_NUM_CRD,' ')  AS T403_NUM_CRD,
@@ -1005,7 +1003,7 @@ SET ANSI_WARNINGS ON
     --       @403_TEL_CEL 
     --    END
 
-    --SUMA SOBRES
+----------- SUMA SOBRES ----------- 
     SELECT 
         @OP_T039_SALDO_SOBRES = SUM(T039_SALDO),
         @OP_T039_ID_CTA_META_SOBRES = COUNT(T039_ID_CTA_META)                 
@@ -1015,7 +1013,7 @@ SET ANSI_WARNINGS ON
                 AND T039_ESTAT_CTA_META IN ('SA','SP','SV','SS')
                 AND T039_LOG_METAS   = 'SOBRES'
 
-    --SUMA ALCANCIA
+----------- SUMA ALCANCIA -----------
       SELECT @OP_T039_SALDO_ALCANCIA = SUM(T039_SALDO),
              @OP_COUNT_ALCANCIA = COUNT(T039_ID_CTA_META)
               FROM  MAZP.MBDT039 with(nolock)
