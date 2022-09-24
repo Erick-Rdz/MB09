@@ -93,7 +93,6 @@ namespace MB2X0009
                                     @"A(?<CONTREG>[\w\W]{3}\s{2})" +
                                     @"A(?<DATPAG>[\w\W]{22})";
 
-   
             var match = Regex.Match(qaexca.MensajeEntrada, regexPattern);
                       
             try
