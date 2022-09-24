@@ -12,7 +12,7 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [MAZP].[SP_MB09Prueba01]
+CREATE OR ALTER PROCEDURE [MAZP].[SP_MB09Prueba01]
 
 --- VARIABLES DE ENTRADA PARA DIFERENTES PROCEDIMIENTOS 
 @CAA_CEN_ACCOUNT VARCHAR(4),
@@ -75,6 +75,9 @@ SET ANSI_WARNINGS ON
     DECLARE @403 char(100)
     --DECLARE @008_041_140 char(300)
 
+    DECLARE @VN_MARCA_AUX VARCHAR (30) = NULL
+    DECLARE @VN_VAL_INI INTEGER = NULL
+
     --FIRST SECTION VAR
     DECLARE @403_NUM_BIN CHAR(6) = NULL
     DECLARE @403_NUM_CARD CHAR(10) = NULL
@@ -117,14 +120,14 @@ SET ANSI_WARNINGS ON
 --    PROCESO  --------------------------------------------------------------------                              
 -----------------------------------------------------------------------------------
 
- 
+---
 ------------ 22000-CALCULA-FECHA (SE RESTAN 3 MESES A LA FECHA EN CURSO) ----------
    SET @fecha_tm = DATEADD(MONTH, -3,GETDATE())
 ------------------------------------------------------------------------------------
 
 ------------ 22000-LLAMADO-SP -----------
-    DECLARE @APAGA_JSON char(5) = 'False';
-    DECLARE @PRENDE_JSON char(5) = 'False';
+    DECLARE @APAGA_JSON char(5) = 'FALSE';
+    DECLARE @PRENDE_JSON char(5) = 'FALSE';
         
     IF EXISTS(SELECT T140_DES_TABLE --6,            
             FROM MBDT140 with (nolock)
@@ -133,22 +136,27 @@ SET ANSI_WARNINGS ON
                  AND T140_ENTITY     =  0127
                  AND T140_LANGUAGE   = 'E') 
                  SET @PRENDE_JSON = 'TRUE'
-                 ELSE
-                 SET @APAGA_JSON = 'TRUE'
+    ELSE
+        SET @APAGA_JSON = 'TRUE'
 ---BORRAR
     PRINT 'PRENDE_JSON --> ' +  @PRENDE_JSON
     PRINT 'APAGA_JSON --> ' + @APAGA_JSON
  
 ------------ CONSULTA-PARAM-DIGITALES
-        SELECT  @T140_DES_TABLE = T140_DES_TABLE
+    SELECT  @T140_DES_TABLE = T140_DES_TABLE
                 FROM MBDT140 with(nolock)
                WHERE T140_KEY_TABLE = 'BINVIRTUAL'
                  AND T140_COD_TABLE = 'MBT1'
                  AND T140_LANGUAGE  = 'E'
                  AND T140_ENTITY    = '0127'
+    IF(@T140_DES_TABLE IS NOT NULL)
+        SET @VN_MARCA_AUX = SUBSTRING(@T140_DES_TABLE,1,CHARINDEX('|', @T140_DES_TABLE)-1)
+        SET @VN_VAL_INI = CHARINDEX('|', @T140_DES_TABLE)-1 + 2
 
----BORRAR
- PRINT 'T140_DES_TABLE --> ' + @T140_DES_TABLE                 
+        PRINT 'T140_DES_TABLE --> ' + @T140_DES_TABLE 
+        PRINT CONCAT ('VN_MARCA_AUX --> ', @VN_MARCA_AUX)   
+        PRINT CONCAT ('VN_VAL_INI --> ', @VN_VAL_INI)
+                     
 
  --------------------------------------------------
     DECLARE @OK_SAPP char(5) = 'false'
@@ -163,8 +171,8 @@ SET ANSI_WARNINGS ON
                     T140_LANGUAGE   ='E' AND
                     T140_ENTITY     ='0127')
                     SET @OK_SAPP = 'TRUE'
-                    ELSE
-                    SET @NOK_SAPP = 'TRUE'
+        ELSE
+            SET @NOK_SAPP = 'TRUE'
 
 ---BORRAR                 
     PRINT 'SAPP S --> ' + @OK_SAPP

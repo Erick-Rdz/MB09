@@ -116,10 +116,7 @@ namespace MB2X0009
 
         }
 
-        public void ValidaEntrada(Match match, OdbcConnection conn)
-        {
-       
-        }
+
 
         public bool ValidateInputMessage(Match match, OdbcConnection conn)
         {
@@ -164,6 +161,9 @@ namespace MB2X0009
 
             return true;
         }
+
+
+
 
         public void ExecuteStoreProcedure(OdbcConnection conn)
         {

@@ -12,7 +12,7 @@ namespace MB09
         {
            
            QA1XENT.QA1XENT qa1xent = new QA1XENT.QA1XENT();
-           string cadenaPS9;cadenaPS9 = "<IH>26OLV3    OLV3    NETNET  00000000MB09    000057511O06YE</IH><ME>0210BFILLERFILLER  A693d4754f284494c89b23b0276559834          A                  A06730100291521  A            A            A                 A               A             A             A     A                      </ME>";
+           string cadenaPS9;cadenaPS9 = "<IH>26OLV3    OLV3    NETNET  00000000MB09    000057511O06YE</IH><ME>0673BFILLERFILLER  A0b06c940932c4d04a37cc62384e1f13d          A                  A95461620569614  A            A            A                 A               A             A             A     A                      </ME>";
 
 
 
