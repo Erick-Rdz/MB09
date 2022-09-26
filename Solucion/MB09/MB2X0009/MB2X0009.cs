@@ -57,7 +57,10 @@ namespace MB2X0009
             timer.Start();
 
             GetInputMessage(qaexca, conn);
-
+            string text = "texto";
+            Console.WriteLine(" CON TEXTO --- > " + IsNullOrWhiteSpace(text));
+            text = "";
+            Console.WriteLine(" SIN TEXTO --- > " + IsNullOrWhiteSpace(text));
             // VALIDA LA ENTRADA Y LLAMA AL SP PRINCIPAL
             //if (ValidateInputMessage()) ExecuteStoreProcedure(conn);
 
@@ -120,6 +123,7 @@ namespace MB2X0009
         public bool ValidateInputMessage(Match match, OdbcConnection conn)
         {
             bool tarjetaRet = false;
+            bool cuentaRet = false;
             mbne0009.BDMID = match.Groups["BDMID"].Value.Trim();
             Console.WriteLine("BDMID ---> " + mbne0009.BDMID);
             mbne0009.NUMTARJ = match.Groups["NUMTARJ"].Value.Trim();
@@ -154,28 +158,50 @@ namespace MB2X0009
             }
 
             // VALIDACIÓN NUMCUEN Y NUMTARJ
-            if (IsNullOrWhiteSpace(mbne0009.NUMTARJ) && !IsNullOrWhiteSpace(mbne0009.NUMCUEN))
+            if (IsNullOrWhiteSpace(mbne0009.NUMTARJ) && IsNullOrWhiteSpace(mbne0009.NUMCUEN))
             {
-                if (!validateInt(mbne0009.NUMTARJ))
+                qaexca.CaaSwErrcod = "MCE0813";
+            }
+            else if (!IsNullOrWhiteSpace(mbne0009.NUMTARJ) && !IsNullOrWhiteSpace(mbne0009.NUMCUEN))
+            {
+                qaexca.CaaSwErrcod = "MDE0025";
+            }
+            else
+            {
+                if (IsNullOrWhiteSpace(mbne0009.NUMTARJ) && !IsNullOrWhiteSpace(mbne0009.NUMCUEN))
                 {
-                    qaexca.CaaSwErrcod = "MCE0344";
+                    if (!validateInt(mbne0009.NUMTARJ))
+                        qaexca.CaaSwErrcod = "MCE0344";
+
+                    if (qaexca.LlaveDeFuncion != "01")
+                    {
+                        tarjetaRet = true;
+                    }
+                    else if (qaexca.LlaveDeFuncion == "03" || qaexca.LlaveDeFuncion == "04")
+                    {
+                        qaexca.CaaSwErrcod = "MCE0005";
+                        qaexca.CaaErrVaria1 = "CUENTA";
+                        qaexca.CaaErrVaria2 = qaexca.LlaveDeFuncion;
+                    }
                 }
-                else if (qaexca.LlaveDeFuncion != "01")
+                else if (!IsNullOrWhiteSpace(mbne0009.NUMTARJ) && IsNullOrWhiteSpace(mbne0009.NUMCUEN))
                 {
-                    tarjetaRet = true;
-                }
-                else if (qaexca.LlaveDeFuncion == "03" || qaexca.LlaveDeFuncion == "04")
-                {
-                    qaexca.CaaSwErrcod = "MCE0005";
-                    qaexca.CaaErrVaria1 = "CUENTA";
-                    qaexca.CaaErrVaria2 = qaexca.LlaveDeFuncion;
+                    if (!validateInt(mbne0009.NUMCUEN))
+                    {
+                        qaexca.CaaSwErrcod = "MCE0099";
+                    }
+                    if (qaexca.LlaveDeFuncion != "01" || qaexca.LlaveDeFuncion != "03")
+                    {
+                        cuentaRet = true;
+                    }
                 }
             }
-            else if (!IsNullOrWhiteSpace(mbne0009.NUMTARJ) && IsNullOrWhiteSpace(mbne0009.NUMCUEN))
+
+            if (IsNullOrWhiteSpace(mbne0009.NUMECEL) )
             {
-                if (!validateInt(mbne0009.NUMCUEN))
+                if (IsNullOrWhiteSpace(mbne0009.IDCELUL))
                 {
-                    qaexca.CaaSwErrcod = "MCE0099";
+
                 }
             }
 
