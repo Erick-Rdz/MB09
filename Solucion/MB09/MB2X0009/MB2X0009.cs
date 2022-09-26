@@ -119,43 +119,67 @@ namespace MB2X0009
 
         public bool ValidateInputMessage(Match match, OdbcConnection conn)
         {
-            bool nt = false, nc = false;
+            bool tarjetaRet = false;
             mbne0009.BDMID = match.Groups["BDMID"].Value.Trim();
             Console.WriteLine("BDMID ---> " + mbne0009.BDMID);
-
             mbne0009.NUMTARJ = match.Groups["NUMTARJ"].Value.Trim();
             Console.WriteLine(" NT ---> " + mbne0009.NUMTARJ);
-
             mbne0009.NUMCUEN = match.Groups["NUMCUEN"].Value.Trim();
             Console.WriteLine(" NC ---> " + mbne0009.NUMCUEN);
-
             mbne0009.NUMECEL = match.Groups["NUMECEL"].Value.Trim();
+
+            mbne0009.CONTREG = match.Groups["CONTREG"].Value.Trim();
             mbne0009.DATPAG = match.Groups["DATPAG"].Value.Trim();
             Console.WriteLine(" DATPAG ---> " + mbne0009.DATPAG);
 
+            //mbne0009.CONTREG --- 
+            //mbne0009.DATPAG --- ULTLLAV 
+
             Console.WriteLine(" MATCH SUCCES ");
             Console.WriteLine(" CADENA DATOS " + " " + mbne0009.NUMTARJ + " " + mbne0009.NUMCUEN);
-            
 
-            ExecuteStoreProcedure(conn);
-
-            if (!IsNullOrWhiteSpace(mbne0009.NUMTARJ))
-                if (Regex.IsMatch(mbne0009.NUMTARJ, @"^[0-9]+$"))
-                    nt = true;
-
-            if (!IsNullOrWhiteSpace(mbne0009.NUMCUEN))
-                if (Regex.IsMatch(mbne0009.NUMCUEN, @"^[0-9]+$"))
-                    nc = true;
-
-
-            if ((nt == true && nc == true) || (nt == true && nc == false) || (nt == false && nc == true))
+            // VALIDACIÓN DE CONTREG Y ULTLLAV
+            // NO SE ENCUENTREN VACIOS Y CONTREG SEA NUMÉRICO
+            if (!IsNullOrWhiteSpace(mbne0009.CONTREG) && !IsNullOrWhiteSpace(mbne0009.DATPAG))
             {
-                Console.WriteLine("CADENA CORRECTA" + "     NT " + mbne0009.NUMTARJ + "      NC " + mbne0009.NUMCUEN);
+                if (validateInt(mbne0009.CONTREG))
+                {
+                    qaexca.CaaSwErrcod = "MCE0099";
+                }
             }
             else
             {
-                Console.WriteLine("ERROR CADENA");
+                mbne0009.DATPAG = "9999-12-31 999999999";
+                mbne0009.CONTREG = "00";
             }
+
+            // VALIDACIÓN NUMCUEN Y NUMTARJ
+            if (IsNullOrWhiteSpace(mbne0009.NUMTARJ) && !IsNullOrWhiteSpace(mbne0009.NUMCUEN))
+            {
+                if (!validateInt(mbne0009.NUMTARJ))
+                {
+                    qaexca.CaaSwErrcod = "MCE0344";
+                }
+                else if (qaexca.LlaveDeFuncion != "01")
+                {
+                    tarjetaRet = true;
+                }
+                else if (qaexca.LlaveDeFuncion == "03" || qaexca.LlaveDeFuncion == "04")
+                {
+                    qaexca.CaaSwErrcod = "MCE0005";
+                    qaexca.CaaErrVaria1 = "CUENTA";
+                    qaexca.CaaErrVaria2 = qaexca.LlaveDeFuncion;
+                }
+            }
+            else if (!IsNullOrWhiteSpace(mbne0009.NUMTARJ) && IsNullOrWhiteSpace(mbne0009.NUMCUEN))
+            {
+                if (!validateInt(mbne0009.NUMCUEN))
+                {
+                    qaexca.CaaSwErrcod = "MCE0099";
+                }
+            }
+
+            ExecuteStoreProcedure(conn);
 
 
             return true;
@@ -173,8 +197,10 @@ namespace MB2X0009
             string centAcc = qaexca.Centro;
             string canal = qaexca.Canal;
             string WSS_CUENTA_710 = "C7";
+            //CAA-PRKEY
+            string LlaveDeFuncion = qaexca.LlaveDeFuncion;
 
-            Console.WriteLine("centAcc --> " + centAcc + " canal --> " + canal + " WSS_CUENTA_710 --> " + WSS_CUENTA_710);
+            Console.WriteLine("centAcc --> " + centAcc + " canal --> " + canal + " WSS_CUENTA_710 --> " + WSS_CUENTA_710 + " LlaveDeFuncion --> " + LlaveDeFuncion);
 
 
 
