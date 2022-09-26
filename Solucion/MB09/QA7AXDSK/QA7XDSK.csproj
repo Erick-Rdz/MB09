@@ -84,5 +84,11 @@
     <Compile Include="QA7XDSK.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\QA1XENT\QA1XENT.csproj">
+      <Project>{0809c931-6911-4127-a232-3640fe71d104}</Project>
+      <Name>QA1XENT</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

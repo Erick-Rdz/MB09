@@ -59,8 +59,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\QA1AXENT\QA1XENT.csproj">
-      <Project>{C274B653-43D1-4B1B-AC26-8090D7D58F4C}</Project>
+    <ProjectReference Include="..\QA1XENT\QA1XENT.csproj">
+      <Project>{0809c931-6911-4127-a232-3640fe71d104}</Project>
       <Name>QA1XENT</Name>
     </ProjectReference>
   </ItemGroup>
