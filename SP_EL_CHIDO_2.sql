@@ -12,18 +12,12 @@ ALTER  PROCEDURE [MAZP].[SP_MB09Prueba01]
 @IP_WSS_CUENTA_710 char(5),
 @IP_PRKEY char (2),
 @IP_NUMCUEN char (14),
----------------------------------
 
 --- VARIABLES ENTRADA SP's
 @IP_OPCION CHAR (1),
 @IP_ENT_IN char(4), 
 @IP_BDMID_IN char(40), 
---@IP_BRN_OPEN char(4), 
---@COD_PROD char(2), 
---@IP_NUM_ACC char(8), 
---@IP_FECHA_ACCT char(10), 
 @IP_ULLAVE char(20),
----------------------------------
 
 --- VARIABLES SALIDA SP's
 @REG1 char(4000) OUTPUT, 
@@ -41,10 +35,7 @@ ALTER  PROCEDURE [MAZP].[SP_MB09Prueba01]
 @REG13 char(4000) OUTPUT, 
 @REG14 char(4000) OUTPUT, 
 @REG15 char(4000) OUTPUT,
----------------------------------
 
-@BAN71 CHAR(03), 
---@IP_FECHA_ACCT char(10),
 @MOV71 VARCHAR(MAX) ='{}'OUT,
 @MOV710 VARCHAR(MAX)='{}' OUT, 
 @403_Json VARCHAR(MAX)=' ' OUT, 
@@ -70,6 +61,9 @@ SET ANSI_WARNINGS ON
     DECLARE @NUM_ACC char(8)
     DECLARE @FECHA_ACCT char(10) 
     DECLARE @NumRegRest int = 0
+
+    -- VALIDA TABLA
+    DECLARE @BAN71 CHAR(03)
 
     --- CONSULTA-PARAM-DIGITALES
     DECLARE @VN_MARCA_AUX VARCHAR (30) = NULL
@@ -111,11 +105,13 @@ SET ANSI_WARNINGS ON
 
     SET @Cont = 1 
     SET @NumReg=15
-
+    PRINT '@IP_NUMCUEN --> ' + @IP_NUMCUEN
     SET @BRN_OPEN = SUBSTRING(@IP_NUMCUEN,1,4)
+    PRINT '@BRN_OPEN --> ' + @BRN_OPEN
     SET @COD_PROD = SUBSTRING(@IP_NUMCUEN,5,2)
+    PRINT '@COD_PROD -->  ' + @COD_PROD 
     SET @NUM_ACC = SUBSTRING(@IP_NUMCUEN,7,8)
-    PRINT '@BRN_OPEN --> ' + @BRN_OPEN + ' @COD_PROD -->  ' + @COD_PROD + '  @NUM_ACC ---> ' + @NUM_ACC
+    PRINT '@NUM_ACC ---> ' + @NUM_ACC
    
     SET LOCK_TIMEOUT 300
 
