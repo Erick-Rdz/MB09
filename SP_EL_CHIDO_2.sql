@@ -11,16 +11,17 @@ ALTER  PROCEDURE [MAZP].[SP_MB09Prueba01]
 @IP_WSS_CUENTA char(5),
 @IP_WSS_CUENTA_710 char(5),
 @IP_PRKEY char (2),
+@IP_NUMCUEN char (14),
 ---------------------------------
 
 --- VARIABLES ENTRADA SP's
 @IP_OPCION CHAR (1),
 @IP_ENT_IN char(4), 
 @IP_BDMID_IN char(40), 
-@IP_BRN_OPEN char(4), 
-@IP_COD_PROD char(2), 
-@IP_NUM_ACC char(8), 
-@IP_FECHA char(10), 
+--@IP_BRN_OPEN char(4), 
+--@COD_PROD char(2), 
+--@IP_NUM_ACC char(8), 
+--@IP_FECHA_ACCT char(10), 
 @IP_ULLAVE char(20),
 ---------------------------------
 
@@ -43,7 +44,7 @@ ALTER  PROCEDURE [MAZP].[SP_MB09Prueba01]
 ---------------------------------
 
 @BAN71 CHAR(03), 
-@IP_FECHA_ACCT char(10),
+--@IP_FECHA_ACCT char(10),
 @MOV71 VARCHAR(MAX) ='{}'OUT,
 @MOV710 VARCHAR(MAX)='{}' OUT, 
 @403_Json VARCHAR(MAX)=' ' OUT, 
@@ -54,16 +55,21 @@ AS
 SET NOCOUNT ON
 SET ANSI_WARNINGS ON
 
-    DECLARE @IP_FECHA_tm Date
+    DECLARE @FECHA_CALC Date
     DECLARE @CuentaN char(4000)
     DECLARE @CuentaN710 char(4000)
     DECLARE @Cont int
     DECLARE @NumReg int
-
     DECLARE @NumOperacion char(9)
     DECLARE @DatOp char(10)
-      
     DECLARE @403 char(100)
+
+    -- VARIABLES DP V5
+    DECLARE @BRN_OPEN char(4) 
+    DECLARE @COD_PROD char(2) 
+    DECLARE @NUM_ACC char(8)
+    DECLARE @FECHA_ACCT char(10) 
+    DECLARE @NumRegRest int = 0
 
     --- CONSULTA-PARAM-DIGITALES
     DECLARE @VN_MARCA_AUX VARCHAR (30) = NULL
@@ -90,10 +96,7 @@ SET ANSI_WARNINGS ON
     DECLARE @T041_FCC CHAR (4) = NULL -- 4
     DECLARE @T140_DES_TABLE CHAR (250) = NULL-- 250
 
-    --V5
-    DECLARE @NumRegRest int =0
-
-    --SUMA SOBRES
+--SUMA SOBRES
     DECLARE @OP_T039_SALDO CHAR (5) = NULL 
     DECLARE @OP_T039_ID_CTA_META CHAR (5) = NULL 
     DECLARE @OP_T039_SALDO_SOBRES CHAR (5) = NULL 
@@ -109,6 +112,11 @@ SET ANSI_WARNINGS ON
     SET @Cont = 1 
     SET @NumReg=15
 
+    SET @BRN_OPEN = SUBSTRING(@IP_NUMCUEN,1,4)
+    SET @COD_PROD = SUBSTRING(@IP_NUMCUEN,5,2)
+    SET @NUM_ACC = SUBSTRING(@IP_NUMCUEN,7,8)
+    PRINT '@BRN_OPEN --> ' + @BRN_OPEN + ' @COD_PROD -->  ' + @COD_PROD + '  @NUM_ACC ---> ' + @NUM_ACC
+   
     SET LOCK_TIMEOUT 300
 
 -----------------------------------------------------------------------------------
@@ -117,7 +125,7 @@ SET ANSI_WARNINGS ON
 
 ---
 ------------ 22000-CALCULA-FECHA (SE RESTAN 3 MESES A LA FECHA EN CURSO) ----------
-   SET @IP_FECHA_tm = DATEADD(MONTH, -3,GETDATE())
+   SET @FECHA_CALC = DATEADD(MONTH, -3,GETDATE())
 ------------------------------------------------------------------------------------
 
 ------------ 22000-LLAMADO-SP -----------
@@ -134,7 +142,7 @@ SET ANSI_WARNINGS ON
     ELSE
         SET @APAGA_JSON = 'TRUE'
 ---BORRAR
-    PRINT 'PRENDE_JSON --> ' +  @PRENDE_JSON
+    PRINT 'PRENDE_JSON --> ' + @PRENDE_JSON
     PRINT 'APAGA_JSON --> ' + @APAGA_JSON
  
 ------------ CONSULTA-PARAM-DIGITALES
@@ -168,6 +176,7 @@ SET ANSI_WARNINGS ON
 ---BORRAR                 
     PRINT 'SAPP S --> ' + @OK_SAPP
     PRINT 'SAPP N --> ' + @NOK_SAPP
+
 ----------------------- FUNCIONA ---------------------------
     
     
@@ -205,9 +214,9 @@ SELECT @403=ISNULL(T403_NUM_BIN,' ') + '|@' + --6
              ISNULL(B.T041_FCC,' ') + '|@' + -- 4
              ISNULL(C.T140_DES_TABLE,' ') + '|@'-- 250
         FROM MAZP.PEDT008 as A with(nolock) INNER JOIN MAZP.BGDT041 AS B with(nolock) ON
-                  NUM_ACCOUNT  = @IP_NUM_ACC
-							AND BRN_OPEN     = @IP_BRN_OPEN
-							AND COD_PRODSERV = @IP_COD_PROD
+                  NUM_ACCOUNT  = @NUM_ACC
+							AND BRN_OPEN     = @BRN_OPEN
+							AND COD_PRODSERV = @COD_PROD
 							AND COD_ENTITY   = @IP_ENT_IN --FIJO
 							AND KEY_PARTIC   = 'T' --FIJO
 							AND PARTSEQ      = '01' -- FIJO
@@ -255,10 +264,10 @@ SELECT @403=ISNULL(T403_NUM_BIN,' ') + '|@' + --6
                 AND T606_NUM_OPERATION = T089_NUM_WHD
                 AND T606_DAT_OPERATION = T089_DAT_REG
              
-             WHERE T089_ACC = @IP_COD_PROD+@IP_NUM_ACC AND 
-                   T089_CEN_REG = @IP_BRN_OPEN AND 
+             WHERE T089_ACC = @COD_PROD+@NUM_ACC AND 
+                   T089_CEN_REG = @BRN_OPEN AND 
                    T089_ENT = @IP_ENT_IN AND
-				   T089_DAT_REG > = @IP_FECHA AND --VAR ENTRADA
+				   T089_DAT_REG > = @FECHA_CALC AND --VAR ENTRADA
 				   T089_DAT_REG + STR(T089_NUM_WHD) < @IP_ULLAVE AND --FIJO
 				   T089_STATUS = '1' --FIJO
   		 ORDER BY T089_DAT_REG DESC , T089_NUM_WHD DESC
@@ -383,9 +392,9 @@ SELECT @403=ISNULL(T403_NUM_BIN,' ') + '|@' + --6
                     ISNULL(B.T041_FCC,' ') + '|@' + -- 4
                     ISNULL(C.T140_DES_TABLE,' ') + '|@'-- 250
                 FROM MAZP.PEDT008 as A with(nolock) INNER JOIN MAZP.BGDT041 AS B with(nolock) ON
-                        NUM_ACCOUNT  = @IP_NUM_ACC
-                                    AND BRN_OPEN     = @IP_BRN_OPEN
-                                    AND COD_PRODSERV = @IP_COD_PROD
+                        NUM_ACCOUNT  = @NUM_ACC
+                                    AND BRN_OPEN     = @BRN_OPEN
+                                    AND COD_PRODSERV = @COD_PROD
                                     AND COD_ENTITY   = @IP_ENT_IN --FIJO
                                     AND KEY_PARTIC   = 'T' --FIJO
                                     AND PARTSEQ      = '01' -- FIJO
@@ -444,10 +453,10 @@ SELECT @403=ISNULL(T403_NUM_BIN,' ') + '|@' + --6
                         AND T606_NUM_OPERATION = T071_NUM_OPERATION
                         AND T606_DAT_OPERATION = T071_DAT_OPERATION
                                                                     
-                    WHERE A.T071_ACC = @IP_COD_PROD+@IP_NUM_ACC AND 
-                        A.T071_CEN_REG = @IP_BRN_OPEN AND 
+                    WHERE A.T071_ACC = @COD_PROD+@NUM_ACC AND 
+                        A.T071_CEN_REG = @BRN_OPEN AND 
                         A.T071_ENT = @IP_ENT_IN AND
-                        A.T071_DAT_OPERATION > = @IP_FECHA AND --VAR ENTRADA
+                        A.T071_DAT_OPERATION > = @FECHA_CALC AND --VAR ENTRADA
                 A.T071_DAT_OPERATION + STR(A.T071_NUM_OPERATION) < @IP_ULLAVE AND --FIJO
                 A.T071_FLG_ANN = 'N' --FIJO
                 
@@ -587,10 +596,10 @@ SELECT @403=ISNULL(T403_NUM_BIN,' ') + '|@' + --6
                         AND T606_NUM_OPERATION = T071_NUM_OPERATION
                         AND T606_DAT_OPERATION = T071_DAT_OPERATION
             
-                    WHERE A.T071_ACC = @IP_COD_PROD+@IP_NUM_ACC AND 
-                        A.T071_CEN_REG = @IP_BRN_OPEN AND 
+                    WHERE A.T071_ACC = @COD_PROD+@NUM_ACC AND 
+                        A.T071_CEN_REG = @BRN_OPEN AND 
                         A.T071_ENT = @IP_ENT_IN AND
-                        A.T071_DAT_OPERATION > = @IP_FECHA AND --VAR ENTRADA
+                        A.T071_DAT_OPERATION > = @FECHA_CALC AND --VAR ENTRADA
                         A.T071_DAT_OPERATION + STR(A.T071_NUM_OPERATION) COLLATE SQL_Latin1_General_CP1_CI_AS < @IP_ULLAVE AND --FIJO
                         A.T071_FLG_ANN = 'N' 
                     ORDER BY A.T071_NUM_OPERATION DESC
@@ -700,6 +709,7 @@ SELECT @403=ISNULL(T403_NUM_BIN,' ') + '|@' + --6
     ELSE IF (@PRENDE_JSON = 'TRUE' AND (@IP_WSS_CUENTA = 'TRUE' OR @IP_WSS_CUENTA_710 = 'TRUE')) 
         BEGIN
         ---
+            SET @FECHA_ACCT = SUBSTRING(@IP_ULLAVE,1,10)
             PRINT 'ENTRO MB09_MB2CF119 V5 --- WC ' + @IP_WSS_CUENTA + ' --- AJ  ' + @IP_WSS_CUENTA_710
         ---
             SET @403_Json  = ISNULL
@@ -720,9 +730,9 @@ SELECT @403=ISNULL(T403_NUM_BIN,' ') + '|@' + --6
                     ISNULL(B.T041_FCC,' ') as T041_FCC,-- 4
                     ISNULL(C.T140_DES_TABLE,' ') as T140_DES_TABLE-- 250
                 FROM MAZP.PEDT008 as A with(nolock) INNER JOIN MAZP.BGDT041 AS B with(nolock) ON
-                        NUM_ACCOUNT  = @IP_NUM_ACC
-                                    AND BRN_OPEN     = @IP_BRN_OPEN
-                                    AND COD_PRODSERV = @IP_COD_PROD
+                        NUM_ACCOUNT  = @NUM_ACC
+                                    AND BRN_OPEN     = @BRN_OPEN
+                                    AND COD_PRODSERV = @COD_PROD
                                     AND COD_ENTITY   = @IP_ENT_IN --FIJO
                                     AND KEY_PARTIC   = 'T' --FIJO
                                     AND PARTSEQ      = '01' -- FIJO
@@ -766,12 +776,12 @@ SELECT @403=ISNULL(T403_NUM_BIN,' ') + '|@' + --6
                             T606_ACC           = T071_ACC
                         AND T606_NUM_OPERATION = T071_NUM_OPERATION
                         AND T606_DAT_OPERATION = T071_DAT_OPERATION
-                    WHERE A.T071_ACC                             = @IP_COD_PROD+@IP_NUM_ACC  AND 
-                        A.T071_CEN_REG                           = @IP_BRN_OPEN           AND 
+                    WHERE A.T071_ACC                             = @COD_PROD+@NUM_ACC  AND 
+                        A.T071_CEN_REG                           = @BRN_OPEN           AND 
                         A.T071_ENT                               = @IP_ENT_IN             AND
-                        A.T071_DAT_OPERATION                    >=@IP_FECHA               AND
+                        A.T071_DAT_OPERATION                    >=@FECHA_CALC              AND
                         T071_DAT_ACCT + STR(T071_NUM_OPERATION) < @IP_ULLAVE              AND
-                        T071_DAT_ACCT                           <=@IP_FECHA_ACCT          AND
+                        T071_DAT_ACCT                           <=@FECHA_ACCT          AND
                         A.T071_FLG_ANN                           = 'N' --FIJO                     
                 ORDER BY T071_DAT_ACCT DESC , T071_NUM_OPERATION DESC
             FOR JSON PATH),'{}')               
@@ -812,12 +822,12 @@ SELECT @403=ISNULL(T403_NUM_BIN,' ') + '|@' + --6
                         T606_ACC           = T071_ACC
                     AND T606_NUM_OPERATION = T071_NUM_OPERATION
                     AND T606_DAT_OPERATION = T071_DAT_OPERATION                                                             
-                    WHERE A.T071_ACC                               = @IP_COD_PROD+@IP_NUM_ACC  AND 
-                        A.T071_CEN_REG                           = @IP_BRN_OPEN           AND 
+                    WHERE A.T071_ACC                               = @COD_PROD+@NUM_ACC  AND 
+                        A.T071_CEN_REG                           = @BRN_OPEN           AND 
                         A.T071_ENT                               = @IP_ENT_IN             AND
-                        A.T071_DAT_OPERATION                    >=@IP_FECHA               AND
+                        A.T071_DAT_OPERATION                    >=@FECHA_CALC               AND
                         T071_DAT_ACCT + STR(T071_NUM_OPERATION) < @IP_ULLAVE              AND
-                        T071_DAT_ACCT                           <=@IP_FECHA_ACCT          AND
+                        T071_DAT_ACCT                           <=@FECHA_ACCT          AND
                         A.T071_FLG_ANN                           = 'N' --FIJO                     
                 ORDER BY T071_DAT_ACCT DESC , T071_NUM_OPERATION DESC
             FOR JSON PATH),'{}')    
