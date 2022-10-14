@@ -119,7 +119,7 @@ SET ANSI_WARNINGS ON
 --    PROCESO  --------------------------------------------------------------------                              
 -----------------------------------------------------------------------------------
 
----
+
 ------------ 22000-CALCULA-FECHA (SE RESTAN 3 MESES A LA FECHA EN CURSO) ----------
    SET @FECHA_CALC = DATEADD(MONTH, -3,GETDATE())
 ------------------------------------------------------------------------------------
@@ -129,14 +129,17 @@ SET ANSI_WARNINGS ON
     DECLARE @PRENDE_JSON char(5) = 'FALSE';
         
     IF EXISTS(SELECT T140_DES_TABLE --6,            
-            FROM MBDT140 with (nolock)
-               WHERE T140_KEY_TABLE  = 'MB09'
+              FROM MBDT140 with (nolock)
+              WHERE T140_KEY_TABLE  = 'MB09'
                  AND T140_COD_TABLE  = 'JSON'
                  AND T140_ENTITY     =  0127
                  AND T140_LANGUAGE   = 'E') 
                  SET @PRENDE_JSON = 'TRUE'
     ELSE
         SET @APAGA_JSON = 'TRUE'
+
+    SET @APAGA_JSON = 'TRUE' 
+    SET @PRENDE_JSON = 'FALSE'   
 ---BORRAR
     PRINT 'PRENDE_JSON --> ' + @PRENDE_JSON
     PRINT 'APAGA_JSON --> ' + @APAGA_JSON
@@ -178,7 +181,7 @@ SET ANSI_WARNINGS ON
     
 ----------- METODOS DE EXTRACCION DE DATOS -----------
 
------------ 21100-PRENDE-TABLA
+----------- 21100-PRENDE-TABLA -----------
 IF @IP_WSS_CUENTA = 'TRUE'
     SET @BAN71 = '071'
 ELSE IF (@IP_WSS_CUENTA_710 = 'TRUE')
@@ -189,9 +192,9 @@ ELSE IF (@IP_WSS_CUENTA_710 = 'TRUE')
         
         BEGIN
         ---
-            PRINT 'ENTRO MB09_MB2CF219 --- ' + @IP_WSS_RET_CTA
+            PRINT ' ENTRO MB09_MB2CF219 --- WS-RET ' + @IP_WSS_RET_CTA
 
---- OBTENER LOS DATOS PRINCIPALES DEL PROCESO --
+--- OBTENER LOS DATOS PRINCIPALES DEL PROCESO -----------
 SELECT @403=ISNULL(T403_NUM_BIN,' ') + '|@' + --6
              ISNULL(T403_NUM_CRD,' ') + '|@' + --10
              ISNULL(T403_NUM_CLTE,' ') + '|@' + --8
@@ -377,6 +380,7 @@ SELECT @403=ISNULL(T403_NUM_BIN,' ') + '|@' + --6
                     ISNULL(T403_TEL_CEL,' ') + '|@' --15
             FROM MAZP.MCDT403 AS A with (nolock) 
             WHERE T403_BDMID = @IP_BDMID_IN
+
         --********************************                
                    
             SELECT @008_041_140=ISNULL(A.NUM_CUS,' ') + '|@' + --8
@@ -402,6 +406,7 @@ SELECT @403=ISNULL(T403_NUM_BIN,' ') + '|@' + --6
                                 AND T140_COD_TABLE = '0406' --FIJO
                                 AND T140_LANGUAGE  = 'E' -- FIJO
                                 AND T140_ENTITY    = @IP_ENT_IN
+
         --*********************************       
             DECLARE CuentasCursor CURSOR 
                 FOR 
@@ -410,7 +415,7 @@ SELECT @403=ISNULL(T403_NUM_BIN,' ') + '|@' + --6
                     
             SELECT TOP 15 
                 ISNULL(A.T071_DAT_OPERATION,' ') + ISNULL(STR(A.T071_NUM_OPERATION),' ') COLLATE SQL_Latin1_General_CP1_CI_AS + '|@' + --20 
-            ISNULL(CAST(A.T071_NUM_OPERATION as varchar(9)),'000000000') + '|@' + -- 9
+                ISNULL(CAST(A.T071_NUM_OPERATION as varchar(9)),'000000000') + '|@' + -- 9
                 ISNULL(A.T071_DAT_OPERATION,' ') + '|@' + -- 10
                 ISNULL(T071_DAT_VALUE,' ') + '|@' + -- 10
                 ISNULL(SUBSTRING(T071_TIMESTAMP,12,2)+SUBSTRING(T071_TIMESTAMP,15,2)+SUBSTRING(T071_TIMESTAMP,18,2),' ') + '|@' + -- 6
@@ -462,7 +467,7 @@ SELECT @403=ISNULL(T403_NUM_BIN,' ') + '|@' + --6
              OPEN CuentasCursor
 
             FETCH NEXT FROM CuentasCursor INTO @CuentaN,@DatOp,@NumOperacion
-      
+
             WHILE @@fetch_status = 0 and @Cont < ( @NumReg + 1) 
             BEGIN
                                     
@@ -538,13 +543,12 @@ SELECT @403=ISNULL(T403_NUM_BIN,' ') + '|@' + --6
                         SET @REG15 = RTRIM(isnull(@403,' |@ |@ |@ |@9|@ '))+RTRIM(isnull(@008_041_140,' |@ |@ |@ |@ |@ |@ |@ |@ '))+RTRIM(@CuentaN) 
                 END
                 
-                
                 SET @Cont = @Cont + 1
                 
                 FETCH NEXT FROM CuentasCursor INTO @CuentaN,@DatOp,@NumOperacion
                 
             END
-
+            
             CLOSE  CuentasCursor
             DEALLOCATE CuentasCursor
             IF @Cont < 15

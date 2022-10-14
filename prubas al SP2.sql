@@ -1,5 +1,5 @@
-
 DECLARE @RC int
+
 -- ENTRADA
 DECLARE @IP_CAA_CEN_ACCOUNT varchar(4)
 DECLARE @IP_CAA_CHANN varchar(2)
@@ -29,7 +29,6 @@ DECLARE @REG12 char(4000)
 DECLARE @REG13 char(4000)
 DECLARE @REG14 char(4000)
 DECLARE @REG15 char(4000)
---DECLARE @BAN71 char(3)
 DECLARE @MOV71 varchar(max)
 DECLARE @MOV710 varchar(max)
 DECLARE @403_Json varchar(max)
@@ -38,7 +37,7 @@ DECLARE @datosCuenta varchar(max)
 -- TODO: Set parameter values here.
 SET @IP_CAA_CEN_ACCOUNT = 9546
 SET @IP_CAA_CHANN = 06
-SET @IP_WSS_RET_CTA = 'TRUE'
+SET @IP_WSS_RET_CTA = 'FALSE'
 SET @IP_WSS_CUENTA ='TRUE'
 SET @IP_WSS_CUENTA_710 ='TRUE'
 SET @IP_PRKEY = '01'
@@ -81,9 +80,9 @@ EXECUTE @RC = [MAZP].[SP_MB09Prueba01]
   ,@datosCuenta OUTPUT
 
 
-/*
-  select 
-@IP_CAA_CEN_ACCOUNT
+
+  SELECT 
+  @IP_CAA_CEN_ACCOUNT AS " CEN ACC"
   ,@IP_CAA_CHANN
   ,@IP_WSS_RET_CTA
   ,@IP_WSS_CUENTA
@@ -92,8 +91,8 @@ EXECUTE @RC = [MAZP].[SP_MB09Prueba01]
   ,@IP_ENT_IN
   ,@IP_BDMID_IN
   ,@IP_ULLAVE
-  ,@REG1 
-  ,@REG2 
+  ,@REG1  AS "REG1"
+  ,@REG2  AS "REG2"
   ,@REG3 
   ,@REG4 
   ,@REG5 
@@ -106,12 +105,11 @@ EXECUTE @RC = [MAZP].[SP_MB09Prueba01]
   ,@REG12 
   ,@REG13 
   ,@REG14 
-  ,@REG15 
-  ,@BAN71
+  ,@REG15  AS "REG15"
   ,@MOV71 
   ,@MOV710 
   ,@403_Json 
-  ,@datosCuenta */
+  ,@datosCuenta AS "DATOS CUENTA"
 
 GO
 

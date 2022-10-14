@@ -55,3 +55,7 @@ C:\Users\PROR9902\Desktop\MT05\MT05\MT05\MT05\QA1XENT\obj\x86\Release\QA1XENT.cs
 C:\Users\PROR9902\Desktop\MT05\MT05\MT05\MT05\QA1XENT\obj\x86\Release\QA1XENT.csproj.CopyComplete
 C:\Users\PROR9902\Desktop\MT05\MT05\MT05\MT05\QA1XENT\obj\x86\Release\QA1XENT.dll
 C:\Users\PROR9902\Desktop\MT05\MT05\MT05\MT05\QA1XENT\obj\x86\Release\QA1XENT.pdb
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1XENT\obj\x86\Release\QA1XENT.csproj.AssemblyReference.cache
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1XENT\obj\x86\Release\QA1XENT.csproj.CoreCompileInputs.cache
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1XENT\obj\x86\Release\QA1XENT.dll
+E:\Users\10039303\Documents\GitHub\MB09\Solucion\MB09\QA1XENT\obj\x86\Release\QA1XENT.pdb

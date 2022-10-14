@@ -58,10 +58,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MT2X0005\MT2X0005.csproj">
-      <Project>{c2a16a66-da39-4591-a36c-38968349d359}</Project>
-      <Name>MT2X0005</Name>
-    </ProjectReference>
     <ProjectReference Include="..\QA1XIP9\QA1XIP9.csproj">
       <Project>{37896ec3-bf87-4fb0-b03a-9432d8b2372b}</Project>
       <Name>QA1XIP9</Name>

@@ -1,0 +1,107 @@
+
+SELECT  ISNULL(T403_NUM_BIN,' ') AS 'T403_NUM_BIN', --6
+        ISNULL(T403_NUM_CRD,' ') AS 'T403_NUM_CRD', --10
+        ISNULL(T403_NUM_CLTE,' ') AS 'T403_NUM_CLTE', --8
+        ISNULL(T403_NUM_CTA,' ') AS 'T403_NUM_CTA', --20
+        ISNULL(T403_TEL_CEL,' ') AS 'T403_TEL_CEL' --15
+    INTO #403_TEMP
+    FROM MAZP.MCDT403 AS A with (nolock) 
+    WHERE T403_BDMID = '07f700ea463c4331b877e9063baaff03'
+go
+
+SELECT * FROM #403_TEMP
+
+--*****************************************
+                      
+SELECT   
+             ISNULL(A.NUM_CUS,' ') AS 'T008_NUM_CUS', --8
+             ISNULL(B.T041_CAC_DIG1,' ') AS 'T041_CAC_DIG1',  -- 1
+             ISNULL(B.T041_CAC_DIG2,' ') AS 'T041_CAC_DIG2', -- 1
+             ISNULL(B.T041_COD_PRODUCT,' ') AS ' T041_COD_PRODUCT', -- 2
+             ISNULL(B.T041_COD_SPROD,' ') AS 'T041_COD_SPROD', -- 4
+             ISNULL(B.T041_CEN_ACCT,' ') AS 'T041_CEN_ACCT' ,-- 4
+             ISNULL(B.T041_FCC,' ') AS 'T041_FCC', -- 4
+             ISNULL(C.T140_DES_TABLE,' ') AS 'T140_DES_TABLE' -- 250
+        INTO #008_041_140_TEMP
+        FROM MAZP.PEDT008 as A with(nolock) INNER JOIN MAZP.BGDT041 AS B with(nolock) ON
+                  NUM_ACCOUNT  = '45958752'
+							AND BRN_OPEN     = 0100
+							AND COD_PRODSERV = 13
+							AND COD_ENTITY   = 0127 --FIJO
+							AND KEY_PARTIC   = 'T' --FIJO
+							AND PARTSEQ      = '01' -- FIJO
+							AND T041_CEN_REG = 0100
+							AND T041_ACC  = '1345958752'
+							AND T041_ENT  = 0127
+    LEFT JOIN MAZP.BGDT140 AS C with(nolock) ON
+		      				T140_KEY_TABLE = B.T041_COD_PRODUCT+B.T041_COD_SPROD
+					    AND T140_COD_TABLE = '0406' --FIJO
+					    AND T140_LANGUAGE  = 'E' -- FIJO
+					    AND T140_ENTITY    = 0127    
+GO
+
+SELECT * FROM #008_041_140_TEMP
+
+
+--*****************************************
+
+SELECT *
+    INTO #403_008_041_140_TEMP
+    FROM #403_TEMP CROSS JOIN  #008_041_140_TEMP
+GO
+
+DROP TABLE #403_TEMP, #008_041_140_TEMP
+
+--******************************************
+
+SELECT * FROM #403_008_041_140_TEMP
+
+
+--*****************************************
+
+SELECT TOP 15  
+	      ISNULL(T089_DAT_REG,' ') + ISNULL(STR(T089_NUM_WHD),' ') COLLATE SQL_Latin1_General_CP1_CI_AS AS 'T089_DAT_REG_NUM_WHD', --15
+	      ISNULL(CAST(T089_NUM_WHD as varchar(5)),'00000') AS 'T089_NUM_WHD', -- 5
+	      ISNULL(T089_DAT_REG,' ') AS 'T089_DAT_REG',  -- 10
+	      ISNULL(T089_TIM_REG,' ') AS 'T089_TIM_REG', -- 8
+	      ISNULL(CAST(T089_AMT_ORIGIN as varchar(15)),'+00000000000.00') AS 'T089_AMT_ORIGIN', -- 15
+          ISNULL(CAST(T089_AMT_CURRENT as varchar(15)),'+00000000000.00') AS 'T089_AMT_CURRENT' , -- 15				  
+          ISNULL(T089_CODE,'   ') AS 'T089_CODE' ,-- 3
+          ISNULL(T089_OBSERVATIONS,' ') AS 'T089_OBSERVATIONS', -- 40
+          ISNULL(T100_BIGALP,' ') AS 'T100_BIGALP', -- 34 
+          ISNULL(T606_ACC,' ') AS 'T606_ACC', -- 16
+          ISNULL(CAST(T606_AMOUNT as varchar(17)),'+0000000000000.00') AS 'T606_AMOUNT', -- 17
+          ISNULL(CAST(T606_NUM_OPERATION as varchar(9)),'000000000') AS 'T606_NUM_OPERATION', -- 9
+          ISNULL(T606_DESCRIPTION,' ') AS 'T606_DESCRIPTION', -- 150
+          ISNULL(T606_PATH,' ') AS 'T606_PATH', -- 250
+          ISNULL(CAST(T606_GPS_LAT as varchar(17)),'+000000000.000000') AS 'T606_GPS_LAT', -- 17
+          ISNULL(CAST(T606_GPS_LONG as varchar(17)),'+000000000.000000') AS 'T606_GPS_LONG', -- 17
+          ISNULL(T606_DAT_OPERATION,' ') AS 'T606_DAT_OPERATION', -- 10
+          ISNULL(T606_FLG_FREE1,' ') AS 'T606_FLG_FREE1', -- 1
+          ISNULL(T606_CHAR_FREE1,' ') AS 'T606_CHAR_FREE1'  -- 30
+          INTO #T089_T100_T606_TEMP
+             FROM MAZP.BGDT089 AS A with (nolock) 
+        LEFT JOIN MAZP.BLDT002 with (nolock) ON 
+                   T100_CODE = T089_CODE AND
+                   T100_LANGUAGE = 'E'
+        LEFT JOIN MAZP.BGDT606 with (nolock) ON
+                    T606_ACC           = T089_ACC
+                AND T606_NUM_OPERATION = T089_NUM_WHD
+                AND T606_DAT_OPERATION = T089_DAT_REG
+               WHERE T089_ACC = '1748707743' AND 
+                   T089_CEN_REG = 3370 AND 
+                   T089_ENT = 0127 AND
+				   T089_DAT_REG > = '2022-07-10' AND --VAR ENTRADA
+				   T089_DAT_REG + STR(T089_NUM_WHD) < '9999-12-31 999999999' AND --FIJO
+				   T089_STATUS = '1' --FIJO
+  		 ORDER BY T089_DAT_REG DESC , T089_NUM_WHD DESC
+go
+
+SELECT *
+    INTO #403_008_041_140_T089_T100_T606_TEMP
+    FROM #403_008_041_140_TEMP CROSS JOIN  #T089_T100_T606_TEMP
+GO
+
+SELECT * FROM #403_008_041_140_T089_T100_T606_TEMP
+
+DROP TABLE #403_008_041_140_TEMP, #T089_T100_T606_TEMP

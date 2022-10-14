@@ -59,8 +59,10 @@ namespace MB2X0009
             GetInputMessage(qaexca, conn);
             string text = "texto";
             Console.WriteLine(" CON TEXTO --- > " + IsNullOrWhiteSpace(text));
+
             text = "";
             Console.WriteLine(" SIN TEXTO --- > " + IsNullOrWhiteSpace(text));
+
             // VALIDA LA ENTRADA Y LLAMA AL SP PRINCIPAL
             //if (ValidateInputMessage()) ExecuteStoreProcedure(conn);
 
@@ -78,12 +80,12 @@ namespace MB2X0009
 
         public void GetInputMessage(QAEXCA.QAEXCA qaexca, OdbcConnection conn)
         {
-           
+
             Console.WriteLine("GetInputMessage --> " + qaexca.getStringValues());
 
             this.qaexca = qaexca;
 
-            string regexPattern = @"\<ME\>(?<FILLER>\w{17}\s{2})" +
+            string regexPattern =   @"\<ME\>(?<FILLER>\w{17}\s{2})" +
                                     @"A(?<BDMID>[\w\W]{0,40}\s{2})" +
                                     @"A(?<NUMTARJ>[\w\W]{16}\s{2})" +
                                     @"A(?<NUMCUEN>[\w\W]{14}\s{2})" +
@@ -93,16 +95,16 @@ namespace MB2X0009
                                     @"A(?<IDCELUL>[\w\W]{13}\s{2})" +
                                     @"A(?<LATITUD>[\w\W]{11}\s{2})" +
                                     @"A(?<LONGITD>[\w\W]{11}\s{2})" +
-                                    @"A(?<CONTREG>[\w\W]{3}\s{2})" +
+                                    @"A(?<CONTREG>[\w\W]{3}\s{2})"  +
                                     @"A(?<DATPAG>[\w\W]{22})";
 
             var match = Regex.Match(qaexca.MensajeEntrada, regexPattern);
-                      
+
             try
             {
                 if (match.Success)
                 {
-                    ValidateInputMessage(match, conn); 
+                    ValidateInputMessage(match, conn);
                 }
                 else
                 {
@@ -118,12 +120,11 @@ namespace MB2X0009
 
         }
 
-
-
         public bool ValidateInputMessage(Match match, OdbcConnection conn)
         {
-            bool tarjetaRet = false;
-            bool cuentaRet = false;
+            bool TarjetaRet = false;
+            bool CuentaRet = false;
+
             mbne0009.BDMID = match.Groups["BDMID"].Value.Trim();
             Console.WriteLine("BDMID ---> " + mbne0009.BDMID);
             mbne0009.NUMTARJ = match.Groups["NUMTARJ"].Value.Trim();
@@ -138,6 +139,8 @@ namespace MB2X0009
 
             //mbne0009.CONTREG --- 
             //mbne0009.DATPAG --- ULTLLAV 
+
+            string ultllav = mbne0009.DATPAG.Remove(20, 2);
 
             Console.WriteLine(" MATCH SUCCES ");
             Console.WriteLine(" CADENA DATOS " + " " + mbne0009.NUMTARJ + " " + mbne0009.NUMCUEN);
@@ -175,7 +178,7 @@ namespace MB2X0009
 
                     if (qaexca.LlaveDeFuncion != "01")
                     {
-                        tarjetaRet = true;
+                        TarjetaRet = true;
                     }
                     else if (qaexca.LlaveDeFuncion == "03" || qaexca.LlaveDeFuncion == "04")
                     {
@@ -192,12 +195,12 @@ namespace MB2X0009
                     }
                     if (qaexca.LlaveDeFuncion != "01" || qaexca.LlaveDeFuncion != "03")
                     {
-                        cuentaRet = true;
+                        CuentaRet = true;
                     }
                 }
             }
 
-            if (IsNullOrWhiteSpace(mbne0009.NUMECEL) )
+            if (IsNullOrWhiteSpace(mbne0009.NUMECEL))
             {
                 if (IsNullOrWhiteSpace(mbne0009.IDCELUL))
                 {
@@ -230,7 +233,7 @@ namespace MB2X0009
 
 
 
-            //string query = "MAZP.SP_M025_MP2X0025";
+            string query = "MAZP.SP_MB09Prueba01";
             try
             {
                 /*
