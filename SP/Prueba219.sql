@@ -21,9 +21,8 @@ DECLARE @MOV710 varchar(max)
 DECLARE @403_Json varchar(max)
 DECLARE @datosCuenta varchar(max)
 
-
 EXECUTE @RC = [MAZP].[SP_MB09_MB2CF219_Borrador] 
-   @REG1 OUTPUT
+  @REG1 OUTPUT
   ,@REG2 OUTPUT
   ,@REG3 OUTPUT
   ,@REG4 OUTPUT
@@ -42,16 +41,16 @@ EXECUTE @RC = [MAZP].[SP_MB09_MB2CF219_Borrador]
 
 
   SELECT 
-   @REG1  AS "REG1"
-  ,@REG2  AS "REG2"
-  ,@REG3 
+  @REG1  AS "REG1"
+  ,@REG2 AS "REG2"
+  ,@REG3 AS "REG3"
   ,@REG4 
   ,@REG5 
   ,@REG6 
   ,@REG7 
   ,@REG8 
   ,@REG9 
-  ,@REG10 
+  ,@REG10 AS "REG10"
   ,@REG11 
   ,@REG12 
   ,@REG13 
@@ -59,4 +58,3 @@ EXECUTE @RC = [MAZP].[SP_MB09_MB2CF219_Borrador]
   ,@REG15  AS "REG15"
 
 GO
-

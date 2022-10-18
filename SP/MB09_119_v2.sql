@@ -2,29 +2,8 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [MAZP].[SP_MB09_MB2CF119_v2_Borrador]
-@ENT_IN char(4), 
-@BDMID_IN char(40), 
-@BRN_OPEN char(4), 
-@COD_PROD char(2), 
-@NUM_ACC char(8), 
-@FECHA char(10), 
-@ULLAVE char(20), 
-@REG1 char(4000) OUTPUT, 
-@REG2 char(4000) OUTPUT, 
-@REG3 char(4000) OUTPUT,
-@REG4 char(4000) OUTPUT, 
-@REG5 char(4000) OUTPUT, 
-@REG6 char(4000) OUTPUT, 
-@REG7 char(4000) OUTPUT, 
-@REG8 char(4000) OUTPUT, 
-@REG9 char(4000) OUTPUT, 
-@REG10 char(4000) OUTPUT, 
-@REG11 char(4000) OUTPUT, 
-@REG12 char(4000) OUTPUT, 
-@REG13 char(4000) OUTPUT, 
-@REG14 char(4000) OUTPUT, 
-@REG15 char(4000) OUTPUT
+CREATE PROCEDURE [MAZP].[MB09_MB2CF119_v2]
+@ENT_IN char(4), @BDMID_IN char(40), @BRN_OPEN char(4), @COD_PROD char(2), @NUM_ACC char(8), @FECHA char(10), @ULLAVE char(20), @REG1 char(4000) OUTPUT, @REG2 char(4000) OUTPUT, @REG3 char(4000) OUTPUT, @REG4 char(4000) OUTPUT, @REG5 char(4000) OUTPUT, @REG6 char(4000) OUTPUT, @REG7 char(4000) OUTPUT, @REG8 char(4000) OUTPUT, @REG9 char(4000) OUTPUT, @REG10 char(4000) OUTPUT, @REG11 char(4000) OUTPUT, @REG12 char(4000) OUTPUT, @REG13 char(4000) OUTPUT, @REG14 char(4000) OUTPUT, @REG15 char(4000) OUTPUT
 WITH EXEC AS CALLER
 AS
 SET NOCOUNT ON
@@ -49,29 +28,23 @@ SET ANSI_WARNINGS ON
       
       SET LOCK_TIMEOUT 300
       
-      SELECT ISNULL(T403_NUM_BIN,' ') AS  'T403_NUM_BIN',--6
-             ISNULL(T403_NUM_CRD,' ') AS  'T403_NUM_CRD',--10
-             ISNULL(T403_NUM_CLTE,' ') AS  'T403_NUM_CLTE',--8
-             ISNULL(T403_NUM_CTA,' ') AS  'T403_NUM_CTA',--20
-             ISNULL(T403_TEL_CEL,' ') AS  'T403_TEL_CEL' --15
-             INTO #403_TEMP
+      SELECT @403=ISNULL(T403_NUM_BIN,' ') + '|@' + --6
+             ISNULL(T403_NUM_CRD,' ') + '|@' + --10
+             ISNULL(T403_NUM_CLTE,' ') + '|@' + --8
+             ISNULL(T403_NUM_CTA,' ') + '|@' + --20
+             ISNULL(T403_TEL_CEL,' ') + '|@' --15
         FROM MAZP.MCDT403 AS A with (nolock) 
       WHERE T403_BDMID = @BDMID_IN
-      go
-
-SELECT * FROM #403_TEMP
-
---******************************** 
-                       
-      SELECT ISNULL(A.NUM_CUS,' ') AS  'NUM_CUS', --8
-             ISNULL(B.T041_CAC_DIG1,' ') AS  'T041_CAC_DIG1', -- 1
-             ISNULL(B.T041_CAC_DIG2,' ') AS  'T041_CAC_DIG2', -- 1
-             ISNULL(B.T041_COD_PRODUCT,' ') AS  'T041_COD_PRODUCT', -- 2
-             ISNULL(B.T041_COD_SPROD,' ') AS  'T041_COD_SPROD', -- 4
-             ISNULL(B.T041_CEN_ACCT,' ') AS  'T041_CEN_ACCT', -- 4
-             ISNULL(B.T041_FCC,' ') AS  'T041_FCC', -- 4
-             ISNULL(C.T140_DES_TABLE,' ') AS  'T140_DES_TABLE'-- 250
-        INTO #008_041_140_TEMP
+--********************************                
+                   
+      SELECT @008_041_140=ISNULL(A.NUM_CUS,' ') + '|@' + --8
+             ISNULL(B.T041_CAC_DIG1,' ') + '|@' + -- 1
+             ISNULL(B.T041_CAC_DIG2,' ') + '|@' + -- 1
+             ISNULL(B.T041_COD_PRODUCT,' ') + '|@' + -- 2
+             ISNULL(B.T041_COD_SPROD,' ') + '|@' + -- 4
+             ISNULL(B.T041_CEN_ACCT,' ') + '|@' + -- 4
+             ISNULL(B.T041_FCC,' ') + '|@' + -- 4
+             ISNULL(C.T140_DES_TABLE,' ') + '|@'-- 250
         FROM MAZP.PEDT008 as A with(nolock) INNER JOIN MAZP.BGDT041 AS B with(nolock) ON
                   NUM_ACCOUNT  = @NUM_ACC
 							AND BRN_OPEN     = @BRN_OPEN
@@ -87,33 +60,23 @@ SELECT * FROM #403_TEMP
 					    AND T140_COD_TABLE = '0406' --FIJO
 					    AND T140_LANGUAGE  = 'E' -- FIJO
 					    AND T140_ENTITY    = @ENT_IN
- GO
-
---*****************************************
-SELECT *
-    INTO #403_008_041_140_TEMP
-    FROM #403_TEMP CROSS JOIN  #008_041_140_TEMP
-GO
-
-DROP TABLE #403_TEMP, #008_041_140_TEMP
-
---******************************************
-
-
 --*********************************       
+     
+
+
       DECLARE CuentasCursor CURSOR 
         FOR 
                  
 --********************************
              
       SELECT TOP 15 
-	    ISNULL(A.T071_DAT_OPERATION,' ') + ISNULL(STR(A.T071_NUM_OPERATION),' ') COLLATE SQL_Latin1_General_CP1_CI_AS + '|@' + --20 
+		  ISNULL(A.T071_DAT_OPERATION,' ') + ISNULL(STR(A.T071_NUM_OPERATION),' ') COLLATE SQL_Latin1_General_CP1_CI_AS + '|@' + --20 
           ISNULL(CAST(A.T071_NUM_OPERATION as varchar(9)),'000000000') + '|@' + -- 9
-	    ISNULL(A.T071_DAT_OPERATION,' ') + '|@' + -- 10
-	    ISNULL(T071_DAT_VALUE,' ') + '|@' + -- 10
-	    ISNULL(T071_TIM_OPERATION,' ') + '|@' + -- 4
-	    ISNULL(CAST(T071_AMOUNT as varchar(15)),'+00000000000.00') + '|@' + -- 17
-	    ISNULL(T071_CODE,'   ') + '|@' + -- 3
+		  ISNULL(A.T071_DAT_OPERATION,' ') + '|@' + -- 10
+		  ISNULL(T071_DAT_VALUE,' ') + '|@' + -- 10
+		  ISNULL(T071_TIM_OPERATION,' ') + '|@' + -- 4
+		  ISNULL(CAST(T071_AMOUNT as varchar(15)),'+00000000000.00') + '|@' + -- 17
+		  ISNULL(T071_CODE,'   ') + '|@' + -- 3
           ISNULL(T071_OBSERVATIONS,' ') + '|@' + -- 31
           ISNULL(T071_COD_PRODUCT,' ') + '|@' + -- 2 
           ISNULL(T071_COD_SPROD,' ') + '|@' + -- 4 
@@ -133,11 +96,11 @@ DROP TABLE #403_TEMP, #008_041_140_TEMP
           ISNULL(T606_CHAR_FREE1,' ') + '|@' +  -- 30
           ISNULL(CAST(A.T071_INTREF as varchar(15)),'               ') + '|@' + -- 15 
           ISNULL(CAST(C.T043_NUM_OPERATION AS varchar(9)),' ') + '|@' + 
-          ISNULL(CAST(D.T803_ENT_ACC AS varchar(4)),' ') + '|@',
-          ISNULL(A.T071_DAT_OPERATION,' '),
-          ISNULL(CAST(A.T071_NUM_OPERATION as varchar(9)),'000000000')
-            INTO #T089_T100_T606_TEMP
-            FROM MAZP.BGDT071 AS A with (nolock) 
+          ISNULL(CAST(D.T803_ENT_ACC AS varchar(4)),' ') + '|@'
+          --ISNULL(A.T071_DAT_OPERATION,' '),
+          --ISNULL(CAST(A.T071_NUM_OPERATION as varchar(9)),'000000000')
+          
+             FROM MAZP.BGDT071 AS A with (nolock) 
      
         LEFT JOIN MAZP.BLDT002 with (nolock) ON 
                    T100_CODE = T071_CODE AND
@@ -169,10 +132,8 @@ DROP TABLE #403_TEMP, #008_041_140_TEMP
 				   A.T071_DAT_OPERATION > = @FECHA AND --VAR ENTRADA
            A.T071_DAT_OPERATION + STR(A.T071_NUM_OPERATION) < @ULLAVE AND --FIJO
            A.T071_FLG_ANN = 'N' --FIJO
+           
   		 ORDER BY A.T071_DAT_OPERATION DESC , A.T071_NUM_OPERATION DESC
-
-      GO
-
       FOR READ ONLY
               
       OPEN CuentasCursor
@@ -297,8 +258,8 @@ DROP TABLE #403_TEMP, #008_041_140_TEMP
             ISNULL(CAST(A.T071_INTREF as varchar(15)),'               ') + '|@' +   -- 15
             ISNULL(CAST(C.T043_NUM_OPERATION AS varchar(9)),' ') + '|@' + 
             ISNULL(CAST(D.T803_ENT_ACC AS varchar(4)),' ') + '|@', 
-            ISNULL(A.T071_DAT_OPERATION,' '),
-            ISNULL(CAST(A.T071_NUM_OPERATION as varchar(9)),'000000000')
+            --ISNULL(A.T071_DAT_OPERATION,' '),
+            --ISNULL(CAST(A.T071_NUM_OPERATION as varchar(9)),'000000000')
          
    
                FROM MAZP.BGDT710 as A with (nolock) 
