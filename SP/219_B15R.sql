@@ -18,8 +18,9 @@ DECLARE @Cont int
 DECLARE @403 char(100)     
 DECLARE @008_041_140 char(300)
 DECLARE @Cuenta char(3000)
-DECLARE @NumReg int
+DECLARE @NumReg INT
 
+SET @Cont = 1
      SELECT @403 = ISNULL(T403_NUM_BIN,'') + ',' + --6
              ISNULL(T403_NUM_CRD,'') + ',' + --10
              ISNULL(T403_NUM_CLTE,'') + ',' + --8
@@ -54,7 +55,6 @@ DECLARE @NumReg int
 					    AND T140_LANGUAGE  = 'E' -- FIJO
 					    AND T140_ENTITY    = 0127 
 
-
 --*********************************************
  SELECT @NumReg = COUNT(DCuenta) FROM
         (SELECT TOP 15  
@@ -86,18 +86,18 @@ DECLARE @NumReg int
                     T606_ACC           = T089_ACC
                 AND T606_NUM_OPERATION = T089_NUM_WHD
                 AND T606_DAT_OPERATION = T089_DAT_REG
-               WHERE T089_ACC = '1748707743' AND 
-                   T089_CEN_REG = 3370 AND 
+                WHERE T089_ACC LIKE '%74%' AND 
+                   T089_CEN_REG LIKE '%0%' AND 
                    T089_ENT = 0127 AND
-				   T089_DAT_REG > = '2022-07-10' AND --VAR ENTRADA
+				   T089_DAT_REG > = '2022-07-10' AND --VAR ENTRADARADA
 				   T089_DAT_REG + STR(T089_NUM_WHD) < '9999-12-31 999999999' AND --FIJO
 				   T089_STATUS = '1' --FIJO
   		 ORDER BY T089_DAT_REG DESC , T089_NUM_WHD DESC) AS "DatosCuenta"
 
 
- WHILE @Cont <= @NumReg  
+ WHILE @Cont <= @NumReg 
       BEGIN
-        SELECT Cuenta FROM
+        SELECT @Cuenta = Cuenta FROM
         (SELECT TOP 15  
 		  ISNULL(T089_DAT_REG,'') + ISNULL(STR(T089_NUM_WHD),'') COLLATE SQL_Latin1_General_CP1_CI_AS + ',' + --15
 		  ISNULL(CAST(T089_NUM_WHD as varchar(5)),'00000') + ',' + -- 5
@@ -127,13 +127,14 @@ DECLARE @NumReg int
                     T606_ACC           = T089_ACC
                 AND T606_NUM_OPERATION = T089_NUM_WHD
                 AND T606_DAT_OPERATION = T089_DAT_REG
-               WHERE T089_ACC = '1748707743' AND 
-                   T089_CEN_REG = 3370 AND 
+              WHERE T089_ACC LIKE '%74%' AND 
+                   T089_CEN_REG LIKE '%0%' AND 
                    T089_ENT = 0127 AND
-				   T089_DAT_REG > = '2022-07-10' AND --VAR ENTRADA
+				   T089_DAT_REG > = '2022-07-10' AND --VAR ENTRADARADA
 				   T089_DAT_REG + STR(T089_NUM_WHD) < '9999-12-31 999999999' AND --FIJO
 				   T089_STATUS = '1' --FIJO
   		 ORDER BY T089_DAT_REG DESC , T089_NUM_WHD DESC) AS "DatosCuenta"
+
         WHERE RowNum = @cont
                               
           IF @Cont = 1
@@ -216,3 +217,20 @@ DECLARE @NumReg int
       BEGIN
          SET @REG1 = RTRIM(isnull(@403,' , , , ,9, '))+RTRIM(isnull(@008_041_140,' , , , , , , , , '))
       END
+
+  SELECT 
+   @REG1  AS "REG1"
+  ,@REG2  AS "REG2"
+  ,@REG3 
+  ,@REG4 
+  ,@REG5 
+  ,@REG6 
+  ,@REG7 
+  ,@REG8 
+  ,@REG9 
+  ,@REG10 
+  ,@REG11 
+  ,@REG12 
+  ,@REG13 
+  ,@REG14 
+  ,@REG15  AS "REG15"

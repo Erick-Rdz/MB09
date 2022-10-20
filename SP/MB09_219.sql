@@ -107,7 +107,7 @@ SET ANSI_WARNINGS ON
 				   T089_STATUS = '1' --FIJO
   		 ORDER BY T089_DAT_REG DESC , T089_NUM_WHD DESC) AS "DatosCuenta"
 
-                      
+
  WHILE @Cont <= @NumReg 
       BEGIN
         SELECT @Cuenta = DCuenta FROM
