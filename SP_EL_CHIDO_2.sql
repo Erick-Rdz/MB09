@@ -15,6 +15,7 @@ GO
 ALTER  PROCEDURE [MAZP].[SP_MB09Prueba01]
 
 --- VARIABLES DE ENTRADA PARA DIFERENTES PROCEDIMIENTOS 
+@IP_NUM_TARJETA VARCHAR(16),
 @IP_CAA_CEN_ACCOUNT VARCHAR(4),
 @IP_CAA_CHANN varchar (2),
 @IP_WSS_RET_CTA char(5),
@@ -22,12 +23,16 @@ ALTER  PROCEDURE [MAZP].[SP_MB09Prueba01]
 @IP_WSS_CUENTA_710 char(5),
 @IP_PRKEY char (2),
 @IP_NUMCUEN char (14),
+@IP_WSS_RET_TRJ char (5),
+@IP_WSS_TARJETA char (5),
+
 
 --- VARIABLES ENTRADA SP's
 @IP_OPCION CHAR (1),
 @IP_ENT_IN char(4), 
 @IP_BDMID_IN char(40), 
 @IP_ULLAVE char(20),
+
 
 --- VARIABLES SALIDA SP's
 @REG1 char(4000) OUTPUT, 
@@ -55,7 +60,7 @@ WITH EXEC AS CALLER
 AS
 SET NOCOUNT ON
 SET ANSI_WARNINGS ON
-   
+    DECLARE @T403_NUM_BIN VARCHAR(16)
     DECLARE @FECHA_CALC Date
      -- VARIABLES SP 219, 119_V2
     DECLARE @Cuenta char(4000)
@@ -637,7 +642,6 @@ ELSE IF (@IP_WSS_CUENTA_710 = 'TRUE')
                         ISNULL(CAST(A.T071_INTREF as varchar(15)),'               ') + ',' +   -- 15
                         ISNULL(CAST(C.T043_NUM_OPERATION AS varchar(9)),'') + ',' + 
                         ISNULL(CAST(D.T803_ENT_ACC AS varchar(4)),'') + ','
-                        
                         --ISNULL(A.T071_DAT_OPERATION,''),
                         --ISNULL(CAST(A.T071_NUM_OPERATION as varchar(9)),'000000000')
                     
@@ -909,7 +913,21 @@ ELSE IF (@IP_WSS_CUENTA_710 = 'TRUE')
     --    END
 
 ----> PENDIENTE ---> VALIDA-RELACION-BDMID
+--OBTENER NUMBIN DE LA CADENA DE SALIDA DE LOS SP 
+SET @T403_NUM_BIN = SELECT *  FROM (SELECT  value,
+        row_number() OVER (ORDER BY current_timestamp) AS 'RW'
+FROM    string_split(@REG1, ',') C) AS "SLC" WHERE RW = 1
+
+
     IF @IP_PRKEY = '02' AND @NOK_SAPP != NULL
+    BEGIN
+        IF @IP_WSS_RET_TRJ = 'TRUE' OR @IP_WSS_TARJETA = 'TRUE' 
+        BEGIN
+            IF  @IP_NUM_TARJETA = @T403_NUM_BIN
+            BEGIN
+            END
+        END
+    END
 
 
 ----------- SUMA SOBRES ----------- 
